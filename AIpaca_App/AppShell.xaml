@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AIpaca_App"
+    xmlns:views="clr-namespace:AIpaca_App.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="AIpaca_App">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab Title="홈" Icon="aipaca.png">
+            <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+        </Tab>
+        <Tab Title="로봇놈들" Icon="aipaca.png">
+            <ShellContent ContentTemplate="{DataTemplate views:RobotPage}" />
+        </Tab>
+        <Tab Title="기록" Icon="aipaca.png">
+            <ShellContent ContentTemplate="{DataTemplate views:RecordPage}" />
+        </Tab>
+        <Tab Title="도전과제" Icon="aipaca.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ChallengePage}" />
+        </Tab>
+        <Tab Title="설정" Icon="aipaca.png">
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
+        </Tab>
+    </TabBar>
 </Shell>

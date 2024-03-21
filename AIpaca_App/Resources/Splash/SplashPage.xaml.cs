@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AIpaca_App.Views;
 using Microsoft.Maui.Controls;
 
 namespace AIpaca_App.Resources.Splash
@@ -46,7 +47,7 @@ namespace AIpaca_App.Resources.Splash
                 {
                     if (Application.Current != null)
                     {
-                        Application.Current.MainPage = new MainPage();
+                        Application.Current.MainPage = new AppShell();
                     }
                 });
             }

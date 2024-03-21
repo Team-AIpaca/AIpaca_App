@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AIpaca_App.Views.SettingsPage"
+             Title="설정">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="20">
+
+            <!-- 테마 설정 섹션 -->
+            <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="테마" FontAttributes="Bold" FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="다크 모드" VerticalOptions="Center" />
+                        <Switch HorizontalOptions="EndAndExpand" IsToggled="{Binding IsDarkModeEnabled}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="저사양 모드" VerticalOptions="Center" />
+                        <Switch HorizontalOptions="EndAndExpand" IsToggled="{Binding IsLowPowerModeEnabled}"/>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- 검색 설정 섹션 -->
+            <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="검색" FontAttributes="Bold" FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="앱 버전" VerticalOptions="Center" />
+                        <Label Text="{Binding AppVersion}" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
