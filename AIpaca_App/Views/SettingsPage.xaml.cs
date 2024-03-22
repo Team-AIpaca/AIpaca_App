@@ -22,7 +22,6 @@ public partial class SettingsPage : ContentPage
         }
     }
 
-
     private void OnLightCheckedChanged(object sender, ToggledEventArgs e)
     {
         // 라이트 모드 상태를 저장하고 적용하는 코드

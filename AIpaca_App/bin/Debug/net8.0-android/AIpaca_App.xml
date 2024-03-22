@@ -20,7 +20,7 @@
               재정의합니다.
             </summary>
         </member>
-        <member name="P:AIpaca_App.Resources.Localization.AppResources.Welcome">
+        <member name="P:AIpaca_App.Resources.Localization.AppResources.hi">
             <summary>
               안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
             </summary>

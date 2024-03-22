@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIpaca_App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+5660738f5d67ab6ac4925c3fbd63b218e4dfaa4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+7c9500ce0edebf18a22d20e26dd485132a772769")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIpaca_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIpaca_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

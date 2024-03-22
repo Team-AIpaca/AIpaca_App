@@ -13,7 +13,6 @@ public class TableViewModelRenderer
 			"n_getCount:()I:GetGetCountHandler\n" +
 			"n_getItem:(I)Ljava/lang/Object;:GetGetItem_IHandler\n" +
 			"n_getViewTypeCount:()I:GetGetViewTypeCountHandler\n" +
-			"n_getItemViewType:(I)I:GetGetItemViewType_IHandler\n" +
 			"n_areAllItemsEnabled:()Z:GetAreAllItemsEnabledHandler\n" +
 			"n_getItemId:(I)J:GetGetItemId_IHandler\n" +
 			"n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
@@ -62,14 +61,6 @@ public class TableViewModelRenderer
 	}
 
 	private native int n_getViewTypeCount ();
-
-
-	public int getItemViewType (int p0)
-	{
-		return n_getItemViewType (p0);
-	}
-
-	private native int n_getItemViewType (int p0);
 
 
 	public boolean areAllItemsEnabled ()

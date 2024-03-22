@@ -63,9 +63,9 @@ namespace AIpaca_App.Resources.Localization {
         /// <summary>
         ///   안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Welcome {
+        internal static string hi {
             get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
+                return ResourceManager.GetString("hi", resourceCulture);
             }
         }
     }
