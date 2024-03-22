@@ -8,7 +8,17 @@
     Shell.FlyoutBehavior="Disabled"
     Title="AIpaca_App">
 
-    <TabBar>
+    <!-- Shell 리소스 -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <!-- TabBar에 적용할 스타일 -->
+            <Style x:Key="CustomTabBarStyle" TargetType="Element">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark=#2b2b2b, Light=White}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar Style="{StaticResource CustomTabBarStyle}">
         <Tab Title="홈" Icon="aipaca.png">
             <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>

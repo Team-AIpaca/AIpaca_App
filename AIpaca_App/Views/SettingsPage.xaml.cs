@@ -8,9 +8,12 @@ public partial class SettingsPage : ContentPage
 	{
 		InitializeComponent();
         // 앱 버전과 빌드 번호를 가져와서 설정 페이지에 표시
-        var version = VersionTracking.CurrentVersion;
-        var build = VersionTracking.CurrentBuild;
+        //var version = VersionTracking.CurrentVersion;
+        //var build = VersionTracking.CurrentBuild;
         //AppVersionLabel.Text = $"Version {version} (Build {build})";
+
+        // 앱 설정에서 다크 모드 값을 불러와 스위치에 설정합니다.
+        DarkModeToggle.IsToggled = Preferences.Get("IsDarkModeEnabled", false);
     }
 
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
@@ -22,10 +25,10 @@ public partial class SettingsPage : ContentPage
         }
     }
 
-    private void OnLightCheckedChanged(object sender, ToggledEventArgs e)
+    private void LowPowerModeEnabled(object sender, ToggledEventArgs e)
     {
         // 라이트 모드 상태를 저장하고 적용하는 코드
-        bool isLightModeEnabled = e.Value;
+        bool isLowPowerModeEnabled = e.Value;
         // 라이트 모드 상태를 저장하고 적용하는 코드
     }
 
