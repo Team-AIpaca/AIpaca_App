@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              x:Class="AIpaca_App.Views.MainPage">
 
     <ScrollView>
@@ -17,6 +18,10 @@
                 Text="Hello, World!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
+            
+            <Label Text="{x:Static resources:AppResources.Welcome}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
 
             <Label
                 Text="Welcome to &#10;.NET Multi-platform App UI"
