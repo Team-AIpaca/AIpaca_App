@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj": {}
+    "C:\\Users\\h0104\\Desktop\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj": {}
   },
   "projects": {
-    "D:\\project\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj": {
+    "C:\\Users\\h0104\\Desktop\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
+        "projectUniqueName": "C:\\Users\\h0104\\Desktop\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
         "projectName": "AIpaca_App",
-        "projectPath": "D:\\project\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
+        "projectPath": "C:\\Users\\h0104\\Desktop\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
         "packagesPath": "C:\\Users\\h0104\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\AIpaca_App\\AIpaca_App\\obj\\",
+        "outputPath": "C:\\Users\\h0104\\Desktop\\AIpaca_App\\AIpaca_App\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

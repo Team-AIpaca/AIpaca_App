@@ -19,19 +19,19 @@
     </Shell.Resources>
 
     <TabBar Style="{StaticResource CustomTabBarStyle}">
-        <Tab Title="홈" Icon="aipaca.png">
+        <Tab Title="홈" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>
-        <Tab Title="로봇놈들" Icon="aipaca.png">
+        <Tab Title="로봇놈들" Icon="robot.png">
             <ShellContent ContentTemplate="{DataTemplate views:RobotPage}" />
         </Tab>
-        <Tab Title="기록" Icon="aipaca.png">
+        <Tab Title="기록" Icon="record.png">
             <ShellContent ContentTemplate="{DataTemplate views:RecordPage}" />
         </Tab>
-        <Tab Title="도전과제" Icon="aipaca.png">
+        <Tab Title="도전과제" Icon="challenge.png">
             <ShellContent ContentTemplate="{DataTemplate views:ChallengePage}" />
         </Tab>
-        <Tab Title="설정" Icon="aipaca.png">
+        <Tab Title="설정" Icon="settings.png">
             <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
         </Tab>
     </TabBar>

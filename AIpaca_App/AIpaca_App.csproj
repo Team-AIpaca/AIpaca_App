@@ -58,6 +58,11 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\aipaca.png" />
+	  <None Remove="Resources\Images\Challenge.png" />
+	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\Record.png" />
+	  <None Remove="Resources\Images\robot.png" />
+	  <None Remove="Resources\Images\settings.png" />
 	</ItemGroup>
 
 	<ItemGroup>

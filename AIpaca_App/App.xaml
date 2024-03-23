@@ -5,6 +5,7 @@
              x:Class="AIpaca_App.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="DefaultPageBackgroundColor">White</Color>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

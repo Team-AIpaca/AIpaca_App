@@ -27,18 +27,13 @@ namespace AIpaca_App
         {
             var currentTheme = isDarkMode ? AppTheme.Dark : AppTheme.Light;
             UserAppTheme = currentTheme;
-            SetPagesBackgroundColor(currentTheme);
-        }
 
-        private void SetPagesBackgroundColor(AppTheme theme)
-        {
-            // 여기에서 모든 페이지에 대한 배경색을 설정하는 코드를 작성할 수 있습니다.
-            // 예제로, MainPage의 배경색을 변경합니다.
-            if (MainPage is SplashPage splashPage)
+            // 페이지 배경색을 다크 모드에 맞게 변경합니다.
+            var backgroundColor = isDarkMode ? Color.FromArgb("#121212") : Color.FromArgb("#fafafa");
+            if (Resources.TryGetValue("DefaultPageBackgroundColor", out var resource))
             {
-                splashPage.BackgroundColor = theme == AppTheme.Dark ? Color.FromArgb("#212121") : Colors.White;
+                Resources["DefaultPageBackgroundColor"] = backgroundColor;
             }
-            // 다른 페이지들에 대해서도 비슷하게 적용할 수 있습니다.
         }
     }
 }
