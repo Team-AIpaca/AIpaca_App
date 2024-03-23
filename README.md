@@ -59,3 +59,6 @@ Visual Studio 2022 .NET 8.0 이상을 지원하는 버전이 필요합니다.
 
 ## License
 이 프로젝트는 MIT License에 따라 라이센스가 부여됩니다. 자세한 내용은 License 파일을 참조하십시오.
+
+하단 네비게이션 이미지는 www.flaticon.com의 이미지를 이용했습니다
+UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
