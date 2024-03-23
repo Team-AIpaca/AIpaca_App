@@ -11,6 +11,7 @@ public class TableViewRenderer
 	static {
 		__md_methods = 
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
+			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Controls.Handlers.Compatibility.TableViewRenderer, Microsoft.Maui.Controls", TableViewRenderer.class, __md_methods);
 	}
@@ -58,6 +59,14 @@ public class TableViewRenderer
 	}
 
 	private native void n_onAttachedToWindow ();
+
+
+	public void onMeasure (int p0, int p1)
+	{
+		n_onMeasure (p0, p1);
+	}
+
+	private native void n_onMeasure (int p0, int p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

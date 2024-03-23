@@ -4,6 +4,6 @@
              x:Class="AIpaca_App.Resources.Splash.SplashPage"
              Title="SplashPage">
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Image Source="aipaca.png" WidthRequest="200" HeightRequest="200"/>
+        <Image Source="logo_aipaca.png" WidthRequest="200" HeightRequest="200"/>
     </VerticalStackLayout>
 </ContentPage>

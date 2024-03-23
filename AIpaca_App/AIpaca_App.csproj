@@ -57,17 +57,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\aipaca.png" />
-	  <None Remove="Resources\Images\Challenge.png" />
-	  <None Remove="Resources\Images\home.png" />
-	  <None Remove="Resources\Images\Record.png" />
-	  <None Remove="Resources\Images\robot.png" />
-	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Images\icon_right_arrow.png" />
+	  <None Remove="Resources\Images\logo_logo_aipaca.png" />
+	  <None Remove="Resources\Images\nav_challenge.png" />
+	  <None Remove="Resources\Images\nav_home.png" />
+	  <None Remove="Resources\Images\nav_record.png" />
+	  <None Remove="Resources\Images\nav_robot.png" />
+	  <None Remove="Resources\Images\nav_settings.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 

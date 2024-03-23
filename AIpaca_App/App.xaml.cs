@@ -11,6 +11,7 @@ namespace AIpaca_App
             InitializeComponent();
             LoadPreferences();
             MainPage = new SplashPage();
+            VersionTracking.Track();
         }
 
         private void LoadPreferences()

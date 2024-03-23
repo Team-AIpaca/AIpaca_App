@@ -32,7 +32,7 @@ namespace AIpaca_App.Resources.Splash
                 else
                 {
                     // 업데이트가 필요한 경우 사용자에게 알림
-                    await DisplayAlert("업데이트 필요", "새로운 버전의 앱이 있습니다. 업데이트가 필요합니다.", "확인");
+                    await DisplayAlert("업데이트 필요", "새로운 버전의 앱이 있습니다. \n업데이트가 필요합니다.", "확인");
                 }
             }
             catch (Exception ex)
