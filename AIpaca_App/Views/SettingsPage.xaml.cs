@@ -5,8 +5,11 @@ namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
 {
+    //¾Û ¹öÀüÀ» °¡Á®¿È
     public string AppVersion => VersionTracking.CurrentVersion;
+    //¾Û ºôµå ¹øÈ£¸¦ °¡Á®¿È
     public string AppBuild => VersionTracking.CurrentBuild;
+
     public SettingsPage()
     {
         InitializeComponent();
@@ -74,5 +77,4 @@ public partial class SettingsPage : ContentPage
             view.BackgroundColor = originalColor;
         }
     }
-
 }

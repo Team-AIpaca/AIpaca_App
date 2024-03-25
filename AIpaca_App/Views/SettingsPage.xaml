@@ -6,6 +6,7 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="20">
+
             <!-- 테마 설정 섹션 -->
             <Label Text="테마" FontAttributes="Bold" FontSize="Large"
                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
@@ -64,6 +65,7 @@
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label Text="앱 버전" FontAttributes="Bold" VerticalOptions="Center" 
                             TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+
                         <Label Text="{Binding AppVersion}" HorizontalOptions="EndAndExpand"
                             TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->

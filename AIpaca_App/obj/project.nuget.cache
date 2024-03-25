@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pX0Pd7IKKwCC6JcNRQN5JLUG03unEx6Tage1vlN4O0HDdjgH0AW+hwRHdwxtw9DUluajYL0J4E4WiUqqxww5xw==",
+  "dgSpecHash": "0uejKm24qe3QxhFTMKSiPGV4Qfv/JyNBG149XaBtw+QTublygaNZCAhc49qJDn+xVuhdCuI9WsqUZE+4c5RN1g==",
   "success": true,
   "projectFilePath": "C:\\github\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\h0104\\.nuget\\packages\\communitytoolkit.maui\\7.0.1\\communitytoolkit.maui.7.0.1.nupkg.sha512",
+    "C:\\Users\\h0104\\.nuget\\packages\\communitytoolkit.maui.core\\7.0.1\\communitytoolkit.maui.core.7.0.1.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
@@ -28,6 +30,7 @@
     "C:\\Users\\h0104\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.3\\microsoft.net.illink.tasks.8.0.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\microsoft.windowsappsdk\\1.4.240211001\\microsoft.windowsappsdk.1.4.240211001.nupkg.sha512",
+    "C:\\Users\\h0104\\.nuget\\packages\\system.speech\\8.0.0-rc.2.23479.6\\system.speech.8.0.0-rc.2.23479.6.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\xamarin.android.glide\\4.15.1.2\\xamarin.android.glide.4.15.1.2.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\xamarin.android.glide.annotations\\4.15.1.2\\xamarin.android.glide.annotations.4.15.1.2.nupkg.sha512",
     "C:\\Users\\h0104\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.15.1.2\\xamarin.android.glide.disklrucache.4.15.1.2.nupkg.sha512",
