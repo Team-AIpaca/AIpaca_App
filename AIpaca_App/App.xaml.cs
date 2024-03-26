@@ -1,10 +1,26 @@
-﻿using AIpaca_App.Resources.Splash;
+﻿using AIpaca_App.Data;
+using AIpaca_App.Models;
+using AIpaca_App.Resources.Splash;
 using AIpaca_App.Views;
 
 namespace AIpaca_App
 {
     public partial class App : Application
     {
+
+        static DatabaseHelper? database;
+        public static DatabaseHelper Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "achievements.db3"));
+                }
+                return database;
+            }
+        }
+
         public static new App? Current => Application.Current as App;
         public App()
         {
@@ -12,6 +28,35 @@ namespace AIpaca_App
             LoadPreferences();
             MainPage = new SplashPage();
             VersionTracking.Track();
+        }
+
+        protected override async void OnStart()
+        {
+            await InitializeDatabaseAsync();
+            base.OnStart();
+        }
+
+        private async Task InitializeDatabaseAsync()
+        {
+            var achievements = await Database.GetAchievementsAsync();
+            if (achievements.Count == 0)
+            {
+                await InsertInitialAchievementsDataAsync();
+            }
+        }
+
+        private async Task InsertInitialAchievementsDataAsync()
+        {
+            var newAchievements = new List<Achievement>
+            {
+                new Achievement { Key = "acv_0001", Korean = "시작이 반이다!", English = "Half the Battle!", Japanese = "" },
+                // 이하 생략, 다른 업적 데이터도 이와 같은 방식으로 리스트에 추가
+            };
+
+            foreach (var ach in newAchievements)
+            {
+                await Database.SaveAchievementAsync(ach);
+            }
         }
 
         private void LoadPreferences()
