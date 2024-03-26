@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Achievements>
+  <Achieve>
+    <AchieveId>acv_0001</AchieveId>
+    <AchieveName>시작이 반이다!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_001_cdt</AchieveId>
+    <AchieveName>AI에게 처음으로 번역 평가받기.</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0002</AchieveId>
+    <AchieveName>잘 안풀리는 날</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0002_cdt</AchieveId>
+    <AchieveName>번역 평가 점수 0점</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0003</AchieveId>
+    <AchieveName>진짜 너무 아깝다!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0003_cdt</AchieveId>
+    <AchieveName>번역 평가 점수 99점</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0004</AchieveId>
+    <AchieveName>번역이 세상에서 가장 쉬웠어요!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0004_cdt</AchieveId>
+    <AchieveName>번역 평가 점수 100점</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0005</AchieveId>
+    <AchieveName>열 번 찍어서 안 넘어가는 나무 없다!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0005_cdt</AchieveId>
+    <AchieveName>앱을 10번 사용하기</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0006</AchieveId>
+    <AchieveName>하늘에서 번역이 빗발친다!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0006_cdt</AchieveId>
+    <AchieveName>앱을 100번 사용하기</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0007</AchieveId>
+    <AchieveName>언어의 대가</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0007_cdt</AchieveId>
+    <AchieveName>5개 이상 언어로 번역하기</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0008</AchieveId>
+    <AchieveName>EMP 발동!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0008_cdt</AchieveId>
+    <AchieveName>서버에서 잘못된 값 반환</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0009</AchieveId>
+    <AchieveName>알파카짱은 비상식량이 아니야!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0009_cdt</AchieveId>
+    <AchieveName>원문 입력 칸에 '알파카짱은 비상식량' 또는 'AIpaca-chan is Emergency Food'라고 입력하기.</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0010</AchieveId>
+    <AchieveName>뻐꾹- 뻐꾹- UTC 시간으로 열두시 정각입니다!</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0010_cdt</AchieveId>
+    <AchieveName>UTC 시간 기준 12시 00분 정각에 AI 평가 요청을 보내기.</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0011</AchieveId>
+    <AchieveName>업데이트 두둥등장</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0011_cdt</AchieveId>
+    <AchieveName>구버전 앱 실행 및 기본 설정 후 앱 업데이트 및 업데이트한 앱 실행</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0012</AchieveId>
+    <AchieveName>앞쪽은 다음에 탐색하러 오자.</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+  <Achieve>
+    <AchieveId>acv_0012_cdt</AchieveId>
+    <AchieveName>앱 내 히든 모드 활성화</AchieveName>
+    <AchieveDate>2024-03-26</AchieveDate>
+    <AchieveFixDate>2024-03-26</AchieveFixDate>
+    <IsAvailable>true</IsAvailable>
+  </Achieve>
+</Achievements>
+

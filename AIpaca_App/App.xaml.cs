@@ -15,7 +15,7 @@ namespace AIpaca_App
             {
                 if (database == null)
                 {
-                    database = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "achievements.db3"));
+                    database = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AchieveList.db3"));
                 }
                 return database;
             }
@@ -28,35 +28,6 @@ namespace AIpaca_App
             LoadPreferences();
             MainPage = new SplashPage();
             VersionTracking.Track();
-        }
-
-        protected override async void OnStart()
-        {
-            await InitializeDatabaseAsync();
-            base.OnStart();
-        }
-
-        private async Task InitializeDatabaseAsync()
-        {
-            var achievements = await Database.GetAchievementsAsync();
-            if (achievements.Count == 0)
-            {
-                await InsertInitialAchievementsDataAsync();
-            }
-        }
-
-        private async Task InsertInitialAchievementsDataAsync()
-        {
-            var newAchievements = new List<Achievement>
-            {
-                new Achievement { Key = "acv_0001", Korean = "시작이 반이다!", English = "Half the Battle!", Japanese = "" },
-                // 이하 생략, 다른 업적 데이터도 이와 같은 방식으로 리스트에 추가
-            };
-
-            foreach (var ach in newAchievements)
-            {
-                await Database.SaveAchievementAsync(ach);
-            }
         }
 
         private void LoadPreferences()

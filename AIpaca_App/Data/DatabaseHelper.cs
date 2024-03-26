@@ -10,63 +10,71 @@ namespace AIpaca_App.Data
 {
     public class DatabaseHelper
     {
-        readonly SQLiteAsyncConnection _database;
+        private SQLiteAsyncConnection _database;
 
         public DatabaseHelper(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-
-            // 아래의 CreateTableAsync 호출은 데이터베이스에 테이블이 없을 때만 새로 생성합니다.
             _database.CreateTableAsync<AchieveList>().Wait();
             _database.CreateTableAsync<UserAchieve>().Wait();
         }
 
-        // 업적 정보 리스트를 데이터베이스에서 조회하는 메서드
-        public Task<List<AchieveList>> GetAchievementsAsync()
+        // AchieveList CRUD operations
+        public Task<List<AchieveList>> GetAchieveListsAsync()
         {
             return _database.Table<AchieveList>().ToListAsync();
         }
 
-        // 사용자의 업적 달성 정보를 데이터베이스에서 조회하는 메서드
-        public Task<List<UserAchieve>> GetUserAchievementsAsync()
+        public Task<AchieveList> GetAchieveListAsync(string id)
+        {
+            return _database.Table<AchieveList>().Where(i => i.AchieveId == id).FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveAchieveListAsync(AchieveList achieveList)
+        {
+            if (!string.IsNullOrEmpty(achieveList.AchieveId))
+            {
+                return _database.UpdateAsync(achieveList);
+            }
+            else
+            {
+                return _database.InsertAsync(achieveList);
+            }
+        }
+
+        public Task<int> DeleteAchieveListAsync(AchieveList achieveList)
+        {
+            return _database.DeleteAsync(achieveList);
+        }
+
+        // UserAchieve CRUD operations
+        public Task<List<UserAchieve>> GetUserAchievesAsync()
         {
             return _database.Table<UserAchieve>().ToListAsync();
         }
 
-        // 새로운 업적 정보를 데이터베이스에 삽입하는 메서드
-        public Task<int> SaveAchievementAsync(AchieveList achievement)
+        public Task<UserAchieve> GetUserAchieveAsync(int id)
         {
-            return _database.InsertAsync(achievement);
+            return _database.Table<UserAchieve>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        // 사용자의 새로운 업적 달성 정보를 데이터베이스에 삽입하는 메서드
-        public Task<int> SaveUserAchievementAsync(UserAchieve userAchieve)
+        public Task<int> SaveUserAchieveAsync(UserAchieve userAchieve)
         {
-            return _database.InsertAsync(userAchieve);
+            if (userAchieve.Id != 0)
+            {
+                return _database.UpdateAsync(userAchieve);
+            }
+            else
+            {
+                return _database.InsertAsync(userAchieve);
+            }
         }
 
-        // 업적 정보를 데이터베이스에서 업데이트하는 메서드
-        public Task<int> UpdateAchievementAsync(AchieveList achievement)
-        {
-            return _database.UpdateAsync(achievement);
-        }
-
-        // 사용자의 업적 달성 정보를 데이터베이스에서 업데이트하는 메서드
-        public Task<int> UpdateUserAchievementAsync(UserAchieve userAchieve)
-        {
-            return _database.UpdateAsync(userAchieve);
-        }
-
-        // 업적 정보를 데이터베이스에서 삭제하는 메서드
-        public Task<int> DeleteAchievementAsync(AchieveList achievement)
-        {
-            return _database.DeleteAsync(achievement);
-        }
-
-        // 사용자의 업적 달성 정보를 데이터베이스에서 삭제하는 메서드
-        public Task<int> DeleteUserAchievementAsync(UserAchieve userAchieve)
+        public Task<int> DeleteUserAchieveAsync(UserAchieve userAchieve)
         {
             return _database.DeleteAsync(userAchieve);
         }
+
+        // Additional methods for complex queries, initialization of default values, etc. can be added here.
     }
 }
