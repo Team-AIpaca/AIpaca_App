@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\drawable\icon_aipaca.png" />
 	  <None Remove="Resources\Images\icon_right_arrow.png" />
 	  <None Remove="Resources\Images\logo_logo_aipaca.png" />
 	  <None Remove="Resources\Images\nav_challenge.png" />
@@ -105,6 +106,10 @@
 	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\drawable\icon_aipaca.png" />
 	</ItemGroup>
 
 </Project>

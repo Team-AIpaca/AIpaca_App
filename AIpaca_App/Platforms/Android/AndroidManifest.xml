@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.AIpaca"
-          android:versionCode="32"
-          android:versionName="1.2.7" >
+          android:versionCode="35"
+          android:versionName="1.2.6" >
 
   <!-- 여기에는 앱의 패키지 이름이 들어갑니다. -->
   <!-- 앱의 내부 버전 번호입니다. 새로운 릴리스 시 마다 이 값을 증가시켜야 합니다. -->
   <!-- 사용자에게 보여질 앱의 버전 정보입니다. -->
-  <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
+  <application android:allowBackup="true" android:label="알파카" android:icon="@drawable/icon_aipaca" android:roundIcon="@drawable/icon_aipaca" android:supportsRtl="true"></application>
 
 
   <!-- 사용 권한 설정 예시 -->
