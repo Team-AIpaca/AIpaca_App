@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>AIpaca_App</ApplicationTitle>
+		<ApplicationTitle>알파카</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.aipaca_app</ApplicationId>
@@ -40,8 +40,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
+    <MauiIcon Include="Resources\AppIcon\icon_aipaca.png" Color="#a0e2ff" />
+    
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
@@ -57,6 +57,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\icon_aipaca.png" />
+	  <None Remove="Resources\data\AchieveList.xml" />
 	  <None Remove="Resources\drawable\icon_aipaca.png" />
 	  <None Remove="Resources\Images\icon_right_arrow.png" />
 	  <None Remove="Resources\Images\logo_logo_aipaca.png" />
@@ -65,6 +67,10 @@
 	  <None Remove="Resources\Images\nav_record.png" />
 	  <None Remove="Resources\Images\nav_robot.png" />
 	  <None Remove="Resources\Images\nav_settings.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\data\AchieveList.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -109,7 +115,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Include="Resources\drawable\icon_aipaca.png" />
+	  <EmbeddedResource Include="Resources\drawable\icon_aipaca.png" />
 	</ItemGroup>
 
 </Project>

@@ -8,6 +8,11 @@
     <DefaultDevice>pixel_5_-_api_34</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Localization\AppResources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <MauiXaml Update="Resources\Splash\SplashPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

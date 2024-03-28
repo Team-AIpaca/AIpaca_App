@@ -2,12 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.ChallengePage"
-             BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{DynamicResource DefaultPageBackgroundColor}"
+             xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+             xmlns:model="clr-namespace:AIpaca_App.Models">
+
+    <ContentPage.BindingContext>
+        <vm:ChallengeViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Achievements}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:AchieveList">
+                    <!-- 사각형 박스로 각 항목을 감쌉니다 -->
+                    <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="Gray">
+                        <StackLayout>
+                            <!-- 업적 이름을 표시하는 레이블 -->
+                            <Label Text="{Binding AchieveName}" FontAttributes="Bold" FontSize="20"/>
+                            <!-- 추가 정보를 표시할 수 있는 레이블 등의 요소를 추가할 수 있습니다 -->
+                            <Label Text="{Binding AchieveDate, StringFormat='{0:yyyy년 MM월 dd일}'}" FontSize="16"/>
+                            <Label Text="{Binding IsAvailable, StringFormat='Available: {0}'}" FontSize="14"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
 </ContentPage>
