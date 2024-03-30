@@ -41,13 +41,18 @@
 	<ItemGroup>
 		<!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\icon_aipaca.png" Color="#a0e2ff" />
+    <MauiSplashScreen Include="Resources\Splash\icon_aipaca.png">
+      <Color>#a0e2ff</Color>
+    </MauiSplashScreen>
     
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\logo_aipaca.png">
+		  <Color>#a0e2ff</Color>
+		</MauiImage>
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -61,12 +66,14 @@
 	  <None Remove="Resources\data\AchieveList.xml" />
 	  <None Remove="Resources\drawable\icon_aipaca.png" />
 	  <None Remove="Resources\Images\icon_right_arrow.png" />
+	  <None Remove="Resources\Images\logo_aipaca.png" />
 	  <None Remove="Resources\Images\logo_logo_aipaca.png" />
 	  <None Remove="Resources\Images\nav_challenge.png" />
 	  <None Remove="Resources\Images\nav_home.png" />
 	  <None Remove="Resources\Images\nav_record.png" />
 	  <None Remove="Resources\Images\nav_robot.png" />
 	  <None Remove="Resources\Images\nav_settings.png" />
+	  <None Remove="Resources\Splash\icon_aipaca.png" />
 	</ItemGroup>
 
 	<ItemGroup>
