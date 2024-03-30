@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls.Compatibility;
 using System.Diagnostics;
-
+using CommunityToolkit.Maui.Views;
+using AIpaca_App.Views.Account;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
@@ -70,11 +71,16 @@ public partial class SettingsPage : ContentPage
 
             // 애니메이션 실행
             await view.ScaleTo(0.95, 50, Easing.SinInOut);
-            view.BackgroundColor = Color.FromArgb("#E0E0E0").MultiplyAlpha((float)0.5); // 임시 리플 색상
+            view.BackgroundColor = Color.FromArgb("#E0E0E0").MultiplyAlpha((float)0.5); // 임8888858시 리플 색상
             await view.ScaleTo(1, 50, Easing.SinInOut);
 
             // 원래 색상으로 복원
             view.BackgroundColor = originalColor;
         }
+    }
+    private async void OnLoginButtonClicked(object sender, EventArgs e)
+    {
+        var loginPopup = new LoginPagePopup(); // LoginPage는 로그인 폼을 구현한 별도의 ContentPage입니다.
+        await this.ShowPopupAsync(loginPopup);
     }
 }
