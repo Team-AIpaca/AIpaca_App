@@ -21,6 +21,8 @@ AIpaca_App 프로젝트는 다음과 같은 구조로 되어 있습니다:
 ## 시작하기
 AIpaca_App을 시작하기 위해서는 Visual Studio 2022와 .NET 8.0 이상 버전이 필요합니다.
 
+api를 사용하기 위해 AIpaca_App\Resources\Config\ApiConfig.xml파일을 생성하고, api 주소를 기록해야합니다
+
 1. **Visual Studio 에뮬레이터로 실행하기**
    - `도구 > Android > Android 디바이스 관리자`에서 Android 에뮬레이터 설정 후 실행.
    - 디버깅을 Android 기기로 진행합니다.
