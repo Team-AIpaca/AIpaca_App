@@ -83,4 +83,9 @@ public partial class SettingsPage : ContentPage
         var loginPopup = new LoginPagePopup(); // LoginPage는 로그인 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(loginPopup);
     }
+    private async void OnSignupButtonClicked(object sender, EventArgs e)
+    {
+        var signupPopup = new SignupPagePopup(); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
+        await this.ShowPopupAsync(signupPopup);
+    }
 }

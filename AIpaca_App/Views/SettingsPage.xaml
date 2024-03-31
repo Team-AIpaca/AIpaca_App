@@ -14,13 +14,13 @@
                     BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Spacing="10">
                     <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="로그인" FontAttributes="Bold" VerticalOptions="Center" 
-                                TextColor="{AppThemeBinding Dark=White, Light=Black}" />
-                        <!-- 버튼을 오른쪽에 정렬하기 위한 스택 레이아웃 -->
-                        <StackLayout HorizontalOptions="EndAndExpand">
-                            <!-- 로그인 버튼 -->
-                            <Button Text="로그인" VerticalOptions="Center" Clicked="OnLoginButtonClicked"/>
-                        </StackLayout>
+                        <Label Text="로그인" FontAttributes="Bold" VerticalOptions="Center"  />
+                        <!-- 여백을 주어 버튼들을 오른쪽에 배치 -->
+                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+                        <!-- 로그인 버튼 -->
+                        <Button Text="로그인" Clicked="OnLoginButtonClicked"  WidthRequest="80" HorizontalOptions="End"/>
+                        <!-- 회원가입 버튼 -->
+                        <Button Text="회원가입" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End"/>
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>

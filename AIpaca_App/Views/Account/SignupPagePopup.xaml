@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="AIpaca_App.Views.Account.SignupPagePopup"
+               Size="300,400"
+               Color= "{x:Static Colors.Transparent}">
+
+    <!-- Border를 사용하여 모서리를 둥글게 설정 -->
+    <Border Padding="20" BackgroundColor="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Spacing="15">
+            <Entry x:Name="EmailEntry" Placeholder="이메일"/>
+            <Entry x:Name="UsernameEntry" Placeholder="유저이름"/>
+            <Entry x:Name="PasswordEntry" Placeholder="비밀번호" IsPassword="True"/>
+            <Button Text="회원가입" Clicked="OnSignupClicked"/>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

@@ -12,8 +12,8 @@
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="15">
-            <Entry Placeholder="이메일"/>
-            <Entry Placeholder="비밀번호" IsPassword="True"/>
+            <Entry x:Name="UsernameEntry" Placeholder="유저이름"/>
+            <Entry x:Name="PasswordEntry" Placeholder="비밀번호" IsPassword="True"/>
             <Button Text="로그인" Clicked="OnLoginClicked"/>
         </VerticalStackLayout>
     </Border>

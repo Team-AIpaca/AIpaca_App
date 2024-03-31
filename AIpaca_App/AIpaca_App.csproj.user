@@ -16,6 +16,9 @@
     <MauiXaml Update="Resources\Splash\SplashPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Account\SignupPagePopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\ChallengePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

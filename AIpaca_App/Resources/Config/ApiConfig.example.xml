@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <ApiSettings>
+    <BaseUrl>api 주소</BaseUrl>
+    <LoginEndpoint>user/login</LoginEndpoint>
+    <SignupEndpoint>user/signup</SignupEndpoint>
+  </ApiSettings>
+</configuration>
