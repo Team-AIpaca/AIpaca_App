@@ -2,12 +2,12 @@
 using AIpaca_App.Models;
 using AIpaca_App.Resources.Splash;
 using AIpaca_App.Views;
+using System.ComponentModel;
 
 namespace AIpaca_App
 {
-    public partial class App : Application
+    public partial class App : Application, INotifyPropertyChanged
     {
-
         static DatabaseHelper? database;
         public static DatabaseHelper Database
         {

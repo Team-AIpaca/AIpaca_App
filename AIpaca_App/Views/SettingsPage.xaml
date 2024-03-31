@@ -2,11 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.SettingsPage"
+             xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+             x:DataType="vm:MainViewModel"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="20">
-
             <!--로그인 섹션-->
             <Label Text="로그인" FontAttributes="Bold" FontSize="Large"
                     TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
@@ -14,13 +15,18 @@
                     BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Spacing="10">
                     <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="로그인" FontAttributes="Bold" VerticalOptions="Center"  />
+                        <Label Text="로그인" FontAttributes="Bold" VerticalOptions="Center" />
                         <!-- 여백을 주어 버튼들을 오른쪽에 배치 -->
                         <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
                         <!-- 로그인 버튼 -->
-                        <Button Text="로그인" Clicked="OnLoginButtonClicked"  WidthRequest="80" HorizontalOptions="End"/>
+                        <Button Text="로그인" Clicked="OnLoginButtonClicked" WidthRequest="80" HorizontalOptions="End" 
+                                IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
                         <!-- 회원가입 버튼 -->
-                        <Button Text="회원가입" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End"/>
+                        <Button Text="회원가입" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End" 
+                                IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
+                        <!-- 로그아웃 버튼 -->
+                        <Button Text="로그아웃" Clicked="OnLogoutButtonClicked" IsVisible="{Binding IsLoggedIn}" />
+
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
@@ -39,7 +45,7 @@
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label Text="다크 모드" FontAttributes="Bold" VerticalOptions="Center" 
                                TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <Switch x:Name="DarkModeToggle" HorizontalOptions="EndAndExpand" Toggled="OnDarkModeToggled"/>
+                        <Switch x:Name="DarkModeToggle" HorizontalOptions="EndAndExpand" IsToggled="{Binding IsDarkModeEnabled}" />
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>

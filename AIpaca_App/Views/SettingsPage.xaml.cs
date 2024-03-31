@@ -2,33 +2,17 @@ using Microsoft.Maui.Controls.Compatibility;
 using System.Diagnostics;
 using CommunityToolkit.Maui.Views;
 using AIpaca_App.Views.Account;
+using AIpaca_App.ViewModels;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
 {
-    //앱 버전을 가져옴
-    public string AppVersion => VersionTracking.CurrentVersion;
-    //앱 빌드 번호를 가져옴
-    public string AppBuild => VersionTracking.CurrentBuild;
-
+    private MainViewModel _viewModel;
     public SettingsPage()
     {
         InitializeComponent();
-
-        // 앱 버전과 빌드 번호를 가져와서 설정 페이지에 표시
-        BindingContext = this; // SettingsPage의 BindingContext를 설정합니다.
-
-        // 앱 설정에서 다크 모드 값을 불러와 스위치에 설정합니다.
-        DarkModeToggle.IsToggled = Preferences.Get("IsDarkModeEnabled", false);
-    }
-
-    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
-    {
-        Preferences.Set("IsDarkModeEnabled", e.Value);
-        if (App.Current != null)
-        {
-            App.Current.ApplyTheme(e.Value);
-        }
+        _viewModel = new MainViewModel();
+        this.BindingContext = _viewModel;
     }
 
     private void LowPowerModeEnabled(object sender, ToggledEventArgs e)
@@ -80,12 +64,18 @@ public partial class SettingsPage : ContentPage
     }
     private async void OnLoginButtonClicked(object sender, EventArgs e)
     {
-        var loginPopup = new LoginPagePopup(); // LoginPage는 로그인 폼을 구현한 별도의 ContentPage입니다.
+        var loginPopup = new LoginPagePopup(_viewModel); // LoginPage는 로그인 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(loginPopup);
     }
     private async void OnSignupButtonClicked(object sender, EventArgs e)
     {
         var signupPopup = new SignupPagePopup(); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(signupPopup);
+    }
+
+    private void OnLogoutButtonClicked(object sender, EventArgs e)
+    {
+        // 로그아웃 로직 수행
+        _viewModel.Logout();
     }
 }
