@@ -129,6 +129,9 @@
   <data name="darkmode" xml:space="preserve">
     <value>DarkMode</value>
   </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>Hi</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="network" xml:space="preserve">
     <value>Network</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="record" xml:space="preserve">
     <value>Record</value>
   </data>
@@ -167,5 +173,8 @@
   </data>
   <data name="thema" xml:space="preserve">
     <value>Thema</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

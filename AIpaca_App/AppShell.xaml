@@ -8,8 +8,7 @@
     xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
     Shell.FlyoutBehavior="Disabled"
     Title="AIpaca_App">
-    
-    <ShellContent Route="settingsPage" ContentTemplate="{DataTemplate views:SettingsPage}" />
+
     <!-- Shell 리소스 -->
     <Shell.Resources>
         <ResourceDictionary>
@@ -21,19 +20,19 @@
     </Shell.Resources>
 
     <TabBar Style="{StaticResource CustomTabBarStyle}">
-        <Tab Title="홈" Icon="nav_home.png">
+        <Tab Title="{x:Static resources:AppResources.home}" Icon="nav_home.png">
             <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>
-        <Tab Title="로봇놈들" Icon="nav_robot.png">
+        <Tab Title="{x:Static resources:AppResources.robots}" Icon="nav_robot.png">
             <ShellContent ContentTemplate="{DataTemplate views:RobotPage}" />
         </Tab>
-        <Tab Title="기록" Icon="nav_record.png">
+        <Tab Title="{x:Static resources:AppResources.record}" Icon="nav_record.png">
             <ShellContent ContentTemplate="{DataTemplate views:RecordPage}" />
         </Tab>
-        <Tab Title="도전과제" Icon="nav_challenge.png">
+        <Tab Title="{x:Static resources:AppResources.challenge}" Icon="nav_challenge.png">
             <ShellContent ContentTemplate="{DataTemplate views:ChallengePage}" />
         </Tab>
-        <Tab Title="설정" Icon="nav_settings.png">
+        <Tab Title="{x:Static resources:AppResources.setting}" Icon="nav_settings.png">
             <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
         </Tab>
     </TabBar>

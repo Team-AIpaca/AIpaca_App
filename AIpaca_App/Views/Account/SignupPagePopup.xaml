@@ -13,10 +13,10 @@
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="15">
-            <Entry x:Name="EmailEntry" Placeholder="이메일"/>
-            <Entry x:Name="UsernameEntry" Placeholder="유저이름"/>
-            <Entry x:Name="PasswordEntry" Placeholder="비밀번호" IsPassword="True"/>
-            <Button Text="회원가입" Clicked="OnSignupClicked"/>
+            <Entry x:Name="EmailEntry" Placeholder="{x:Static resources:AppResources.email}"/>
+            <Entry x:Name="UsernameEntry" Placeholder="{x:Static resources:AppResources.username}"/>
+            <Entry x:Name="PasswordEntry" Placeholder="{x:Static resources:AppResources.password}" IsPassword="True"/>
+            <Button Text="{x:Static resources:AppResources.signup}" Clicked="OnSignupClicked"/>
         </VerticalStackLayout>
     </Border>
 </toolkit:Popup>

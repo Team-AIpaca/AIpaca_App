@@ -97,6 +97,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   이메일과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string hi {
@@ -160,6 +169,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   비밀번호과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string password {
+            get {
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   기록과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string record {
@@ -210,6 +228,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string thema {
             get {
                 return ResourceManager.GetString("thema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   유저이름과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string username {
+            get {
+                return ResourceManager.GetString("username", resourceCulture);
             }
         }
     }

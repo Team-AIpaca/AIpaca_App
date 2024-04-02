@@ -39,13 +39,13 @@ public partial class LanguageSelectionPopup : Popup
         if (Application.Current != null)
         {
             Application.Current.MainPage = new AppShell();
-            Task.Run(async () =>
-            {
-                await Application.Current.MainPage.Dispatcher.DispatchAsync(async () =>
-                {
-                    await Shell.Current.GoToAsync("//settingsPage");
-                });
-            });
+           Task.Run(async () =>
+           {
+               await Application.Current.MainPage.Dispatcher.DispatchAsync(async () =>
+               {
+                   await Shell.Current.GoToAsync("//settingsPage");
+               });
+           });
         }
     }
 }

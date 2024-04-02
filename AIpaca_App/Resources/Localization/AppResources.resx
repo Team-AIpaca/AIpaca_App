@@ -129,6 +129,9 @@
   <data name="darkmode" xml:space="preserve">
     <value>다크모드</value>
   </data>
+  <data name="email" xml:space="preserve">
+    <value>이메일</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>안녕하세요</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="network" xml:space="preserve">
     <value>네트워크</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>비밀번호</value>
+  </data>
   <data name="record" xml:space="preserve">
     <value>기록</value>
   </data>
@@ -167,5 +173,8 @@
   </data>
   <data name="thema" xml:space="preserve">
     <value>테마</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>유저이름</value>
   </data>
 </root>

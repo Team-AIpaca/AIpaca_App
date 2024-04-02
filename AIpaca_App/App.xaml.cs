@@ -45,22 +45,6 @@ namespace AIpaca_App
             MainPage = new AppShell();
         }
 
-        public static void ChangeAppLanguage(string languageCode)
-        {
-            CultureInfo.CurrentCulture = new CultureInfo(languageCode);
-            CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
-
-            // 언어 변경 메시지 발송
-            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
-
-            if (Current != null)
-            {
-                Current.MainPage = new AppShell(); // MainPage를 새로운 AppShell 인스턴스로 설정
-            }
-            // 선택된 언어 설정을 저장합니다.
-            Preferences.Set("LanguageCode", languageCode);
-        }
-
         private void LoadPreferences()
         {
             // 다크 모드 설정 불러오기 및 적용
