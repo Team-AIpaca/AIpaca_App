@@ -3,29 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.SettingsPage"
              xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+             xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              x:DataType="vm:MainViewModel"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="20">
             <!--로그인 섹션-->
-            <Label Text="로그인" FontAttributes="Bold" FontSize="Large"
+            <Label Text="{x:Static resources:AppResources.login}" FontAttributes="Bold" FontSize="Large"
                     TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
             <Frame CornerRadius="15" HasShadow="True" Padding="10"
                     BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Spacing="10">
                     <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="로그인" FontAttributes="Bold" VerticalOptions="Center" />
+                        <Label Text="{x:Static resources:AppResources.login}" FontAttributes="Bold" VerticalOptions="Center" />
                         <!-- 여백을 주어 버튼들을 오른쪽에 배치 -->
                         <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
                         <!-- 로그인 버튼 -->
-                        <Button Text="로그인" Clicked="OnLoginButtonClicked" WidthRequest="80" HorizontalOptions="End" 
+                        <Button Text="{x:Static resources:AppResources.login}" Clicked="OnLoginButtonClicked" WidthRequest="80" HorizontalOptions="End" 
                                 IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
                         <!-- 회원가입 버튼 -->
-                        <Button Text="회원가입" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End" 
+                        <Button Text="{x:Static resources:AppResources.signup}" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End" 
                                 IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
                         <!-- 로그아웃 버튼 -->
-                        <Button Text="로그아웃" Clicked="OnLogoutButtonClicked" IsVisible="{Binding IsLoggedIn}" />
+                        <Button Text="{x:Static resources:AppResources.logout}" Clicked="OnLogoutButtonClicked" IsVisible="{Binding IsLoggedIn}" />
 
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
@@ -108,6 +109,7 @@
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label Text="언어 설정" FontAttributes="Bold" VerticalOptions="Center" 
                             TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                        <Button Text="언어 설정" Clicked="OnLanguageSettingsClicked"/>
                         <Image Source="icon_right_arrow.png" 
                             HorizontalOptions="EndAndExpand" 
                             VerticalOptions="Center" 

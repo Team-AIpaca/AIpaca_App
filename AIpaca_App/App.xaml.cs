@@ -2,13 +2,19 @@
 using AIpaca_App.Models;
 using AIpaca_App.Resources.Splash;
 using AIpaca_App.Views;
+using CommunityToolkit.Mvvm.Messaging;
 using System.ComponentModel;
+using System.Globalization;
+using Microsoft.Maui.Controls;
+using System.IO;
+using AIpaca_App.ViewModels;
 
 namespace AIpaca_App
 {
     public partial class App : Application, INotifyPropertyChanged
     {
         static DatabaseHelper? database;
+
         public static DatabaseHelper Database
         {
             get
@@ -22,22 +28,44 @@ namespace AIpaca_App
         }
 
         public static new App? Current => Application.Current as App;
+
         public App()
         {
             InitializeComponent();
             LoadPreferences();
-            MainPage = new SplashPage();
-            VersionTracking.Track();
+
+            // 앱의 언어 설정 불러오기 및 적용
+            var languageCode = Preferences.Get("LanguageCode", "en");
+            CultureInfo.CurrentCulture = new CultureInfo(languageCode);
+            CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
+
+            // 언어 변경 메시지 발송
+            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
+
+            MainPage = new AppShell();
+        }
+
+        public static void ChangeAppLanguage(string languageCode)
+        {
+            CultureInfo.CurrentCulture = new CultureInfo(languageCode);
+            CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
+
+            // 언어 변경 메시지 발송
+            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
+
+            if (Current != null)
+            {
+                Current.MainPage = new AppShell(); // MainPage를 새로운 AppShell 인스턴스로 설정
+            }
+            // 선택된 언어 설정을 저장합니다.
+            Preferences.Set("LanguageCode", languageCode);
         }
 
         private void LoadPreferences()
         {
-            // 다크 모드 설정을 불러옵니다.
+            // 다크 모드 설정 불러오기 및 적용
             var isDarkModeEnabled = Preferences.Get("IsDarkModeEnabled", false);
-            // 다크 모드 적용 로직 (예시)
             ApplyTheme(isDarkModeEnabled);
-
-            // 여기에 다른 설정 값들을 불러오고 적용하는 코드를 추가할 수 있습니다.
         }
 
         public void ApplyTheme(bool isDarkMode)
@@ -45,7 +73,7 @@ namespace AIpaca_App
             var currentTheme = isDarkMode ? AppTheme.Dark : AppTheme.Light;
             UserAppTheme = currentTheme;
 
-            // 페이지 배경색을 다크 모드에 맞게 변경합니다.
+            // 페이지 배경색 변경
             var backgroundColor = isDarkMode ? Color.FromArgb("#121212") : Color.FromArgb("#fafafa");
             if (Resources.TryGetValue("DefaultPageBackgroundColor", out var resource))
             {

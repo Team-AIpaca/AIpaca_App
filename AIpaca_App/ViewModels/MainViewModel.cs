@@ -4,6 +4,7 @@ using CommunityToolkit.Maui.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -33,9 +34,16 @@ namespace AIpaca_App.ViewModels
             LastErrorMessage = string.Empty;
             // 로그인 상태 초기화
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
 
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+        #region 다크모드
         //다크모드
         public bool IsDarkModeEnabled
         {
@@ -52,7 +60,9 @@ namespace AIpaca_App.ViewModels
                 }
             }
         }
+        #endregion
 
+        #region 앱 버전
         //앱 버전
         public string AppVersion
         {
@@ -63,7 +73,10 @@ namespace AIpaca_App.ViewModels
                 OnPropertyChanged(nameof(AppVersion));
             }
         }
+        #endregion
 
+        #region 로그인
+        //로그인 유지
         public bool IsLoggedIn
         {
             get => _isLoggedIn;
@@ -76,15 +89,6 @@ namespace AIpaca_App.ViewModels
                 }
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
 
         // 로그인 로직
         public async Task<bool> LoginAsync(string username, string password)
@@ -133,5 +137,6 @@ namespace AIpaca_App.ViewModels
         {
             IsLoggedIn = false;
         }
+        #endregion
     }
 }

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using CommunityToolkit.Maui.Views;
 using AIpaca_App.Views.Account;
 using AIpaca_App.ViewModels;
+using AIpaca_App.Views.Settings;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
@@ -71,6 +72,11 @@ public partial class SettingsPage : ContentPage
     {
         var signupPopup = new SignupPagePopup(); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(signupPopup);
+    }
+    private async void OnLanguageSettingsClicked(object sender, EventArgs e)
+    {
+        var languagePopup = new LanguageSelectionPopup();
+        await this.ShowPopupAsync(languagePopup);
     }
 
     private void OnLogoutButtonClicked(object sender, EventArgs e)
