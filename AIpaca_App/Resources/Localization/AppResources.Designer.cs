@@ -124,7 +124,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   언어설정과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   언어과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string languageset {
             get {
