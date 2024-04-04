@@ -1,34 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              x:Class="AIpaca_App.Views.MainPage"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
-    <Grid RowDefinitions="*,*">
-        <!-- 상단 텍스트 입력 필드 영역 -->
-        <ScrollView Grid.Row="0" Padding="10">
-            <Frame CornerRadius="20" Padding="0" Margin="20">
-                <VerticalStackLayout Spacing="10" Padding="10">
-                    <!-- 입력 필드 -->
-                    <Entry x:Name="SourceTextEntry"
-                           Placeholder="번역할 내용을 입력하세요"
-                           VerticalOptions="Start" />
-                    <!-- 번역하기 버튼 -->
-                    <Button Text="번역하기"
-                            HorizontalOptions="FillAndExpand"
-                            Clicked="OnTranslateButtonClicked" />
-                </VerticalStackLayout>
-            </Frame>
-        </ScrollView>
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+            <!-- 언어 선택 리스트박스 -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <!-- 하단 번역된 텍스트 영역 -->
-        <ScrollView Grid.Row="1" Padding="10">
-            <Frame Grid.Row="1" CornerRadius="20" Padding="10" Margin="20" BorderColor="Gray">
-                <Editor x:Name="TranslatedTextEditor"
-            IsReadOnly="True"
-            VerticalOptions="FillAndExpand" />
+                <Frame Grid.Column="0" CornerRadius="10" Padding="0" HasShadow="False">
+                    <Picker Title="  언어 선택" />
+                </Frame>
+                <Button Grid.Column="1" Text="⇆" Clicked="OnSwitchLanguageClicked"/>
+                <Frame Grid.Column="2" CornerRadius="10" Padding="0" HasShadow="False">
+                    <Picker Title="  언어 선택" />
+                </Frame>
+            </Grid>
+
+            <!-- 텍스트 입력 필드 -->
+            <Grid x:Name="TextFieldsGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- 첫 번째 Editor를 담을 Grid -->
+                <Grid Grid.Row="0" Grid.Column="0" Margin="5,5,5,5">
+                    <!-- 아래쪽 Editor와의 간격을 위한 마진 설정 -->
+                    <Frame CornerRadius="10" BorderColor="LightGray" Padding="5">
+                        <Editor x:Name="InputEditor" Grid.Row="0" Placeholder="텍스트 입력" AutoSize="TextChanges" MinimumHeightRequest="100"/>
+                    </Frame>
+                </Grid>
+                <!-- 두 번째 Editor를 담을 Grid -->
+                <Grid Grid.Row="1" Grid.Column="1" Margin="5,5,5,5">
+                    <Frame CornerRadius="10" BorderColor="LightGray" Padding="5">
+                        <Editor x:Name="TranslatedEditor" Grid.Row="1" Placeholder="번역된 텍스트" AutoSize="TextChanges" MinimumHeightRequest="100"/>
+                    </Frame>
+                </Grid>
+            </Grid>
+
+            <!-- 평가받기 버튼 -->
+            <Button Text="평가받기" Clicked="OnEvaluateButtonClicked" />
+
+            <!-- 텍스트 반환 값 출력 -->
+            <Frame Grid.Column="0" CornerRadius="10" Padding="10" HasShadow="False" >
+                <Label x:Name="TranslatedTextLabel" Text="번역 결과가 여기에 표시됩니다." />
             </Frame>
-        </ScrollView>
-    </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

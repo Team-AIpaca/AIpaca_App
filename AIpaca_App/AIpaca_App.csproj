@@ -143,5 +143,4 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\drawable\icon_aipaca.png" />
 	</ItemGroup>
-
 </Project>
