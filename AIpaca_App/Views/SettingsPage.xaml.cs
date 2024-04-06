@@ -70,7 +70,7 @@ public partial class SettingsPage : ContentPage
     }
     private async void OnSignupButtonClicked(object sender, EventArgs e)
     {
-        var signupPopup = new SignupPagePopup(); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
+        var signupPopup = new SignupPagePopup(_viewModel); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(signupPopup);
     }
     private async void OnLanguageSettingsClicked(object sender, EventArgs e)

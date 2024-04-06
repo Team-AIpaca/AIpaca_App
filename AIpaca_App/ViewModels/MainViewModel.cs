@@ -19,6 +19,7 @@ namespace AIpaca_App.ViewModels
         private bool _isDarkModeEnabled;
         private string _appVersion;
         private string _loginEndpoint;
+        private string _signupEndpoint;
 
         public MainViewModel()
         {
@@ -27,14 +28,17 @@ namespace AIpaca_App.ViewModels
             // 앱 버전 가져오기
             _appVersion = AppInfo.VersionString;
 
-            var (baseUrl, loginEndpoint, _) = ApiConfigManager.LoadApiConfig();
+            // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
+            var (baseUrl, loginEndpoint, signupEndpoint, geminiApiKey, anotherEndpoint) = ApiConfigManager.LoadApiConfig();
             _loginEndpoint = $"{baseUrl}{loginEndpoint}";
-            
+            _signupEndpoint = $"{baseUrl}{signupEndpoint}";
+
             // 에러 메시지 초기화
             LastErrorMessage = string.Empty;
             // 로그인 상태 초기화
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
         }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -136,6 +140,42 @@ namespace AIpaca_App.ViewModels
         public void Logout()
         {
             IsLoggedIn = false;
+        }
+        #endregion
+
+        #region 회원가입
+        // 회원가입 기능
+        public async Task<bool> SignupAsync(string email, string username, string password)
+        {
+            var signupData = new { email, username, password };
+            var client = new HttpClient();
+            var json = JsonSerializer.Serialize(signupData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await client.PostAsync(_signupEndpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await Toast.Make("회원가입이 완료되었습니다.", ToastDuration.Long).Show();
+                    return true;
+                }
+                else
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var responseObject = JsonSerializer.Deserialize<ApiResponse>(responseContent);
+                    LastErrorMessage = $"오류 {response.StatusCode}: {responseObject?.message ?? "알 수 없는 오류가 발생했습니다."}";
+                    await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                LastErrorMessage = $"네트워크 오류가 발생했습니다: {ex.Message}";
+                await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
+                return false;
+            }
         }
         #endregion
     }

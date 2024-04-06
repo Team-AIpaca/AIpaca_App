@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.MainPage"
+             xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
     <ScrollView>
@@ -14,12 +15,40 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- 왼쪽 언어 선택 Picker -->
                 <Frame Grid.Column="0" CornerRadius="10" Padding="0" HasShadow="False">
-                    <Picker Title="  언어 선택" />
+                    <!-- 왼쪽 언어 선택 Picker -->
+                    <Picker x:Name="LeftLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>한국어</x:String>
+                                <x:String>English</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        <Picker.SelectedIndex>
+                            0
+                            <!-- 한국어 선택 -->
+                        </Picker.SelectedIndex>
+                    </Picker>
                 </Frame>
+
+                <!-- 언어 변경 버튼 -->
                 <Button Grid.Column="1" Text="⇆" Clicked="OnSwitchLanguageClicked"/>
+
+                <!-- 오른쪽 언어 선택 Picker -->
                 <Frame Grid.Column="2" CornerRadius="10" Padding="0" HasShadow="False">
-                    <Picker Title="  언어 선택" />
+                    <Picker x:Name="RightLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>한국어</x:String>
+                                <x:String>English</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        <Picker.SelectedIndex>
+                            1
+                            <!-- 영어 선택 -->
+                        </Picker.SelectedIndex>
+                    </Picker>
                 </Frame>
             </Grid>
 

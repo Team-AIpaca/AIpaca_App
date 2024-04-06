@@ -8,10 +8,15 @@
             InitializeComponent();
         }
 
-        public void OnSwitchLanguageClicked(object sender, EventArgs e)
+        private void OnSwitchLanguageClicked(object sender, EventArgs e)
         {
-
+            // 현재 선택된 언어를 기억
+            var temp = LeftLanguagePicker.SelectedIndex;
+            // 선택된 언어를 서로 바꾸기
+            LeftLanguagePicker.SelectedIndex = RightLanguagePicker.SelectedIndex;
+            RightLanguagePicker.SelectedIndex = temp;
         }
+
         public void OnEvaluateButtonClicked(object sender, EventArgs e)
         {
 
