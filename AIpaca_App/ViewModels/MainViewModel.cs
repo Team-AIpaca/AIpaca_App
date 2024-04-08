@@ -1,6 +1,7 @@
 ﻿using AIpaca_App.Data;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using static AIpaca_App.Views.Account.SignupPagePopup;
 
 namespace AIpaca_App.ViewModels
@@ -19,6 +21,12 @@ namespace AIpaca_App.ViewModels
         private bool _isDarkModeEnabled;
         private string _appVersion;
         private string _loginEndpoint;
+        private string _signupEndpoint;
+        private string _originalText = string.Empty;
+        private string _translatedText = string.Empty;
+        private string _originalLang = string.Empty;
+        private string _translatedLang = string.Empty;
+        private string _translationResult = string.Empty;
 
         public MainViewModel()
         {
@@ -27,14 +35,19 @@ namespace AIpaca_App.ViewModels
             // 앱 버전 가져오기
             _appVersion = AppInfo.VersionString;
 
-            var (baseUrl, loginEndpoint, _) = ApiConfigManager.LoadApiConfig();
+            // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
+            var (baseUrl, loginEndpoint, signupEndpoint, geminiApiKey, _) = ApiConfigManager.LoadApiConfig();
             _loginEndpoint = $"{baseUrl}{loginEndpoint}";
-            
+            _signupEndpoint = $"{baseUrl}{signupEndpoint}";
+
             // 에러 메시지 초기화
             LastErrorMessage = string.Empty;
             // 로그인 상태 초기화
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
+
+            EvaluateTranslationCommand = new AsyncRelayCommand(EvaluateTranslationWrapper);
         }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -125,17 +138,189 @@ namespace AIpaca_App.ViewModels
 
         public string LastErrorMessage { get; private set; }
 
-        private class ApiResponse
-        {
-            public int StatusCode { get; set; }
-            public string? message { get; set; }
-            public object? data { get; set; }
-        }
-
         // 로그아웃 로직 예시
         public void Logout()
         {
             IsLoggedIn = false;
+        }
+        #endregion
+
+        #region 회원가입
+        // 회원가입 기능
+        public async Task<bool> SignupAsync(string email, string username, string password)
+        {
+            var signupData = new { email, username, password };
+            var client = new HttpClient();
+            var json = JsonSerializer.Serialize(signupData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await client.PostAsync(_signupEndpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await Toast.Make("회원가입이 완료되었습니다.", ToastDuration.Long).Show();
+                    return true;
+                }
+                else
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var responseObject = JsonSerializer.Deserialize<ApiResponse>(responseContent);
+                    LastErrorMessage = $"오류 {response.StatusCode}: {responseObject?.message ?? "알 수 없는 오류가 발생했습니다."}";
+                    await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                LastErrorMessage = $"네트워크 오류가 발생했습니다: {ex.Message}";
+                await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
+                return false;
+            }
+        }
+        #endregion
+
+        #region Mainpage 평가받기 기능
+
+        public void SetOriginalLang(int selectedIndex)
+        {
+            // 선택된 인덱스에 따라 언어 코드 할당
+            OriginalLang = selectedIndex == 0 ? "ko" : "en";
+        }
+        
+        public void SetTranslatedLang(int selectedIndex)
+        {
+            // 선택된 인덱스에 따라 언어 코드 할당
+            TranslatedLang = selectedIndex == 0 ? "ko" : "en";
+        }
+
+        public string OriginalText
+        {
+            get => _originalText;
+            set
+            {
+                _originalText = value;
+                OnPropertyChanged(nameof(OriginalText));
+            }
+        }
+
+        public string TranslatedText
+        {
+            get => _translatedText;
+            set
+            {
+                _translatedText = value;
+                OnPropertyChanged(nameof(TranslatedText));
+            }
+        }
+
+        public string OriginalLang
+        {
+            get => _originalLang;
+            set
+            {
+                _originalLang = value;
+                OnPropertyChanged(nameof(OriginalLang));
+            }
+        }
+
+        public string TranslatedLang
+        {
+            get => _translatedLang;
+            set
+            {
+                _translatedLang = value;
+                OnPropertyChanged(nameof(TranslatedLang));
+            }
+        }
+
+        public string TranslationResult
+        {
+            get => _translationResult;
+            set
+            {
+                _translationResult = value;
+                OnPropertyChanged(nameof(TranslationResult));
+            }
+        }
+
+        public IAsyncRelayCommand EvaluateTranslationCommand { get; }
+
+        // 래퍼 메서드
+        private async Task EvaluateTranslationWrapper()
+        {
+            // ViewModel의 속성을 사용하여 파라미터 값을 전달
+            await EvaluateTranslation(OriginalText, TranslatedText, OriginalLang, TranslatedLang);
+        }
+
+
+        public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
+        {
+            var (baseUrl, _, _, geminiApiKey, geminiEndpoint) = ApiConfigManager.LoadApiConfig();
+            var requestUri = $"{baseUrl}{geminiEndpoint}";
+
+            var requestData = new
+            {
+                GeminiAPIKey = geminiApiKey,
+                Original = originalText,
+                OriginalLang = originalLang,
+                Translated = translatedText,
+                TranslatedLang = translatedLang,
+                EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName  
+            };
+
+            var client = new HttpClient();
+            var json = JsonSerializer.Serialize(requestData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await client.PostAsync(requestUri, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
+
+                    if (apiResponse?.StatusCode == 200)
+                    {
+                        var result = apiResponse.data?.result;
+                        TranslationResult = $"점수: {result?.Score}\n추천 번역: {result?.RecommandedTrans}\n{result?.Rating}";
+                    }
+                }
+                else
+                {
+                    var errorMessage = $"오류 발생: {response.StatusCode}";
+                    await Toast.Make(errorMessage, ToastDuration.Long).Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                await Toast.Make($"네트워크 오류가 발생했습니다: {ex.Message}", ToastDuration.Long).Show();
+            }
+        }
+
+        #endregion
+
+        #region api 응답 모델
+        private class ApiResponse
+        {
+            public int StatusCode { get; set; }
+            public string? message { get; set; }
+            public ResponseData? data { get; set; }
+        }
+
+        private class ResponseData
+        {
+            public string? RequestTime { get; set; }
+            public EvaluationResult? result { get; set; }
+        }
+
+        private class EvaluationResult
+        {
+            public int Score { get; set; }
+            public string? RecommandedTrans { get; set; }
+            public string? Rating { get; set; }
         }
         #endregion
     }

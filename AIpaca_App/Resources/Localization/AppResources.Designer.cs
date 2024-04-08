@@ -106,6 +106,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   영어과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string en {
+            get {
+                return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string hi {
@@ -120,6 +129,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string home {
             get {
                 return ResourceManager.GetString("home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   한국어과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ko {
+            get {
+                return ResourceManager.GetString("ko", resourceCulture);
             }
         }
         
@@ -192,6 +210,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string robots {
             get {
                 return ResourceManager.GetString("robots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   언어 선택과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string selectlanguage {
+            get {
+                return ResourceManager.GetString("selectlanguage", resourceCulture);
             }
         }
         
