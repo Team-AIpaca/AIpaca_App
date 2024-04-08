@@ -18,11 +18,11 @@ namespace AIpaca_App.Data
             var baseUrl = apiSettings.Element("BaseUrl")?.Value ?? string.Empty;
             var loginEndpoint = apiSettings.Element("LoginEndpoint")?.Value ?? string.Empty;
             var signupEndpoint = apiSettings.Element("SignupEndpoint")?.Value ?? string.Empty;
+            // Gemini API 키와 엔드포인트를 불러옵니다.
             var geminiApiKey = apiSettings.Element("GeminiApiKey")?.Value ?? string.Empty;
             var geminiEndpoint = apiSettings.Element("GeminiEndpoint")?.Value ?? string.Empty;
 
             return (baseUrl, loginEndpoint, signupEndpoint, geminiApiKey, geminiEndpoint);
         }
     }
-
 }
