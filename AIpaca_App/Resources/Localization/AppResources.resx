@@ -162,11 +162,17 @@
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>
   </data>
+  <data name="recommend" xml:space="preserve">
+    <value>추천번역</value>
+  </data>
   <data name="record" xml:space="preserve">
     <value>기록</value>
   </data>
   <data name="robots" xml:space="preserve">
     <value>로봇놈들</value>
+  </data>
+  <data name="score" xml:space="preserve">
+    <value>점수</value>
   </data>
   <data name="selectlanguage" xml:space="preserve">
     <value>언어 선택</value>

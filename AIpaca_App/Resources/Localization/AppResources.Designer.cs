@@ -196,6 +196,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   추천번역과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string recommend {
+            get {
+                return ResourceManager.GetString("recommend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   기록과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string record {
@@ -210,6 +219,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string robots {
             get {
                 return ResourceManager.GetString("robots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   점수과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string score {
+            get {
+                return ResourceManager.GetString("score", resourceCulture);
             }
         }
         

@@ -162,11 +162,17 @@
   <data name="password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="recommend" xml:space="preserve">
+    <value>Recommend</value>
+  </data>
   <data name="record" xml:space="preserve">
     <value>Record</value>
   </data>
   <data name="robots" xml:space="preserve">
     <value>Robots</value>
+  </data>
+  <data name="score" xml:space="preserve">
+    <value>Score</value>
   </data>
   <data name="selectlanguage" xml:space="preserve">
     <value>Select Language</value>

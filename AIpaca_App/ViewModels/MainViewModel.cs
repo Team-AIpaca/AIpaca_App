@@ -285,17 +285,19 @@ namespace AIpaca_App.ViewModels
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
                     var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
-
+                    var score = Resources.Localization.AppResources.score;
+                    var recommend = Resources.Localization.AppResources.recommend;
                     if (apiResponse?.StatusCode == 200)
                     {
                         var result = apiResponse.data?.result;
-                        TranslationResult = $"점수: {result?.Score}\n추천 번역: {result?.RecommandedTrans}\n{result?.Rating}";
+                        TranslationResult = $"{score} : {result?.Score}\n{recommend}: {result?.RecommandedTrans}\n{result?.Rating}";
                     }
                 }
                 else
                 {
                     var errorMessage = $"오류 발생: {response.StatusCode}";
-                    await Toast.Make(errorMessage, ToastDuration.Long).Show();
+                    //await Toast.Make(errorMessage, ToastDuration.Long).Show();
+                    TranslationResult = errorMessage;
                 }
             }
             catch (Exception ex)
