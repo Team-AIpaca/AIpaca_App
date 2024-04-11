@@ -13,9 +13,15 @@
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="15">
-            <Entry x:Name="UsernameEntry" Placeholder="{x:Static resources:AppResources.username}"/>
-            <Entry x:Name="PasswordEntry" Placeholder="{x:Static resources:AppResources.password}" IsPassword="True"/>
+            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
+                <Entry x:Name="UsernameEntry" Placeholder="{x:Static resources:AppResources.username}"/>
+            </Frame>
+            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
+                <Entry x:Name="PasswordEntry" Placeholder="{x:Static resources:AppResources.password}" IsPassword="True"/>
+            </Frame>
             <Button Text="{x:Static resources:AppResources.login}" Clicked="OnLoginClicked"/>
         </VerticalStackLayout>
     </Border>
 </toolkit:Popup>
+    
+    

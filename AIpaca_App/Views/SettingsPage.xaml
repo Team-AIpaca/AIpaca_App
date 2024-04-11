@@ -27,6 +27,11 @@
                                 IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
                         <!-- 로그아웃 버튼 -->
                         <Button Text="{x:Static resources:AppResources.logout}" Clicked="OnLogoutButtonClicked" IsVisible="{Binding IsLoggedIn}" />
+                        <Image Source="icon_right_arrow.png" 
+                                HorizontalOptions="End" 
+                                VerticalOptions="Center" 
+                                WidthRequest="10" 
+                                HeightRequest="10" />
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
@@ -76,6 +81,14 @@
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label Text="{x:Static resources:AppResources.apisetting}" FontAttributes="Bold" VerticalOptions="Center" 
                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                        <!-- 공간 채움 -->
+                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+                        <Button Text="{x:Static resources:AppResources.apisetting}" Clicked="OnAPISettingButtonClicked" WidthRequest="80" HorizontalOptions="End"/>
+                        <Image Source="icon_right_arrow.png" 
+                               HorizontalOptions="End" 
+                               VerticalOptions="Center" 
+                               WidthRequest="10" 
+                               HeightRequest="10" />
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
@@ -108,9 +121,11 @@
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label Text="{x:Static resources:AppResources.languageset}" FontAttributes="Bold" VerticalOptions="Center" 
                             TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <Button Text="{x:Static resources:AppResources.languageset}" Clicked="OnLanguageSettingsClicked"/>
+                        <!-- 공간 채움 -->
+                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+                        <Button Text="{x:Static resources:AppResources.languageset}" Clicked="OnLanguageSettingsClicked" HorizontalOptions="End"/>
                         <Image Source="icon_right_arrow.png" 
-                            HorizontalOptions="EndAndExpand" 
+                            HorizontalOptions="End" 
                             VerticalOptions="Center" 
                             WidthRequest="10" 
                             HeightRequest="10" />

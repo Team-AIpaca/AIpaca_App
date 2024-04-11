@@ -84,4 +84,9 @@ public partial class SettingsPage : ContentPage
         // 로그아웃 로직 수행
         _viewModel.Logout();
     }
+    private async void OnAPISettingButtonClicked(object sender, EventArgs e)
+    {
+        var apisettingpopup = new ApiSettingPopup();
+        await this.ShowPopupAsync(apisettingpopup);
+    }
 }

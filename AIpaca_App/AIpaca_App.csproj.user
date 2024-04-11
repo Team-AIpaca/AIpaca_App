@@ -34,6 +34,9 @@
     <MauiXaml Update="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Settings\ApiSettingPopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Settings\LanguageSelectionPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

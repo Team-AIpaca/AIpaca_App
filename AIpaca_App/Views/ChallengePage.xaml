@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AIpaca_App.Views.ChallengePage"
-             xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
-             BackgroundColor="{DynamicResource DefaultPageBackgroundColor}"
-             xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
-             xmlns:model="clr-namespace:AIpaca_App.Models">
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="AIpaca_App.Views.ChallengePage"
+                 xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+                 BackgroundColor="{DynamicResource DefaultPageBackgroundColor}"
+                 xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+                 xmlns:model="clr-namespace:AIpaca_App.Models">
 
     <ContentPage.BindingContext>
         <vm:ChallengeViewModel/>

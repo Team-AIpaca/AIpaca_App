@@ -11,7 +11,7 @@
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
-        <VerticalStackLayout Spacing="15">
+        <VerticalStackLayout Spacing="15" >
             <Button Text="English" Clicked="OnEnglishSelected"/>
             <Button Text="한국어" Clicked="OnKoreanSelected"/>
         </VerticalStackLayout>

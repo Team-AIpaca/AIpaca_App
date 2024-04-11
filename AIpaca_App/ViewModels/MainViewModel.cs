@@ -36,7 +36,7 @@ namespace AIpaca_App.ViewModels
             _appVersion = AppInfo.VersionString;
 
             // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
-            var (baseUrl, loginEndpoint, signupEndpoint, geminiApiKey, _) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, loginEndpoint, signupEndpoint, _) = ApiConfigManager.LoadApiConfig();
             _loginEndpoint = $"{baseUrl}{loginEndpoint}";
             _signupEndpoint = $"{baseUrl}{signupEndpoint}";
 
@@ -257,12 +257,16 @@ namespace AIpaca_App.ViewModels
 
         public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
         {
-            var (baseUrl, _, _, geminiApiKey, geminiEndpoint) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, _, _, geminiEndpoint) = ApiConfigManager.LoadApiConfig();
+
+            // 사용자가 입력한 API 키를 Preferences에서 불러옵니다.
+            var userApiKey = Preferences.Get("GeminiApiKey", string.Empty);
+
             var requestUri = $"{baseUrl}{geminiEndpoint}";
 
             var requestData = new
             {
-                GeminiAPIKey = geminiApiKey,
+                GeminiAPIKey = userApiKey,
                 Original = originalText,
                 OriginalLang = originalLang,
                 Translated = translatedText,

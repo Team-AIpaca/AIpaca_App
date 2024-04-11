@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="AIpaca_App.Views.Settings.ApiSettingPopup"
+               Size="300,400"
+               Color= "{x:Static Colors.Transparent}">
+
+    <!-- Border를 사용하여 모서리를 둥글게 설정 -->
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Spacing="15">
+            <Label Text="현재 API 키" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
+                <Label x:Name="CurrentApiKeyLabel" Text="{Binding CurrentApiKey}" HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Label Text="API 키 입력" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
+                <Entry x:Name="ApiKeyEntry" Placeholder="여기에 API 키를 입력하세요"/>
+            </Frame>
+            <Button Text="저장" Clicked="OnSaveClicked"/>
+        </VerticalStackLayout>
+    </Border>
+
+</toolkit:Popup>

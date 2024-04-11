@@ -88,7 +88,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   다크모드과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   다크 모드과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string darkmode {
             get {
@@ -142,7 +142,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   언어과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   언어 설정과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string languageset {
             get {
@@ -169,7 +169,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   저사양모드과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   저사양 모드과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string lowspecmode {
             get {

@@ -127,7 +127,7 @@
     <value>도전과제</value>
   </data>
   <data name="darkmode" xml:space="preserve">
-    <value>다크모드</value>
+    <value>다크 모드</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>이메일</value>
@@ -145,7 +145,7 @@
     <value>한국어</value>
   </data>
   <data name="languageset" xml:space="preserve">
-    <value>언어</value>
+    <value>언어 설정</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>로그인</value>
@@ -154,7 +154,7 @@
     <value>로그아웃</value>
   </data>
   <data name="lowspecmode" xml:space="preserve">
-    <value>저사양모드</value>
+    <value>저사양 모드</value>
   </data>
   <data name="network" xml:space="preserve">
     <value>네트워크</value>

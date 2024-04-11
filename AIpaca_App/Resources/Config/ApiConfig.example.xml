@@ -4,7 +4,6 @@
     <BaseUrl>api 주소</BaseUrl>
     <LoginEndpoint>user/login</LoginEndpoint>
     <SignupEndpoint>user/signup</SignupEndpoint>
-    <GeminiApiKey>Gemini Api 키</GeminiApiKey>
     <GeminiEndpoint>evaluation/gemini</GeminiEndpoint>
   </ApiSettings>
 </configuration>
