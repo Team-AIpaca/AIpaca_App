@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AIpaca_App.Data;
 using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
 using Microsoft.Maui.Controls;
@@ -11,70 +12,142 @@ namespace AIpaca_App.Resources.Splash
         public SplashPage()
         {
             InitializeComponent();
-            CheckAppVersionAndUpdateUI();
+            InitializeApp();
         }
+
+        private async void InitializeApp()
+        {
+            try
+            {
+                // 인터넷 연결 확인
+                if (await CheckInternetConnectionAsync())
+                {
+                    // 인터넷 연결이 확인되면 앱 버전을 확인합니다.
+                    CheckAppVersionAndUpdateUI();
+
+                }
+                else
+                {
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        // 연결 오류 메시지 표시
+                        await DisplayAlert("연결 오류", "인터넷 연결을 확인해주세요.", "확인");
+                        // 필요한 경우 앱 종료 또는 다른 조치를 취할 수 있습니다.
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                await Toast.Make("오류").Show();
+            }
+            finally
+            {
+                // 메인 페이지로 전환
+                if (Application.Current != null)
+                {
+                    Application.Current.MainPage = new AppShell();
+                }
+            }
+            
+        }
+
+        private async Task<bool> CheckInternetConnectionAsync()
+        {
+            var (baseUrl, _, _, _, pingEndpoint) = ApiConfigManager.LoadApiConfig();
+            var requestUri = $"{baseUrl}{pingEndpoint}";
+            using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
+
+            // 재시도 메커니즘
+            int retryCount = 0;
+            const int maxRetries = 3;
+
+            while (retryCount < maxRetries)
+            {
+
+                await Task.Delay(1000); // 재시도 전 1초 대기
+                try
+                {
+                    var response = await client.GetAsync(requestUri);
+                    if (response.IsSuccessStatusCode) return true;
+                }
+                catch (TaskCanceledException)
+                {
+                    // 타임아웃 로그 업데이트
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        statusLabel.Text = $"서버 연결 시도중 {retryCount + 1}/{maxRetries}..";
+                    });
+                }
+
+                retryCount++;
+                await Task.Delay(1000); // 재시도 전 1초 대기
+            }
+            // 기타 예외 로그
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                statusLabel.Text = "네트워크 오류";
+            });
+            return false;  // 모든 재시도 실패 시 false 반환
+        }
+
+
 
         private async void CheckAppVersionAndUpdateUI()
         {
             try
             {
-                // 앱 버전 확인 로직
-                bool isLatestVersion = CheckIfAppIsLatestVersion();
+                statusLabel.Text = $"앱 버전 확인중..";
+                await Task.Delay(500); // 0.5초 대기
 
-                // 일정 시간(예: 3초) 기다린 후
-                await Task.Delay(3000);
+                bool isLatestVersion = await CheckIfAppIsLatestVersionAsync();
 
-                // 메인 페이지로 전환 전 사용자에게 알림 제공
-                if (isLatestVersion)
+                MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    // 최신 버전인 경우 사용자에게 Toast 메시지로 알림
-                    var toast = Toast.Make("앱이 최신 버전입니다.");
-                    await toast.Show();
-                }
-                else
-                {
-                    // 업데이트가 필요한 경우 사용자에게 Toast 메시지로 알림
-                    var toast = Toast.Make("새로운 버전의 앱이 있습니다. 업데이트가 필요합니다.");
-                    await toast.Show();
-                }
+                    if (isLatestVersion)
+                    {
+                        // 최신 버전인 경우 간단한 토스트 메시지로 알림
+                        await Toast.Make("앱이 최신 버전입니다.").Show();
+                    }
+                    else
+                    {
+                        // 업데이트 필요한 경우 알림창으로 알림
+                        var action = await DisplayAlert("버전 확인", "새로운 버전의 앱이 있습니다. 업데이트가 필요합니다.", "업데이트", "취소");
+                        if (action)
+                        {
+                            // 사용자가 업데이트를 원할 경우 앱 스토어로 리디렉션
+                            var success = await Launcher.TryOpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.AIpaca&hl=en-US"));
+                            if (!success)
+                            {
+                                // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
+                                await DisplayAlert("오류", "앱 스토어를 열 수 없습니다. 수동으로 업데이트를 확인해 주세요.", "확인");
+                            }
+                        }
+
+                    }
+                });
             }
             catch (Exception ex)
             {
-                // 오류가 발생한 경우 사용자에게 Toast 메시지로 오류 메시지를 제공
-                var toast = Toast.Make($"앱 버전을 확인하는 도중 오류가 발생했습니다: {ex.Message}");
-                await toast.Show();
-            }
-            finally
-            {
-                // 모든 상황에서 메인 페이지로 전환
-                MainThread.BeginInvokeOnMainThread(() =>
+                // 예외 처리
+                MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    if (Application.Current != null)
-                    {
-                        Application.Current.MainPage = new AppShell();
-                    }
+                    await DisplayAlert("오류", $"앱 버전을 확인하는 도중 오류가 발생했습니다: {ex.Message}", "확인");
                 });
             }
         }
 
-        private bool CheckIfAppIsLatestVersion()
+        private async Task<bool> CheckIfAppIsLatestVersionAsync()
         {
-            // 현재 설치된 앱의 버전 가져오기
+            // 버전 확인 로직 구현
             var currentVersion = VersionTracking.CurrentVersion;
-
-            // 데이터베이스에서 최신 버전 정보 가져오기 (가상의 예시)
-            var latestVersion = GetLatestVersionFromDatabase();
-
-            // 현재 버전과 최신 버전 비교
+            var latestVersion = await GetLatestVersionFromDatabaseAsync();
             return currentVersion == latestVersion;
         }
 
-        // 데이터베이스에서 최신 버전 정보를 조회하는 가상의 메서드
-        private string GetLatestVersionFromDatabase()
+        private Task<string> GetLatestVersionFromDatabaseAsync()
         {
-            // 데이터베이스 로직 구현 대신, 여기서는 가상의 최신 버전을 반환합니다.
-            // 실제 구현에서는 데이터베이스 접속 및 쿼리 실행 코드가 포함되어야 합니다.
-            return "1.2.2"; // 가정: 데이터베이스에 저장된 최신 버전
+            // 원격 서버로부터 최신 버전 정보를 비동기적으로 받아옵니다.
+            return Task.FromResult("1.5.3");
         }
     }
 }

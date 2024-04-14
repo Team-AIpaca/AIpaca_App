@@ -2,8 +2,9 @@
 <configuration>
   <ApiSettings>
     <BaseUrl>api 주소</BaseUrl>
-    <LoginEndpoint>user/login</LoginEndpoint>
-    <SignupEndpoint>user/signup</SignupEndpoint>
-    <GeminiEndpoint>evaluation/gemini</GeminiEndpoint>
+    <LoginEndpoint>api/user/login</LoginEndpoint>
+    <SignupEndpoint>api/user/signup</SignupEndpoint>
+    <GeminiEndpoint>api/evaluation/gemini</GeminiEndpoint>
+    <PingEndpoint>ping</PingEndpoint>
   </ApiSettings>
 </configuration>

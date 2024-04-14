@@ -4,7 +4,9 @@
              x:Class="AIpaca_App.Resources.Splash.SplashPage"
              Title="SplashPage"
              BackgroundColor="#a0e2ff">
+    
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Image Source="logo_aipaca.png" WidthRequest="200" HeightRequest="200"/>
+        <Label x:Name="statusLabel" Text="앱 초기화 중..." FontSize="Medium" HorizontalTextAlignment="Center"/>
     </VerticalStackLayout>
 </ContentPage>

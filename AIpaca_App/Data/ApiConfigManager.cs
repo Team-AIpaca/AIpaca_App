@@ -5,7 +5,7 @@ namespace AIpaca_App.Data
 {
     public static class ApiConfigManager
     {
-        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string GeminiEndpoint) LoadApiConfig()
+        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string GeminiEndpoint, string PingEndpoint) LoadApiConfig()
         {
             var assembly = typeof(ApiConfigManager).GetTypeInfo().Assembly;
             var resourceName = "AIpaca_App.Resources.Config.ApiConfig.xml";
@@ -18,10 +18,10 @@ namespace AIpaca_App.Data
             var baseUrl = apiSettings.Element("BaseUrl")?.Value ?? string.Empty;
             var loginEndpoint = apiSettings.Element("LoginEndpoint")?.Value ?? string.Empty;
             var signupEndpoint = apiSettings.Element("SignupEndpoint")?.Value ?? string.Empty;
-            // Gemini API 키와 엔드포인트를 불러옵니다.
             var geminiEndpoint = apiSettings.Element("GeminiEndpoint")?.Value ?? string.Empty;
+            var pingEndpoint = apiSettings.Element("PingEndpoint")?.Value ?? string.Empty;
 
-            return (baseUrl, loginEndpoint, signupEndpoint, geminiEndpoint);
+            return (baseUrl, loginEndpoint, signupEndpoint, geminiEndpoint, pingEndpoint);
         }
     }
 }

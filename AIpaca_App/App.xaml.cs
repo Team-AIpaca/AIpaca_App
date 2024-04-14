@@ -42,7 +42,7 @@ namespace AIpaca_App
             // 언어 변경 메시지 발송
             WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
 
-            MainPage = new AppShell();
+            MainPage = new SplashPage();
         }
 
         private void LoadPreferences()
