@@ -135,6 +135,18 @@
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="error_no_api" xml:space="preserve">
+    <value>The API key is not set. Please check the settings.</value>
+  </data>
+  <data name="error_no_text1" xml:space="preserve">
+    <value>Text field 1 is empty</value>
+  </data>
+  <data name="error_no_text2" xml:space="preserve">
+    <value>Text field 2 is empty</value>
+  </data>
+  <data name="evaluate" xml:space="preserve">
+    <value>Evaluate</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>Hi</value>
   </data>
@@ -186,8 +198,14 @@
   <data name="system" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="thema" xml:space="preserve">
-    <value>Thema</value>
+  <data name="text_to_be_translated" xml:space="preserve">
+    <value>Text to be translated</value>
+  </data>
+  <data name="theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="translated_text" xml:space="preserve">
+    <value>Translated text</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>Username</value>

@@ -63,27 +63,37 @@ public partial class SettingsPage : ContentPage
             view.BackgroundColor = originalColor;
         }
     }
+
+    #region 로그인 관련 버튼
+    //로그인 버튼 클릭
     private async void OnLoginButtonClicked(object sender, EventArgs e)
     {
         var loginPopup = new LoginPagePopup(_viewModel); // LoginPage는 로그인 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(loginPopup);
     }
+
+    //회원가입 버튼 클릭
     private async void OnSignupButtonClicked(object sender, EventArgs e)
     {
         var signupPopup = new SignupPagePopup(_viewModel); // SignupPage는 회원가입 폼을 구현한 별도의 ContentPage입니다.
         await this.ShowPopupAsync(signupPopup);
     }
+
+    //로그아웃 버튼 클릭
+    private void OnLogoutButtonClicked(object sender, EventArgs e)
+    {
+        // 로그아웃 로직 수행
+        _viewModel.Logout();
+    }
+    #endregion
+
+    //언어설정 버튼 클릭
     private async void OnLanguageSettingsClicked(object sender, EventArgs e)
     {
         var languagePopup = new LanguageSelectionPopup();
         await this.ShowPopupAsync(languagePopup);
     }
 
-    private void OnLogoutButtonClicked(object sender, EventArgs e)
-    {
-        // 로그아웃 로직 수행
-        _viewModel.Logout();
-    }
     private async void OnAPISettingButtonClicked(object sender, EventArgs e)
     {
         var apisettingpopup = new ApiSettingPopup();

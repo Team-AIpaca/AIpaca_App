@@ -42,7 +42,7 @@
 
 
             <!-- 테마 설정 섹션 -->
-            <Label Text="{x:Static resources:AppResources.thema}" FontAttributes="Bold" FontSize="Large"
+            <Label Text="{x:Static resources:AppResources.theme}" FontAttributes="Bold" FontSize="Large"
                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
             <Frame CornerRadius="15" HasShadow="True" Padding="10"
                    BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">

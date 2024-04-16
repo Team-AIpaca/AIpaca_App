@@ -115,6 +115,42 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_no_api {
+            get {
+                return ResourceManager.GetString("error_no_api", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   텍스트 필드1 비어있습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_no_text1 {
+            get {
+                return ResourceManager.GetString("error_no_text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   텍스트 필드2 비어있습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_no_text2 {
+            get {
+                return ResourceManager.GetString("error_no_text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   평가받기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string evaluate {
+            get {
+                return ResourceManager.GetString("evaluate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string hi {
@@ -268,11 +304,29 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   번역할 텍스트과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string text_to_be_translated {
+            get {
+                return ResourceManager.GetString("text_to_be_translated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   테마과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string thema {
+        internal static string theme {
             get {
-                return ResourceManager.GetString("thema", resourceCulture);
+                return ResourceManager.GetString("theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   번역된 텍스트과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string translated_text {
+            get {
+                return ResourceManager.GetString("translated_text", resourceCulture);
             }
         }
         

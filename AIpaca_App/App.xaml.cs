@@ -34,14 +34,6 @@ namespace AIpaca_App
             InitializeComponent();
             LoadPreferences();
 
-            // 앱의 언어 설정 불러오기 및 적용
-            var languageCode = Preferences.Get("LanguageCode", "en");
-            CultureInfo.CurrentCulture = new CultureInfo(languageCode);
-            CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
-
-            // 언어 변경 메시지 발송
-            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
-
             MainPage = new SplashPage();
         }
 
@@ -50,6 +42,14 @@ namespace AIpaca_App
             // 다크 모드 설정 불러오기 및 적용
             var isDarkModeEnabled = Preferences.Get("IsDarkModeEnabled", false);
             ApplyTheme(isDarkModeEnabled);
+
+            // 앱의 언어 설정 불러오기 및 적용
+            var languageCode = Preferences.Get("LanguageCode", "en");
+            CultureInfo.CurrentCulture = new CultureInfo(languageCode);
+            CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
+
+            // 언어 변경 메시지 발송
+            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
         }
 
         public void ApplyTheme(bool isDarkMode)

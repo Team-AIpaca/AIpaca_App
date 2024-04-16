@@ -16,7 +16,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:AchieveList">
                     <!-- 사각형 박스로 각 항목을 감쌉니다 -->
-                    <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="Gray">
+                    <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                         <StackLayout>
                             <!-- 업적 이름을 표시하는 레이블 -->
                             <Label Text="{Binding AchieveName}" FontAttributes="Bold" FontSize="20"/>

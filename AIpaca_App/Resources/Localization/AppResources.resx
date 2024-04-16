@@ -135,6 +135,18 @@
   <data name="en" xml:space="preserve">
     <value>영어</value>
   </data>
+  <data name="error_no_api" xml:space="preserve">
+    <value>API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.</value>
+  </data>
+  <data name="error_no_text1" xml:space="preserve">
+    <value>텍스트 필드1 비어있습니다</value>
+  </data>
+  <data name="error_no_text2" xml:space="preserve">
+    <value>텍스트 필드2 비어있습니다</value>
+  </data>
+  <data name="evaluate" xml:space="preserve">
+    <value>평가받기</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>안녕하세요</value>
   </data>
@@ -186,8 +198,14 @@
   <data name="system" xml:space="preserve">
     <value>시스템</value>
   </data>
-  <data name="thema" xml:space="preserve">
+  <data name="text_to_be_translated" xml:space="preserve">
+    <value>번역할 텍스트</value>
+  </data>
+  <data name="theme" xml:space="preserve">
     <value>테마</value>
+  </data>
+  <data name="translated_text" xml:space="preserve">
+    <value>번역된 텍스트</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>유저이름</value>

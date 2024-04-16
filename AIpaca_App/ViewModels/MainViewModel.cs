@@ -262,6 +262,30 @@ namespace AIpaca_App.ViewModels
             // 사용자가 입력한 API 키를 Preferences에서 불러옵니다.
             var userApiKey = Preferences.Get("GeminiApiKey", string.Empty);
 
+            // userApiKey가 비어있는지 확인
+            if (string.IsNullOrEmpty(userApiKey))
+            {
+                // API 키가 없다면 사용자에게 알림
+                await Toast.Make(Resources.Localization.AppResources.error_no_api, ToastDuration.Long).Show();
+                return; // 메서드 종료
+            }
+
+            // originalText가 비어있는지 확인
+            if (string.IsNullOrEmpty(originalText))
+            {
+                // originalText가 비어있다면 사용자에게 알림
+                await Toast.Make(Resources.Localization.AppResources.error_no_text1, ToastDuration.Long).Show();
+                return; // 메서드 종료
+            }
+
+            //vtranslatedText가 비어있는지 확인
+            if (string.IsNullOrEmpty(translatedText))
+            {
+                // translatedText가 비어있다면 사용자에게 알림
+                await Toast.Make(Resources.Localization.AppResources.error_no_text2, ToastDuration.Long).Show();
+                return; // 메서드 종료
+            }
+
             var requestUri = $"{baseUrl}{geminiEndpoint}";
 
             var requestData = new
