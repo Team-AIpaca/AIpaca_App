@@ -123,6 +123,9 @@
   <data name="appversion" xml:space="preserve">
     <value>앱버전</value>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
   <data name="challenge" xml:space="preserve">
     <value>도전과제</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="network" xml:space="preserve">
     <value>네트워크</value>
   </data>
+  <data name="newupdate" xml:space="preserve">
+    <value>앱의 새로운 버전이 있습니다. 업데이트가 필요합니다.</value>
+  </data>
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>
   </data>
@@ -206,6 +212,9 @@
   </data>
   <data name="translated_text" xml:space="preserve">
     <value>번역된 텍스트</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>업데이트</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>유저이름</value>

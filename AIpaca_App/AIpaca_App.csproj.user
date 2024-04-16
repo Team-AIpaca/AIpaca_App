@@ -13,6 +13,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="Resources\Splash\SplashPopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Resources\Splash\SplashPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -79,6 +79,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   취소과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   도전과제과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string challenge {
@@ -223,6 +232,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   앱의 새로운 버전이 있습니다. 업데이트가 필요합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string newupdate {
+            get {
+                return ResourceManager.GetString("newupdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   비밀번호과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string password {
@@ -327,6 +345,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string translated_text {
             get {
                 return ResourceManager.GetString("translated_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   업데이트과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string update {
+            get {
+                return ResourceManager.GetString("update", resourceCulture);
             }
         }
         

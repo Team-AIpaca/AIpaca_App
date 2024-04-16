@@ -1,10 +1,11 @@
 using System;
 using System.Threading.Tasks;
 using AIpaca_App.Data;
+using AIpaca_App.Resources.Localization;
 using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
-using Microsoft.Maui.Controls;
-
+using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 namespace AIpaca_App.Resources.Splash
 {
     public partial class SplashPage : ContentPage
@@ -23,7 +24,7 @@ namespace AIpaca_App.Resources.Splash
                 if (await CheckInternetConnectionAsync())
                 {
                     // 인터넷 연결이 확인되면 앱 버전을 확인합니다.
-                    CheckAppVersionAndUpdateUI();
+                    await CheckAppVersionAndUpdateUI();
 
                 }
                 else
@@ -92,49 +93,60 @@ namespace AIpaca_App.Resources.Splash
 
 
 
-        private async void CheckAppVersionAndUpdateUI()
+        private async Task CheckAppVersionAndUpdateUI()
         {
             try
             {
                 statusLabel.Text = $"앱 버전 확인중..";
-                await Task.Delay(500); // 0.5초 대기
+                await Task.Delay(500);
 
                 bool isLatestVersion = await CheckIfAppIsLatestVersionAsync();
-
-                MainThread.BeginInvokeOnMainThread(async () =>
+                await MainThread.InvokeOnMainThreadAsync(async () =>
                 {
                     if (isLatestVersion)
                     {
-                        // 최신 버전인 경우 간단한 토스트 메시지로 알림
                         await Toast.Make("앱이 최신 버전입니다.").Show();
                     }
                     else
                     {
-                        // 업데이트 필요한 경우 알림창으로 알림
-                        var action = await DisplayAlert("버전 확인", "새로운 버전의 앱이 있습니다. 업데이트가 필요합니다.", "업데이트", "취소");
-                        if (action)
+                        // 새로운 업데이트 팝업을 표시합니다.
+                        var updatePopup = new SplashPopup
                         {
-                            // 사용자가 업데이트를 원할 경우 앱 스토어로 리디렉션
-                            var success = await Launcher.TryOpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.AIpaca&hl=en-US"));
-                            if (!success)
-                            {
-                                // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
-                                await DisplayAlert("오류", "앱 스토어를 열 수 없습니다. 수동으로 업데이트를 확인해 주세요.", "확인");
-                            }
+                            MainText = AppResources.newupdate,
+                            btn1Text = AppResources.update
+                        };
+                        updatePopup.btn1Clicked += async (sender, e) => await UpdatePopup_UpdateClickedAsync(sender, e);
+                        if (Application.Current?.MainPage != null)
+                        {
+                            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                         }
-
                     }
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // 예외 처리
-                MainThread.BeginInvokeOnMainThread(async () =>
-                {
-                    await DisplayAlert("오류", $"앱 버전을 확인하는 도중 오류가 발생했습니다: {ex.Message}", "확인");
-                });
+                await Toast.Make("앱 버전 확인 오류").Show();
             }
         }
+
+        private async Task UpdatePopup_UpdateClickedAsync(object? sender, EventArgs e)
+        {
+            try
+            {
+                // 사용자가 업데이트를 원할 경우 앱 스토어로 리디렉션
+                var success = await Launcher.TryOpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.AIpaca&hl=en-US"));
+                if (!success)
+                {
+                    // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
+                    await Toast.Make("앱 스토어를 열 수 없습니다. 수동으로 업데이트를 확인해 주세요.", ToastDuration.Long).Show();
+                }
+            }
+            catch (Exception)
+            {
+                await Toast.Make("오류발생").Show();
+            }
+        }
+
 
         private async Task<bool> CheckIfAppIsLatestVersionAsync()
         {

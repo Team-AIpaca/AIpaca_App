@@ -21,6 +21,12 @@ namespace AIpaca_App.Views
             // 선택된 언어를 서로 바꾸기
             LeftLanguagePicker.SelectedIndex = RightLanguagePicker.SelectedIndex;
             RightLanguagePicker.SelectedIndex = temp;
+
+            // 현재 Editor에서 텍스트를 임시 저장
+            var tempText = InputEditor.Text;
+            // 두 텍스트의 값을 서로 교환
+            InputEditor.Text = TranslatedEditor.Text;
+            TranslatedEditor.Text = tempText;
         }
 
         public void OnEvaluateButtonClicked(object sender, EventArgs e)

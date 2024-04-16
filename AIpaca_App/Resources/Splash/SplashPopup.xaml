@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+               x:Class="AIpaca_App.Resources.Splash.SplashPopup"
+               Size="300,400"
+               Color= "{x:Static Colors.Transparent}">
+    
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+        <!-- Border를 사용하여 모서리를 둥글게 설정 -->
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Spacing="20">
+            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
+                <Label x:Name="maintext" Text="" FontSize="Large" HorizontalOptions="Center" />
+            </Frame>
+
+            <!-- 버튼들을 하단에 위치시키기 위한 Spacer 추가 -->
+            <BoxView HeightRequest="150" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"/>
+
+            <!-- 버튼들을 가로로 배열하는 HorizontalStackLayout 추가 -->
+            <HorizontalStackLayout Spacing="110">
+                <Button x:Name="btn1" Text="" Clicked="Onbtn1Clicked"/>
+                <Button x:Name="btn2" Text="{x:Static resources:AppResources.cancel}" Clicked="Onbtn2Clicked" HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>
