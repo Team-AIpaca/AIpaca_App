@@ -120,6 +120,9 @@
   <data name="apisetting" xml:space="preserve">
     <value>API 설정</value>
   </data>
+  <data name="api_save_complete" xml:space="preserve">
+    <value>api키가 저장되었습니다</value>
+  </data>
   <data name="appversion" xml:space="preserve">
     <value>앱버전</value>
   </data>
@@ -142,7 +145,8 @@
     <value>연결 오류</value>
   </data>
   <data name="error_no_api" xml:space="preserve">
-    <value>API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.</value>
+    <value>API키가 설정되어 있지 않습니다.
+설정 확인 바랍니다.</value>
   </data>
   <data name="error_no_text1" xml:space="preserve">
     <value>텍스트 필드1 비어있습니다</value>
@@ -178,7 +182,8 @@
     <value>네트워크</value>
   </data>
   <data name="newupdate" xml:space="preserve">
-    <value>앱의 새로운 버전이 있습니다. 업데이트가 필요합니다.</value>
+    <value>앱의 새로운 버전이 있습니다. 
+업데이트가 필요합니다.</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>확인</value>

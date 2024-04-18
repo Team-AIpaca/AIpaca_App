@@ -120,6 +120,9 @@
   <data name="apisetting" xml:space="preserve">
     <value>API Setting</value>
   </data>
+  <data name="api_save_complete" xml:space="preserve">
+    <value>API key has been saved</value>
+  </data>
   <data name="appversion" xml:space="preserve">
     <value>APP Version</value>
   </data>
@@ -142,7 +145,8 @@
     <value>Connection Error</value>
   </data>
   <data name="error_no_api" xml:space="preserve">
-    <value>The API key is not set. Please check the settings.</value>
+    <value>The API key is not set.
+Please check the settings.</value>
   </data>
   <data name="error_no_text1" xml:space="preserve">
     <value>Text field 1 is empty</value>
@@ -178,7 +182,8 @@
     <value>Network</value>
   </data>
   <data name="newupdate" xml:space="preserve">
-    <value>There is a new version of the app. It needs to be updated.</value>
+    <value>There is a new version of the app. 
+It needs to be updated.</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>OK</value>

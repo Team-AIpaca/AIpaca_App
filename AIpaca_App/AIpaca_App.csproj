@@ -122,8 +122,8 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Splash\SplashPopup.xaml.cs">
-	    <DependentUpon>SplashPopup.xaml</DependentUpon>
+	  <Compile Update="Views\AlertPopup.xaml.cs">
+	    <DependentUpon>AlertPopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -135,7 +135,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Resources\Splash\SplashPopup.xaml">
+	  <MauiXaml Update="Views\AlertPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Splash\SplashPage.xaml">

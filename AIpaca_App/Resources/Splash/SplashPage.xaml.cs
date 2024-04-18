@@ -6,6 +6,7 @@ using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
+
 namespace AIpaca_App.Resources.Splash
 {
     public partial class SplashPage : ContentPage
@@ -25,14 +26,14 @@ namespace AIpaca_App.Resources.Splash
                 {
                     // 인터넷 연결이 확인되면 앱 버전을 확인합니다.
                     await CheckAppVersionAndUpdateUI();
-
+                    
                 }
                 else
                 {
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
                         // 새로운 업데이트 팝업을 표시합니다.
-                        var updatePopup = new SplashPopup
+                        var updatePopup = new AlertPopup
                         {
                             MainText = AppResources.error_connection,
                             btn1Text = AppResources.ok
@@ -61,6 +62,7 @@ namespace AIpaca_App.Resources.Splash
 
         private async Task<bool> CheckInternetConnectionAsync()
         {
+            await Task.Delay(500);
             var (baseUrl, _, _, _, pingEndpoint) = ApiConfigManager.LoadApiConfig();
             var requestUri = $"{baseUrl}{pingEndpoint}";
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
@@ -117,7 +119,7 @@ namespace AIpaca_App.Resources.Splash
                     else
                     {
                         // 새로운 업데이트 팝업을 표시합니다.
-                        var updatePopup = new SplashPopup
+                        var updatePopup = new AlertPopup
                         {
                             MainText = AppResources.newupdate,
                             btn1Text = AppResources.update

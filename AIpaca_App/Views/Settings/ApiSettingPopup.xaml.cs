@@ -1,3 +1,4 @@
+using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Views;
 
 namespace AIpaca_App.Views.Settings;
@@ -20,18 +21,28 @@ public partial class ApiSettingPopup : Popup
 
             // 저장 후 팝업을 닫습니다.
             this.Close();
-
+            
             // 저장 확인 메시지를 표시합니다.
+            var updatePopup = new AlertPopup
+            {
+                MainText = AppResources.api_save_complete,
+                btn1Text = AppResources.ok
+            };
             if (Application.Current?.MainPage != null)
             {
-                await Application.Current.MainPage.DisplayAlert("저장 완료", "새로운 API 키가 저장되었습니다.", "확인");
+                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
             }
         }
         else
         {
+            var updatePopup = new AlertPopup
+            {
+                MainText = AppResources.error_no_api,
+                btn1Text = AppResources.ok
+            };
             if (Application.Current?.MainPage != null)
             {
-                await Application.Current.MainPage.DisplayAlert("경고", "유효한 API 키를 입력해주세요.", "확인");
+                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
             }
         }
     }

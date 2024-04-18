@@ -61,6 +61,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   api키가 저장되었습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string api_save_complete {
+            get {
+                return ResourceManager.GetString("api_save_complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   API 설정과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string apisetting {
@@ -133,7 +142,8 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   API키가 설정되어 있지 않습니다.
+        ///설정 확인 바랍니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_no_api {
             get {
@@ -241,7 +251,8 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   앱의 새로운 버전이 있습니다. 업데이트가 필요합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   앱의 새로운 버전이 있습니다. 
+        ///업데이트가 필요합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string newupdate {
             get {
