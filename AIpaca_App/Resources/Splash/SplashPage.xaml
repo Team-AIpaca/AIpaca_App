@@ -7,6 +7,8 @@
     
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Image Source="logo_aipaca.png" WidthRequest="200" HeightRequest="200"/>
+        <!-- 로딩 인디케이터 추가 -->
+        <ActivityIndicator IsRunning="True" Color="Black"/>
         <Label x:Name="statusLabel" Text="앱 초기화 중..." FontSize="Medium" HorizontalTextAlignment="Center"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -21,6 +21,9 @@ namespace AIpaca_App.Resources.Splash
         {
             try
             {
+                await Task.Delay(1000);
+                statusLabel.Text = "앱 로딩중..";
+
                 // 인터넷 연결 확인
                 if (await CheckInternetConnectionAsync())
                 {
