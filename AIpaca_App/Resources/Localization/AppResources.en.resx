@@ -138,6 +138,9 @@
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="error_connection" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
   <data name="error_no_api" xml:space="preserve">
     <value>The API key is not set. Please check the settings.</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="newupdate" xml:space="preserve">
     <value>There is a new version of the app. It needs to be updated.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>

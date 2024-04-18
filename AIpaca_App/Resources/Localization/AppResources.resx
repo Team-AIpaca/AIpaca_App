@@ -138,6 +138,9 @@
   <data name="en" xml:space="preserve">
     <value>영어</value>
   </data>
+  <data name="error_connection" xml:space="preserve">
+    <value>연결 오류</value>
+  </data>
   <data name="error_no_api" xml:space="preserve">
     <value>API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="newupdate" xml:space="preserve">
     <value>앱의 새로운 버전이 있습니다. 업데이트가 필요합니다.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>확인</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>

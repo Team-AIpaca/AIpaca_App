@@ -31,8 +31,16 @@ namespace AIpaca_App.Resources.Splash
                 {
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
-                        // 연결 오류 메시지 표시
-                        await DisplayAlert("연결 오류", "인터넷 연결을 확인해주세요.", "확인");
+                        // 새로운 업데이트 팝업을 표시합니다.
+                        var updatePopup = new SplashPopup
+                        {
+                            MainText = AppResources.error_connection,
+                            btn1Text = AppResources.ok
+                        };
+                        if (Application.Current?.MainPage != null)
+                        {
+                            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                        }
                         // 필요한 경우 앱 종료 또는 다른 조치를 취할 수 있습니다.
                     });
                 }
@@ -49,7 +57,6 @@ namespace AIpaca_App.Resources.Splash
                     Application.Current.MainPage = new AppShell();
                 }
             }
-            
         }
 
         private async Task<bool> CheckInternetConnectionAsync()
@@ -115,7 +122,7 @@ namespace AIpaca_App.Resources.Splash
                             MainText = AppResources.newupdate,
                             btn1Text = AppResources.update
                         };
-                        updatePopup.btn1Clicked += async (sender, e) => await UpdatePopup_UpdateClickedAsync(sender, e);
+                        updatePopup.btn1Clicked += async (sender, e) => await SplashPopup_UpdateClickedAsync(sender, e);
                         if (Application.Current?.MainPage != null)
                         {
                             await Application.Current.MainPage.ShowPopupAsync(updatePopup);
@@ -129,7 +136,7 @@ namespace AIpaca_App.Resources.Splash
             }
         }
 
-        private async Task UpdatePopup_UpdateClickedAsync(object? sender, EventArgs e)
+        private async Task SplashPopup_UpdateClickedAsync(object? sender, EventArgs e)
         {
             try
             {

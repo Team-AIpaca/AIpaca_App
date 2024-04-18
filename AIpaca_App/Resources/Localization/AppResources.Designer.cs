@@ -124,6 +124,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   연결 오류과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_connection {
+            get {
+                return ResourceManager.GetString("error_connection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   API키가 설정되어 있지 않습니다. 설정 확인 부탁드립니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_no_api {
@@ -237,6 +246,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string newupdate {
             get {
                 return ResourceManager.GetString("newupdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   확인과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
