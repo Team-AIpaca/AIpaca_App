@@ -4,7 +4,6 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
                x:Class="AIpaca_App.Views.AlertPopup"
-               Size="250,150"
                Color= "{x:Static Colors.Transparent}">
     
     <Border Padding="15" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
@@ -14,7 +13,7 @@
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="20">
             <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
-                <Label x:Name="maintext" Text="" FontSize="Small" HorizontalOptions="Center" />
+                <Label x:Name="maintext" Text="" FontSize="Small" HorizontalOptions="Center" LineBreakMode="WordWrap" />
             </Frame>
 
             <Grid ColumnDefinitions="*,Auto,*,Auto,*" RowDefinitions="Auto" Padding="0" ColumnSpacing="0">
