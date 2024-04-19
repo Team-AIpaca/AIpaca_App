@@ -2,11 +2,12 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
                x:Class="AIpaca_App.Views.Settings.ApiSettingPopup"
                Size="300,400"
-               Color= "{x:Static Colors.Transparent}">
+               Color="{x:Static Colors.Transparent}"
+               x:DataType="vm:ApiSettingViewModel">
 
-    <!-- Border를 사용하여 모서리를 둥글게 설정 -->
     <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
@@ -23,5 +24,4 @@
             <Button Text="저장" Clicked="OnSaveClicked"/>
         </VerticalStackLayout>
     </Border>
-
 </toolkit:Popup>

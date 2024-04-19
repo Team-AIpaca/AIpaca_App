@@ -9,6 +9,7 @@ namespace AIpaca_App.Views;
 public partial class SettingsPage : ContentPage
 {
     private MainViewModel _viewModel;
+
     public SettingsPage()
     {
         InitializeComponent();
@@ -86,6 +87,7 @@ public partial class SettingsPage : ContentPage
         _viewModel.Logout();
     }
     #endregion
+
 
     //언어설정 버튼 클릭
     private async void OnLanguageSettingsClicked(object sender, EventArgs e)

@@ -324,6 +324,7 @@ namespace AIpaca_App.ViewModels
 
             try
             {
+                TranslationResult = $"로딩중";
                 var response = await client.PostAsync(requestUri, content);
                 if (response.IsSuccessStatusCode)
                 {
