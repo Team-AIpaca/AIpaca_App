@@ -1,4 +1,5 @@
 ﻿using AIpaca_App.Data;
+using AIpaca_App.Models;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.Input;
@@ -27,8 +28,9 @@ namespace AIpaca_App.ViewModels
         private string _originalLang = string.Empty;
         private string _translatedLang = string.Empty;
         private string _translationResult = string.Empty;
+        private DatabaseService _dbService;
 
-        public MainViewModel()
+        public MainViewModel(DatabaseService dbService)
         {
             // 앱 설정에서 다크 모드 값을 불러와 프로퍼티에 설정합니다.
             IsDarkModeEnabled = Preferences.Get("IsDarkModeEnabled", false);
@@ -46,6 +48,7 @@ namespace AIpaca_App.ViewModels
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
 
             EvaluateTranslationCommand = new AsyncRelayCommand(EvaluateTranslationWrapper);
+            _dbService = dbService;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -332,10 +335,29 @@ namespace AIpaca_App.ViewModels
                     var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                     var score = Resources.Localization.AppResources.score;
                     var recommend = Resources.Localization.AppResources.recommend;
-                    if (apiResponse?.StatusCode == 200)
+                    if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                     {
-                        var result = apiResponse.data?.result;
+                        var result = apiResponse.data.result;
+                        var record = new EvRecord
+                        {
+                            OriginalText = originalText,
+                            OriginalLang = originalLang,
+                            TranslatedText = translatedText,
+                            TranslatedLang = translatedLang,
+                            Message = apiResponse.message ?? "No message",
+                            RequestTime = apiResponse.data?.RequestTime ?? "No timestamp",
+                            Score = result.Score,
+                            RecommendedTrans = result.RecommandedTrans ?? "No recommendation",
+                            Rating = result.Rating ?? "No rating"
+                        };
+                        // 데이터베이스에 레코드 저장
+                        await _dbService.AddRecordAsync(record);
+
                         TranslationResult = $"{score} : {result?.Score}\n{recommend}: {result?.RecommandedTrans}\n{result?.Rating}";
+                    }
+                    else
+                    {
+                        await Toast.Make("API 응답이 유효하지 않습니다.", ToastDuration.Long).Show();
                     }
                 }
                 else
@@ -350,6 +372,8 @@ namespace AIpaca_App.ViewModels
                 await Toast.Make($"네트워크 오류가 발생했습니다: {ex.Message}", ToastDuration.Long).Show();
             }
         }
+
+        // 받아온 api 요청을 db에 저장
 
         #endregion
 

@@ -3,12 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.RecordPage"
              xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+             xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
-             
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            <!--" xmlns:model="clr-namespace:AIpaca_App.Models"
+    x:DataType="vm:RecordViewModel"-->
+    
+    <ContentPage.BindingContext>
+        <vm:RecordViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Records}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
+                        <StackLayout>
+                            <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Message}" FontAttributes="Italic"/>
+                            <Label Text="{Binding OriginalText, StringFormat='Original: {0}'}" />
+                            <Label Text="{Binding OriginalLang}" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
+                            <Label Text="{Binding TranslatedLang}" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontAttributes="Bold"/>
+                            <Label Text="{Binding RecommendedTrans, StringFormat='Recom.: {0}'}" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+
 </ContentPage>

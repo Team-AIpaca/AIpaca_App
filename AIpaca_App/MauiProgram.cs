@@ -2,6 +2,8 @@
 using CommunityToolkit.Maui;
 using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
+using AIpaca_App.Data;
+using AIpaca_App.ViewModels;
 
 namespace AIpaca_App
 {
@@ -15,6 +17,12 @@ namespace AIpaca_App
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             }).UseMauiCommunityToolkit();
+
+            // DatabaseService를 싱글턴으로 등록
+            builder.Services.AddSingleton<DatabaseService>();
+
+            // RecordViewModel을 트랜지언트로 등록
+            builder.Services.AddTransient<RecordViewModel>();
 
 #if ANDROID
             // Android 플랫폼 코드

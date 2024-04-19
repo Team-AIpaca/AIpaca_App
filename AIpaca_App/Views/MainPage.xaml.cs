@@ -1,4 +1,5 @@
-﻿using AIpaca_App.ViewModels;
+﻿using AIpaca_App.Data;
+using AIpaca_App.ViewModels;
 
 namespace AIpaca_App.Views
 {
@@ -10,7 +11,8 @@ namespace AIpaca_App.Views
         {
             InitializeComponent();
             // MainViewModel 인스턴스를 생성하고 BindingContext로 설정합니다.
-            _viewModel = new MainViewModel();
+            var databaseService = new DatabaseService();
+            _viewModel = new MainViewModel(databaseService);
             BindingContext = _viewModel;
         }
 

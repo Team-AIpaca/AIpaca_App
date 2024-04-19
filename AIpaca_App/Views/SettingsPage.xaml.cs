@@ -4,6 +4,7 @@ using CommunityToolkit.Maui.Views;
 using AIpaca_App.Views.Account;
 using AIpaca_App.ViewModels;
 using AIpaca_App.Views.Settings;
+using AIpaca_App.Data;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
@@ -13,7 +14,8 @@ public partial class SettingsPage : ContentPage
     public SettingsPage()
     {
         InitializeComponent();
-        _viewModel = new MainViewModel();
+        var databaseService = new DatabaseService();
+        _viewModel = new MainViewModel(databaseService);
         this.BindingContext = _viewModel;
     }
 
