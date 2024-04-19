@@ -44,7 +44,7 @@ namespace AIpaca_App
             ApplyTheme(isDarkModeEnabled);
 
             // 앱의 언어 설정 불러오기 및 적용
-            var languageCode = Preferences.Get("LanguageCode", "en");
+            var languageCode = Preferences.Get("LanguageCode", "ko");
             CultureInfo.CurrentCulture = new CultureInfo(languageCode);
             CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
 

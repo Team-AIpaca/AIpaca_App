@@ -24,6 +24,14 @@ public partial class LanguageSelectionPopup : Popup
         Preferences.Set("LanguageCode", "en");
         ChangeAppLanguage("en");
     }
+    
+    private void OnJapaneseSelected(object sender, EventArgs e)
+    {
+        // 언어 설정을 'LanguageCode' 키로 저장합니다.
+        Preferences.Set("LanguageCode", "ja");
+        ChangeAppLanguage("ja");
+    }
+
 
     private void ChangeAppLanguage(string languageCode)
     {

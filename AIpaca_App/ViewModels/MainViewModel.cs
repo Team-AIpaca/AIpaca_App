@@ -185,14 +185,34 @@ namespace AIpaca_App.ViewModels
 
         public void SetOriginalLang(int selectedIndex)
         {
-            // 선택된 인덱스에 따라 언어 코드 할당
-            OriginalLang = selectedIndex == 0 ? "ko" : "en";
+            switch (selectedIndex)
+            {
+                case 0:
+                    OriginalLang = "ko"; // 한국어
+                    break;
+                case 1:
+                    OriginalLang = "en"; // 영어
+                    break;
+                case 2:
+                    OriginalLang = "jp"; // 일본어
+                    break;
+            }
         }
         
         public void SetTranslatedLang(int selectedIndex)
         {
-            // 선택된 인덱스에 따라 언어 코드 할당
-            TranslatedLang = selectedIndex == 0 ? "ko" : "en";
+            switch (selectedIndex)
+            {
+                case 0:
+                    TranslatedLang = "ko"; // 한국어
+                    break;
+                case 1:
+                    TranslatedLang = "en"; // 영어
+                    break;
+                case 2:
+                    TranslatedLang = "jp"; // 일본어
+                    break;
+            }
         }
 
         public string OriginalText
