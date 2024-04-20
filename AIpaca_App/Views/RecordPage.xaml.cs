@@ -15,10 +15,7 @@ public partial class RecordPage : ContentPage
         base.OnAppearing();
         if (BindingContext is RecordViewModel vm)
         {
-            if (vm.Records.Count == 0) // 데이터가 이미 로드되지 않았다면
-            {
-                vm.LoadRecordsCommand.Execute(null);
-            }
+            vm.LoadRecordsCommand.Execute(null);
         }
     }
 }

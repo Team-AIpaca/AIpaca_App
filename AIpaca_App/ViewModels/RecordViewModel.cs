@@ -30,7 +30,7 @@ namespace AIpaca_App.ViewModels
             try
             {
                 Records.Clear();
-                var records = await _dbService.GetAllRecordsAsync();
+                var records = await _dbService.GetAllRecordsAsync();                
                 foreach (var record in records)
                 {
                     Records.Add(record);
@@ -38,7 +38,6 @@ namespace AIpaca_App.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error loading records: {ex.Message}");
                 await Toast.Make($"업적 목록을 로드하는 데 실패했습니다: {ex.Message}", ToastDuration.Long).Show();
             }
         }
