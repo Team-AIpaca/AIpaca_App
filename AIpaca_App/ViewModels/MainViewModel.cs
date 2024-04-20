@@ -283,7 +283,7 @@ namespace AIpaca_App.ViewModels
             var (baseUrl, _, _, geminiEndpoint, _) = ApiConfigManager.LoadApiConfig();
 
             // 사용자가 입력한 API 키를 Preferences에서 불러옵니다.
-            var userApiKey = Preferences.Get("GeminiApiKey", string.Empty);
+            var userApiKey = await SecureStorage.GetAsync("GeminiApiKey");
 
             // userApiKey가 비어있는지 확인
             if (string.IsNullOrEmpty(userApiKey))

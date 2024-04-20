@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using Microsoft.Maui.Storage;
 
 namespace AIpaca_App.ViewModels
@@ -26,18 +28,33 @@ namespace AIpaca_App.ViewModels
             LoadApiKey();
         }
 
-        private void LoadApiKey()
+        private async void LoadApiKey()
         {
-            var apiKey = Preferences.Get("GeminiApiKey", "API 키가 설정되지 않았습니다.");
-            CurrentApiKey = apiKey ?? "API 키가 설정되지 않았습니다."; // null일 경우 "API 키가 설정되지 않았습니다." 사용
+            try
+            {
+                var apiKey = await SecureStorage.GetAsync("GeminiApiKey");
+                CurrentApiKey = apiKey ?? "API 키가 설정되지 않았습니다."; // null일 경우 대체 텍스트
+            }
+            catch (Exception)
+            {
+                CurrentApiKey = "API 키 로드에 실패했습니다.";
+                await Toast.Make("API 키 로드에 실패했습니다.", ToastDuration.Long).Show();
+            }
         }
 
-        public void SaveApiKey(string? newApiKey)
+        public async void SaveApiKey(string? newApiKey)
         {
-            if (newApiKey != null)  // null 체크를 추가하여 null이 아닌 경우에만 저장합니다.
+            if (newApiKey != null)  // null 체크
             {
-                Preferences.Set("GeminiApiKey", newApiKey);
-                LoadApiKey();  // Refresh the displayed key
+                try
+                {
+                    await SecureStorage.SetAsync("GeminiApiKey", newApiKey);
+                    LoadApiKey();  // Refresh the displayed key
+                }
+                catch (Exception)
+                {
+                    // 로그 기록 또는 사용자에게 피드백
+                }
             }
         }
 
