@@ -21,11 +21,12 @@
                             <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
                             <Label Text="{Binding Message}" FontAttributes="Italic"/>
                             <Label Text="{Binding OriginalText, StringFormat='Original: {0}'}" />
-                            <Label Text="{Binding OriginalLang}" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding OriginalLang}"/>
                             <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
-                            <Label Text="{Binding TranslatedLang}" HorizontalOptions="EndAndExpand"/>
-                            <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontAttributes="Bold"/>
-                            <Label Text="{Binding RecommendedTrans, StringFormat='Recom.: {0}'}" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding TranslatedLang}"/>
+                            <Label Text="{Binding Score, StringFormat=' {0}'}" FontAttributes="Bold"/>
+                            <Label Text="{Binding RecommendedTrans}"/>
+                            <Label Text="{Binding Rating}"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

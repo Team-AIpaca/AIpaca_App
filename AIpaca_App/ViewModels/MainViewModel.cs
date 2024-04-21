@@ -329,10 +329,10 @@ namespace AIpaca_App.ViewModels
             {
                 TranslationResult = $"로딩중";
                 var response = await client.PostAsync(requestUri, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                     var score = Resources.Localization.AppResources.score;
                     var recommend = Resources.Localization.AppResources.recommend;
                     if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
@@ -362,7 +362,7 @@ namespace AIpaca_App.ViewModels
                 }
                 else
                 {
-                    var errorMessage = $"오류 발생: {response.StatusCode}";
+                    var errorMessage = $"오류 발생: {apiResponse?.StatusCode} - {apiResponse?.message}";
                     //await Toast.Make(errorMessage, ToastDuration.Long).Show();
                     TranslationResult = errorMessage;
                 }
