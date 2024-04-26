@@ -25,6 +25,7 @@
                             <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
                             <Label Text="{Binding TranslatedLang}"/>
                             <Label Text="{Binding Score, StringFormat=' {0}'}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Score, StringFormat='{0} {1}'}" FontAttributes="Bold"/>
                             <Label Text="{Binding RecommendedTrans}"/>
                             <Label Text="{Binding Rating}"/>
                         </StackLayout>

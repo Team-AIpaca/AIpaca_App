@@ -5,13 +5,17 @@ using AIpaca_App.Data;
 using AIpaca_App.Models;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using Microcharts;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
+using SkiaSharp;
+
 
 namespace AIpaca_App.ViewModels
 {
     public class RecordViewModel : BaseViewModel
     {
+        public Chart? ScoreChart { get; set; }
         private DatabaseService _dbService;
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ICommand LoadRecordsCommand { get; }
@@ -23,6 +27,23 @@ namespace AIpaca_App.ViewModels
             Records = new ObservableCollection<EvRecord>();
             LoadRecordsCommand = new AsyncCommand(LoadRecords);
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
+            LoadChartData();
+        }
+
+        private async void LoadChartData()
+        {
+            var records = await _dbService.GetAllRecordsAsync();
+            var entries = records.Select((record, index) => new ChartEntry(record.Score)
+            {
+                Label = record.RequestTime.ToString(),
+                ValueLabel = record.Score.ToString(),
+                Color = SKColor.Parse("#00bcd4"),
+                ValueLabelColor = SKColor.Parse("#ffffff"),
+                TextColor = SKColor.Parse("#ffffff")
+            }).ToList();
+
+            ScoreChart = new LineChart { Entries = entries };
+            OnPropertyChanged(nameof(ScoreChart));
         }
 
         private async Task LoadRecords()
@@ -30,10 +51,10 @@ namespace AIpaca_App.ViewModels
             try
             {
                 Records.Clear();
-                var records = await _dbService.GetAllRecordsAsync();                
+                var records = await _dbService.GetAllRecordsAsync();
                 foreach (var record in records)
                 {
-                    Records.Add(record);
+                    Records.Insert(0, record); // 역순으로 삽입
                 }
             }
             catch (Exception ex)
@@ -47,7 +68,7 @@ namespace AIpaca_App.ViewModels
             var result = await _dbService.AddRecordAsync(record);
             if (result == 1)
             {
-                Records.Add(record);
+                Records.Insert(0, record); // 상단에 insert
             }
             else
             {
