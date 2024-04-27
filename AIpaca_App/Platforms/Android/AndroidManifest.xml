@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.AIpaca"
-          android:versionCode="242"
+          android:versionCode="243"
           android:versionName="1.6.5" >
 
   <!-- 여기에는 앱의 패키지 이름이 들어갑니다. -->

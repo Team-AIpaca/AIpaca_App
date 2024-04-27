@@ -82,7 +82,6 @@
 	<ItemGroup>
 	  <None Remove="Properties\ApiConfig.xml" />
 	  <None Remove="Resources\AppIcon\icon_aipaca.png" />
-	  <None Remove="Resources\Config\ApiConfig.xml" />
 	  <None Remove="Resources\data\AchieveList.xml" />
 	  <None Remove="Resources\drawable\icon_aipaca.png" />
 	  <None Remove="Resources\Images\icon_right_arrow.png" />
@@ -97,23 +96,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Resources\Config\ApiConfig.xml">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <EmbeddedResource Include="Resources\data\AchieveList.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Microcharts" Version="0.9.5.9" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
+		<PackageReference Include="Microcharts.Maui" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.21" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.21" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="System.Reflection" Version="4.3.0" />
 	</ItemGroup>
