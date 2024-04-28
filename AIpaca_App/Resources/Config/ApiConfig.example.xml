@@ -8,3 +8,4 @@
     <PingEndpoint>ping</PingEndpoint>
   </ApiSettings>
 </configuration>
+<!--속성 - 빌드 작업 : 포함 리소스-->

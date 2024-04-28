@@ -135,6 +135,9 @@
   <data name="darkmode" xml:space="preserve">
     <value>ダークモードです</value>
   </data>
+  <data name="deepltranslate" xml:space="preserve">
+    <value>DeepL Translate</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>Eメールです</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="evaluate" xml:space="preserve">
     <value>評価します</value>
   </data>
+  <data name="googletranslate" xml:space="preserve">
+    <value>Google Translate</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>こんにちは</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="languageset" xml:space="preserve">
     <value>言語です</value>
+  </data>
+  <data name="libretranslate" xml:space="preserve">
+    <value>LibreTranslate</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>ログインします</value>
@@ -185,6 +194,9 @@
   </data>
   <data name="ok" xml:space="preserve">
     <value>OK。</value>
+  </data>
+  <data name="papagotranslate" xml:space="preserve">
+    <value>Papago Translate</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>パスワードです</value>

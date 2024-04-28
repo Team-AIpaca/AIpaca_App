@@ -135,6 +135,9 @@
   <data name="darkmode" xml:space="preserve">
     <value>다크 모드</value>
   </data>
+  <data name="deepltranslate" xml:space="preserve">
+    <value>DeepL 번역기</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>이메일</value>
   </data>
@@ -157,6 +160,9 @@
   <data name="evaluate" xml:space="preserve">
     <value>평가받기</value>
   </data>
+  <data name="googletranslate" xml:space="preserve">
+    <value>구글 번역기</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>안녕하세요</value>
   </data>
@@ -168,6 +174,9 @@
   </data>
   <data name="languageset" xml:space="preserve">
     <value>언어 설정</value>
+  </data>
+  <data name="libretranslate" xml:space="preserve">
+    <value>Libre Translate 번역기</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>로그인</value>
@@ -187,6 +196,9 @@
   </data>
   <data name="ok" xml:space="preserve">
     <value>확인</value>
+  </data>
+  <data name="papagotranslate" xml:space="preserve">
+    <value>파파고 번역기</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>

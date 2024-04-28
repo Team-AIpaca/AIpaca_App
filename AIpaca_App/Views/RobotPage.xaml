@@ -3,12 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.RobotPage"
              xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+             xmlns:local="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+    <VerticalStackLayout Spacing="25" Padding="20">
+        <!--구글 번역기-->
+        <Frame CornerRadius="15" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="{x:Static resources:AppResources.googletranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </toolkit:Expander.Header>
+                <VerticalStackLayout>
+                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </Frame>
+
+        <!--파파고-->
+        <Frame CornerRadius="15" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="{x:Static resources:AppResources.papagotranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </toolkit:Expander.Header>
+                <VerticalStackLayout>
+                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </Frame>
+        
+        <!--DeepL 번역기-->
+        <Frame CornerRadius="15" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="{x:Static resources:AppResources.deepltranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </toolkit:Expander.Header>
+                <VerticalStackLayout>
+                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </Frame>
+        
+        <!--LibreTranslate  번역기-->
+        <Frame CornerRadius="15" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="{x:Static resources:AppResources.libretranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </toolkit:Expander.Header>
+                <VerticalStackLayout>
+                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
+

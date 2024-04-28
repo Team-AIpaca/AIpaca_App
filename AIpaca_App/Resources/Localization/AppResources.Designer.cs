@@ -115,6 +115,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   DeepL 번역기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string deepltranslate {
+            get {
+                return ResourceManager.GetString("deepltranslate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   이메일과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string email {
@@ -179,6 +188,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   구글 번역기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string googletranslate {
+            get {
+                return ResourceManager.GetString("googletranslate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   안녕하세요과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string hi {
@@ -211,6 +229,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string languageset {
             get {
                 return ResourceManager.GetString("languageset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Libre Translate 번역기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string libretranslate {
+            get {
+                return ResourceManager.GetString("libretranslate", resourceCulture);
             }
         }
         
@@ -266,6 +293,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   파파고 번역기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string papagotranslate {
+            get {
+                return ResourceManager.GetString("papagotranslate", resourceCulture);
             }
         }
         

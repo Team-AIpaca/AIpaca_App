@@ -27,17 +27,23 @@ namespace AIpaca_App.ViewModels
             Records = new ObservableCollection<EvRecord>();
             LoadRecordsCommand = new AsyncCommand(LoadRecords);
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
-            LoadChartData();
+            //InitializeAsync();
         }
 
-        private async void LoadChartData()
+        private async Task InitializeAsync()
+        {
+            await LoadChartData();
+            await LoadRecords();
+        }
+
+        private async Task LoadChartData()
         {
             var records = await _dbService.GetAllRecordsAsync();
             var entries = records.Select((record, index) => new ChartEntry(record.Score)
             {
                 Label = record.RequestTime.ToString(),
                 ValueLabel = record.Score.ToString(),
-                Color = SKColor.Parse("#00bcd4"),
+                Color = SKColor.Parse("#00bcd4"),       // 점수에 따라 색상 변경되도록 변경예정
                 ValueLabelColor = SKColor.Parse("#ffffff"),
                 TextColor = SKColor.Parse("#ffffff")
             }).ToList();
@@ -69,6 +75,7 @@ namespace AIpaca_App.ViewModels
             if (result == 1)
             {
                 Records.Insert(0, record); // 상단에 insert
+                await LoadChartData();
             }
             else
             {
