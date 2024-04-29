@@ -52,6 +52,7 @@ namespace AIpaca_App.Resources.Splash
             catch (Exception)
             {
                 await Toast.Make("오류").Show();
+                // 오류 발생시 ApiConfig.xml 확인
             }
             finally
             {

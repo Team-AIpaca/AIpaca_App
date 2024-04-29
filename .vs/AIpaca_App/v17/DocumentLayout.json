@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\github\\AIpaca_App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\splash\\splashpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\splash\\splashpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\splash\\splashpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\splash\\splashpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\platforms\\android\\mainapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\platforms\\android\\mainapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\data\\apiconfigmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\data\\apiconfigmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\viewmodels\\recordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\viewmodels\\recordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\splash\\splashpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\splash\\splashpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\models\\userachieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\models\\userachieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\views\\robotpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\views\\robotpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\config\\apiconfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\config\\apiconfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\data\\apiconfigmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\data\\apiconfigmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\views\\settings\\languageselectionpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -59,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\views\\recordpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\viewmodels\\recordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\viewmodels\\recordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -77,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\splash\\splashpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\splash\\splashpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -135,24 +143,12 @@
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\aipaca_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\config\\apiconfig.example.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\config\\apiconfig.example.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\resources\\config\\apiconfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\resources\\config\\apiconfig.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\views\\challengepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\views\\challengepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\models\\evrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\models\\evrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\models\\userachieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|solutionrelative:aipaca_app\\models\\userachieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09908016-9265-4E65-BCDA-BD48AB39D35E}|AIpaca_App\\AIpaca_App.csproj|c:\\github\\aipaca_app\\aipaca_app\\data\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -192,7 +188,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "SettingsPage.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\SettingsPage.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\SettingsPage.xaml",
@@ -205,61 +201,89 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiConfig.xml",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Config\\ApiConfig.xml",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Config\\ApiConfig.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-04-20T08:07:00.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RobotPage.xaml",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RobotPage.xaml",
+              "RelativeDocumentMoniker": "AIpaca_App\\Views\\RobotPage.xaml",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RobotPage.xaml",
+              "RelativeToolTip": "AIpaca_App\\Views\\RobotPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-22T10:04:06.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserAchieve.cs",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Models\\UserAchieve.cs",
+              "RelativeDocumentMoniker": "AIpaca_App\\Models\\UserAchieve.cs",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Models\\UserAchieve.cs",
+              "RelativeToolTip": "AIpaca_App\\Models\\UserAchieve.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T04:37:55.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SplashPage.xaml",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-28T08:54:27.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RecordViewModel.cs",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\RecordViewModel.cs",
+              "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\RecordViewModel.cs",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\RecordViewModel.cs",
+              "RelativeToolTip": "AIpaca_App\\ViewModels\\RecordViewModel.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T19:17:30.669Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SplashPage.xaml.cs",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABoAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-28T08:54:29.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AndroidManifest.xml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Platforms\\Android\\AndroidManifest.xml",
               "RelativeDocumentMoniker": "AIpaca_App\\Platforms\\Android\\AndroidManifest.xml",
               "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Platforms\\Android\\AndroidManifest.xml",
               "RelativeToolTip": "AIpaca_App\\Platforms\\Android\\AndroidManifest.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAADAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2024-04-19T19:34:44.65Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AppResources.resx",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.resx",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.resx",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.resx",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-22T10:02:34.186Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppResources.ja.resx",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-22T10:02:41.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AppResources.en.resx",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-22T10:02:33.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApiConfigManager.cs",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\ApiConfigManager.cs",
-              "RelativeDocumentMoniker": "AIpaca_App\\Data\\ApiConfigManager.cs",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\ApiConfigManager.cs",
-              "RelativeToolTip": "AIpaca_App\\Data\\ApiConfigManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T13:23:26.454Z"
             },
             {
               "$type": "Document",
@@ -275,32 +299,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SplashPage.xaml.cs",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml.cs",
-              "ViewState": "AQIAAJwAAAAAAAAAAAAAAK0AAAAsAAAA",
+              "DocumentIndex": 8,
+              "Title": "ApiConfigManager.cs",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\ApiConfigManager.cs",
+              "RelativeDocumentMoniker": "AIpaca_App\\Data\\ApiConfigManager.cs",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\ApiConfigManager.cs",
+              "RelativeToolTip": "AIpaca_App\\Data\\ApiConfigManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-28T08:54:29.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T13:23:26.454Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RobotPage.xaml",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RobotPage.xaml",
-              "RelativeDocumentMoniker": "AIpaca_App\\Views\\RobotPage.xaml",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RobotPage.xaml",
-              "RelativeToolTip": "AIpaca_App\\Views\\RobotPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-22T10:04:06.79Z"
+              "DocumentIndex": 12,
+              "Title": "AppResources.en.resx",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.en.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-04-22T10:02:33.334Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "AppResources.ja.resx",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.ja.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-04-22T10:02:41.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppResources.resx",
+              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.resx",
+              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Localization\\AppResources.resx",
+              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Localization\\AppResources.resx",
+              "RelativeToolTip": "AIpaca_App\\Resources\\Localization\\AppResources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-04-22T10:02:34.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\MainPage.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\MainPage.xaml",
@@ -312,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "LanguageSelectionPopup.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Settings\\LanguageSelectionPopup.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Settings\\LanguageSelectionPopup.xaml",
@@ -324,31 +368,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ChallengeViewModel.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\ChallengeViewModel.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\ChallengeViewModel.cs",
               "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\ChallengeViewModel.cs",
               "RelativeToolTip": "AIpaca_App\\ViewModels\\ChallengeViewModel.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAABAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-28T10:58:45.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "RecordPage.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RecordPage.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\RecordPage.xaml",
               "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RecordPage.xaml",
               "RelativeToolTip": "AIpaca_App\\Views\\RecordPage.xaml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAABDAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAABAwBEAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-19T18:54:21.713Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "RecordPage.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RecordPage.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\RecordPage.xaml.cs",
@@ -360,32 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RecordViewModel.cs",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\RecordViewModel.cs",
-              "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\RecordViewModel.cs",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\RecordViewModel.cs",
-              "RelativeToolTip": "AIpaca_App\\ViewModels\\RecordViewModel.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T19:17:30.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SplashPage.xaml",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Splash\\SplashPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-28T08:54:27.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\MainPage.xaml.cs",
@@ -397,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "ChallengePage.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\ChallengePage.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\ChallengePage.xaml.cs",
@@ -409,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "LanguageChangedMessage.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\LanguageChangedMessage.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\LanguageChangedMessage.cs",
@@ -421,19 +440,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\MainViewModel.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\MainViewModel.cs",
               "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\MainViewModel.cs",
               "RelativeToolTip": "AIpaca_App\\ViewModels\\MainViewModel.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACIAAAArAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAABAwCIAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-19T18:58:53.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\MauiProgram.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\MauiProgram.cs",
@@ -445,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "SettingsPage.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\SettingsPage.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\SettingsPage.xaml.cs",
@@ -457,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "RobotPage.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\RobotPage.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\RobotPage.xaml.cs",
@@ -469,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "LoginPagePopup.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Account\\LoginPagePopup.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Account\\LoginPagePopup.xaml.cs",
@@ -481,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "SignupPagePopup.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Account\\SignupPagePopup.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Account\\SignupPagePopup.xaml.cs",
@@ -493,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "InverseBooleanConverter.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Converters\\InverseBooleanConverter.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Converters\\InverseBooleanConverter.cs",
@@ -505,7 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "LanguageSelectionPopup.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Settings\\LanguageSelectionPopup.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Settings\\LanguageSelectionPopup.xaml.cs",
@@ -517,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "AppShell.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\AppShell.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\AppShell.xaml",
@@ -529,7 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "ApiSettingPopup.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Settings\\ApiSettingPopup.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Settings\\ApiSettingPopup.xaml.cs",
@@ -541,7 +560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "AlertPopup.xaml.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\AlertPopup.xaml.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\AlertPopup.xaml.cs",
@@ -553,19 +572,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "ApiSettingViewModel.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\ApiSettingViewModel.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\ViewModels\\ApiSettingViewModel.cs",
               "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\ViewModels\\ApiSettingViewModel.cs",
               "RelativeToolTip": "AIpaca_App\\ViewModels\\ApiSettingViewModel.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAADgAAAARAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAABAwDgAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T12:47:26.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "AlertPopup.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\AlertPopup.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\AlertPopup.xaml",
@@ -578,18 +597,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 34,
-              "Title": "ApiConfig.xml",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Config\\ApiConfig.xml",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Config\\ApiConfig.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-04-20T08:07:00.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
               "Title": "AIpaca_App.csproj",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\AIpaca_App.csproj",
               "RelativeDocumentMoniker": "AIpaca_App\\AIpaca_App.csproj",
@@ -602,19 +609,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ApiConfig.example.xml",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.example.xml",
-              "RelativeDocumentMoniker": "AIpaca_App\\Resources\\Config\\ApiConfig.example.xml",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.example.xml",
-              "RelativeToolTip": "AIpaca_App\\Resources\\Config\\ApiConfig.example.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-04-28T08:25:22.831Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Data\\DatabaseHelper.cs",
@@ -626,19 +621,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UserAchieve.cs",
-              "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Models\\UserAchieve.cs",
-              "RelativeDocumentMoniker": "AIpaca_App\\Models\\UserAchieve.cs",
-              "ToolTip": "C:\\github\\AIpaca_App\\AIpaca_App\\Models\\UserAchieve.cs",
-              "RelativeToolTip": "AIpaca_App\\Models\\UserAchieve.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T04:37:55.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "ApiConfig.xml",
               "DocumentMoniker": "D:\\Github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
               "ToolTip": "D:\\Github\\AIpaca_App\\AIpaca_App\\Resources\\Config\\ApiConfig.xml",
@@ -659,7 +642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "DatabaseService.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Data\\DatabaseService.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Data\\DatabaseService.cs",
@@ -671,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "AchieveList.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Models\\AchieveList.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Models\\AchieveList.cs",
@@ -695,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "ApiSettingPopup.xaml",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Views\\Settings\\ApiSettingPopup.xaml",
               "RelativeDocumentMoniker": "AIpaca_App\\Views\\Settings\\ApiSettingPopup.xaml",
@@ -707,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "MainActivity.cs",
               "DocumentMoniker": "C:\\github\\AIpaca_App\\AIpaca_App\\Platforms\\Android\\MainActivity.cs",
               "RelativeDocumentMoniker": "AIpaca_App\\Platforms\\Android\\MainActivity.cs",
@@ -719,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "Xamarin.Android.Aapt2.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.52\\tools\\Xamarin.Android.Aapt2.targets",
               "RelativeDocumentMoniker": "..\\..\\Program Files\\dotnet\\packs\\Microsoft.Android.Sdk.Windows\\34.0.52\\tools\\Xamarin.Android.Aapt2.targets",
