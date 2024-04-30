@@ -5,21 +5,18 @@ using AIpaca_App.Data;
 using AIpaca_App.Models;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using Microcharts;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
-using SkiaSharp;
-
 
 namespace AIpaca_App.ViewModels
 {
     public class RecordViewModel : BaseViewModel
     {
-        public Chart? ScoreChart { get; set; }
         private DatabaseService _dbService;
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ICommand LoadRecordsCommand { get; }
         public ICommand AddRecordCommand { get; }
+        public ScoreGraphDrawable GraphDrawable { get; private set; }
 
         public RecordViewModel()
         {
@@ -27,6 +24,7 @@ namespace AIpaca_App.ViewModels
             Records = new ObservableCollection<EvRecord>();
             LoadRecordsCommand = new AsyncCommand(LoadRecords);
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
+            GraphDrawable = new ScoreGraphDrawable();
         }
 
         private async Task LoadRecords()
@@ -39,6 +37,7 @@ namespace AIpaca_App.ViewModels
                 {
                     Records.Insert(0, record); // 역순으로 삽입
                 }
+                UpdateGraph();
             }
             catch (Exception ex)
             {
@@ -52,13 +51,16 @@ namespace AIpaca_App.ViewModels
             if (result == 1)
             {
                 Records.Insert(0, record); // 상단에 insert
-                //await LoadChartData();    // db에 세로운 데이터 insert 하는경우 그래프에도 적용되도록 함
+                UpdateGraph();    // db에 세로운 데이터 insert 하는경우 그래프에도 적용되도록 함
             }
             else
             {
                 await Toast.Make("레코드 추가에 실패했습니다.", ToastDuration.Short).Show();
             }
         }
-
+        private void UpdateGraph()
+        {
+            GraphDrawable.Records = new List<EvRecord>(Records);
+        }
     }
 }
