@@ -25,6 +25,8 @@ namespace AIpaca_App.Data
 
         public Task<List<EvRecord>> GetAllRecordsAsync()
         {
+            //OrderByDescending(x => x.RequestTime)를 사용하여 역순으로 정렬 가능
+            //return db.Table<EvRecord>().OrderByDescending(x => x.RequestTime).ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
             return db.Table<EvRecord>().ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
         }
     }

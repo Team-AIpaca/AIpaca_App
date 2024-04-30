@@ -13,27 +13,47 @@ namespace AIpaca_App.ViewModels
 
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
-            canvas.FillColor = Colors.White;
-            canvas.FillRectangle(dirtyRect);
-
-            if (Records == null || Records.Count == 0)
-                return;
-
             float margin = 20;
-            float graphWidth = dirtyRect.Width - 2 * margin;
-            float graphHeight = dirtyRect.Height - 2 * margin;
-            float xScale = graphWidth / Records.Count;
+            float width = dirtyRect.Width - 2 * margin;
+            float height = dirtyRect.Height - 2 * margin - 30;  // 텍스트 표시 공간을 추가 확보
+            if (Records == null || Records.Count < 2) return;
 
-            for (int i = 0; i < Records.Count - 1; i++)
+            float maxScore = Records.Max(r => r.Score);
+            float minScore = Records.Min(r => r.Score);
+            float range = maxScore - minScore;
+            range = range <= 0 ? 1 : range;
+
+            // 데이터 포인트 간의 최소 간격
+            float minGap = 50; // 최소 50 픽셀 간격
+            float xScale = Math.Max(minGap, width / Records.Count);
+
+            PathF path = new PathF();
+            for (int i = 0; i < Records.Count; i++)
             {
-                var x1 = margin + i * xScale;
-                var y1 = margin + (1 - (Records[i].Score / 100f)) * graphHeight;
-                var x2 = margin + (i + 1) * xScale;
-                var y2 = margin + (1 - (Records[i + 1].Score / 100f)) * graphHeight;
+                float x = margin + i * xScale; // 동적 간격 조정
+                float y = margin + ((maxScore - Records[i].Score) / range) * height;
+                if (i == 0)
+                    path.MoveTo(x, y);
+                else
+                    path.LineTo(x, y);
 
-                canvas.StrokeColor = Colors.Black;
-                canvas.DrawLine(x1, y1, x2, y2);
+                // RequestTime을 그래프 아래에 표시
+                string timeLabel = DateTime.Parse(Records[i].RequestTime).ToString("MM/dd");
+                canvas.FontSize = 12;
+                canvas.FontColor = Colors.DarkGray;
+
+                // 추정 너비 사용: 문자열 길이 * 글자당 평균 너비(약 6픽셀) 
+                float textWidth = timeLabel.Length * 6;
+
+                // 문자열 중앙 정렬을 위한 수정
+                canvas.DrawString(timeLabel, x, height + margin * 1.5f + 10, HorizontalAlignment.Center);
+                //canvas.DrawString(timeLabel, x - textWidth / 2, height + margin * 1.5f + 10, textWidth, 20, HorizontalAlignment.Left, VerticalAlignment.Top);
             }
+
+            canvas.StrokeColor = Colors.Black;
+            canvas.StrokeSize = 2;
+            canvas.DrawPath(path);
         }
+
     }
 }

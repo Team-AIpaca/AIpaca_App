@@ -7,16 +7,20 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
-        <ContentPage.BindingContext>
+    <ContentPage.BindingContext>
         <vm:RecordViewModel />
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout>
-            <GraphicsView x:Name="graphicsView" HeightRequest="200" Drawable="{Binding GraphDrawable}" />
+
+            <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <GraphicsView x:Name="graphicsView" HeightRequest="200" Drawable="{Binding GraphDrawable}" />
+            </Frame>
+
             <CollectionView ItemsSource="{Binding Records}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
+                        <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                             <StackLayout>
                                 <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
                                 <Label Text="{Binding Message}" FontAttributes="Italic"/>
@@ -25,7 +29,6 @@
                                 <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
                                 <Label Text="{Binding TranslatedLang}"/>
                                 <Label Text="{Binding Score, StringFormat=' {0}'}" FontAttributes="Bold"/>
-                                <Label Text="{Binding Score, StringFormat='{0} {1}'}" FontAttributes="Bold"/>
                                 <Label Text="{Binding RecommendedTrans}"/>
                                 <Label Text="{Binding Rating}"/>
                             </StackLayout>
