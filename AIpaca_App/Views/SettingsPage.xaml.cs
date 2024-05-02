@@ -5,6 +5,7 @@ using AIpaca_App.Views.Account;
 using AIpaca_App.ViewModels;
 using AIpaca_App.Views.Settings;
 using AIpaca_App.Data;
+using AIpaca_App.Models;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
@@ -102,5 +103,11 @@ public partial class SettingsPage : ContentPage
     {
         var apisettingpopup = new ApiSettingPopup();
         await this.ShowPopupAsync(apisettingpopup);
+    }
+
+    private async void OnErrorLogButtonClicked(object sender, EventArgs e)
+    {
+        var errorLogPage = new LogPage();
+        await this.Navigation.PushAsync(errorLogPage);
     }
 }

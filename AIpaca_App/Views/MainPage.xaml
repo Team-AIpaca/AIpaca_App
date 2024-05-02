@@ -18,7 +18,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- 왼쪽 언어 선택 Picker -->
-                <Frame Grid.Column="0" CornerRadius="10" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}"> 
+                <Frame Grid.Column="0" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}"> 
                     <!-- 왼쪽 언어 선택 Picker -->
                     <Picker x:Name="LeftLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}" SelectedIndexChanged="LeftLanguagePicker_SelectedIndexChanged">
                         <Picker.ItemsSource>
@@ -36,7 +36,7 @@
                 <Button Grid.Column="1" Text="⇆" Clicked="OnSwitchLanguageClicked"/>
 
                 <!-- 오른쪽 언어 선택 Picker -->
-                <Frame Grid.Column="2" CornerRadius="10" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <Frame Grid.Column="2" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                     <Picker x:Name="RightLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}" SelectedIndexChanged="RightLanguagePicker_SelectedIndexChanged">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
@@ -60,13 +60,13 @@
                 <!-- 첫 번째 Editor를 담을 Grid -->
                 <Grid Grid.Row="0" Grid.Column="0" Margin="5,5,5,5">
                     <!-- 아래쪽 Editor와의 간격을 위한 마진 설정 -->
-                    <Frame CornerRadius="10" BorderColor="LightGray" Padding="5" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                    <Frame CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="5" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                         <Editor x:Name="InputEditor" Text="{Binding OriginalText, Mode=TwoWay}" Grid.Row="0" Placeholder="{x:Static resources:AppResources.text_to_be_translated}" AutoSize="TextChanges" MinimumHeightRequest="100"/>
                     </Frame>
                 </Grid>
                 <!-- 두 번째 Editor를 담을 Grid -->
                 <Grid Grid.Row="1" Grid.Column="1" Margin="5,5,5,5">
-                    <Frame CornerRadius="10" BorderColor="LightGray" Padding="5" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                    <Frame CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="5" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                         <Editor x:Name="TranslatedEditor" Text="{Binding TranslatedText, Mode=TwoWay}" Grid.Row="1" Placeholder="{x:Static resources:AppResources.translated_text}" AutoSize="TextChanges" MinimumHeightRequest="100"/>
                     </Frame>
                 </Grid>
@@ -76,7 +76,7 @@
             <Button Text="{x:Static resources:AppResources.evaluate}" Command="{Binding EvaluateTranslationCommand}"  />
 
             <!-- 텍스트 반환 값 출력 -->
-            <Frame Grid.Column="0" CornerRadius="10" Padding="10" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <Frame Grid.Column="0" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="10" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <Label x:Name="TranslatedTextLabel" Text="{Binding TranslationResult}" />
             </Frame>
 

@@ -13,11 +13,14 @@ namespace AIpaca_App.Data
 
         public DatabaseService()
         {
-            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "records.db");
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppLog.db");
             db = new SQLiteAsyncConnection(dbPath);
-            db.CreateTableAsync<EvRecord>().Wait(); // 비동기 테이블 생성을 동기적으로 기다립니다
+            db.CreateTableAsync<EvRecord>().Wait(); // EvRecord 테이블 생성
+            db.CreateTableAsync<Log>().Wait(); // ErrorLog 테이블 생성
+            db.CreateTableAsync<AchieveList>().Wait();
+            db.CreateTableAsync<UserAchieve>().Wait();
         }
-
+        #region Record 관련 메서드
         public Task<int> AddRecordAsync(EvRecord record)
         {
             return db.InsertAsync(record);
@@ -29,5 +32,18 @@ namespace AIpaca_App.Data
             //return db.Table<EvRecord>().OrderByDescending(x => x.RequestTime).ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
             return db.Table<EvRecord>().ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
         }
+        #endregion
+
+        #region ErrorLog 관련 메서드
+        public Task<int> AddLogAsync(Log log)
+        {
+            return db.InsertAsync(log);
+        }
+
+        public Task<List<Log>> GetAllLogsAsync()
+        {
+            return db.Table<Log>().OrderByDescending(x => x.Timestamp).ToListAsync(); // 역순으로 정렬하여 모든 오류 로그 가져오기
+        }
+        #endregion
     }
 }

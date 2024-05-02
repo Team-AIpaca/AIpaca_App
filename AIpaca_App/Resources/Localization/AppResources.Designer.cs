@@ -179,6 +179,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   에러로그과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string errorlog {
+            get {
+                return ResourceManager.GetString("errorlog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   평가받기과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string evaluate {

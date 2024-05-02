@@ -12,7 +12,7 @@ namespace AIpaca_App.ViewModels
 {
     public class RecordViewModel : BaseViewModel
     {
-        private DatabaseService _dbService;
+        private DatabaseService databaseService;
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ObservableCollection<EvRecord> GraphRecords { get; private set; }
         public ICommand LoadRecordsCommand { get; }
@@ -21,7 +21,7 @@ namespace AIpaca_App.ViewModels
 
         public RecordViewModel()
         {
-            _dbService = new DatabaseService();
+            databaseService = new DatabaseService();
             Records = new ObservableCollection<EvRecord>();
             GraphRecords = new ObservableCollection<EvRecord>();
             LoadRecordsCommand = new AsyncCommand(LoadRecords);
@@ -34,7 +34,7 @@ namespace AIpaca_App.ViewModels
             try
             {
                 Records.Clear();
-                var records = await _dbService.GetAllRecordsAsync();
+                var records = await databaseService.GetAllRecordsAsync();
                 foreach (var record in records)
                 {
                     Records.Insert(0, record); // 역순으로 삽입
@@ -49,7 +49,7 @@ namespace AIpaca_App.ViewModels
 
         private async Task AddRecord(EvRecord record)
         {
-            var result = await _dbService.AddRecordAsync(record);
+            var result = await databaseService.AddRecordAsync(record);
             if (result == 1)
             {
                 Records.Insert(0, record); // 상단에 insert
@@ -64,8 +64,9 @@ namespace AIpaca_App.ViewModels
         private void UpdateGraphRecords()
         {
             GraphRecords.Clear();
-            // 그래프에는 30개의 항목만 들어감
-            foreach (var record in Records.OrderByDescending(r => r.RequestTime).Take(30))
+            // 그래프에는 30개의 항목만 들어감, 반대로 정렬하여 최신 데이터가 오른쪽에 위치하도록 함
+            var latestRecords = Records.OrderBy(r => r.RequestTime).TakeLast(30);
+            foreach (var record in latestRecords)
             {
                 GraphRecords.Add(record);
             }

@@ -144,6 +144,9 @@
   <data name="en" xml:space="preserve">
     <value>英語</value>
   </data>
+  <data name="errorlog" xml:space="preserve">
+    <value>Error Log</value>
+  </data>
   <data name="error_connection" xml:space="preserve">
     <value>接続エラーです</value>
   </data>

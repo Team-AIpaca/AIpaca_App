@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AIpaca_App.Data;
+using AIpaca_App.Models;
 using AIpaca_App.Resources.Localization;
 using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
@@ -11,9 +12,12 @@ namespace AIpaca_App.Resources.Splash
 {
     public partial class SplashPage : ContentPage
     {
+        private DatabaseService databaseService;
+
         public SplashPage()
-        {
+        { 
             InitializeComponent();
+            databaseService = new DatabaseService();
             InitializeApp();
         }
 
@@ -82,7 +86,17 @@ namespace AIpaca_App.Resources.Splash
                 try
                 {
                     var response = await client.GetAsync(requestUri);
-                    if (response.IsSuccessStatusCode) return true;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // 성공 시도 횟수를 ErrorLog에 기록
+                        await databaseService.AddLogAsync(new Log
+                        {
+                            Message = $"인터넷 연결 성공 : 시도 횟수: {retryCount + 1}",
+                            Timestamp = DateTime.UtcNow
+                        });
+                        return true;
+                    }
+                    
                 }
                 catch (TaskCanceledException)
                 {
@@ -100,6 +114,11 @@ namespace AIpaca_App.Resources.Splash
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 statusLabel.Text = "네트워크 오류";
+            });
+            await databaseService.AddLogAsync(new Log
+            {
+                Message = $"인터넷 연결 실패",
+                Timestamp = DateTime.UtcNow
             });
             return false;  // 모든 재시도 실패 시 false 반환
         }

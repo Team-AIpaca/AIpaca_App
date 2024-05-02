@@ -28,7 +28,7 @@ namespace AIpaca_App.ViewModels
         private string _originalLang = string.Empty;
         private string _translatedLang = string.Empty;
         private string _translationResult = string.Empty;
-        private DatabaseService _dbService;
+        private DatabaseService databaseService;
 
         public MainViewModel(DatabaseService dbService)
         {
@@ -48,7 +48,7 @@ namespace AIpaca_App.ViewModels
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
 
             EvaluateTranslationCommand = new AsyncRelayCommand(EvaluateTranslationWrapper);
-            _dbService = dbService;
+            databaseService = dbService;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -121,20 +121,35 @@ namespace AIpaca_App.ViewModels
                 {
                     // 로그인 성공
                     IsLoggedIn = true;
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = $"Login Success",
+                        Timestamp = DateTime.UtcNow
+                    });
                     return true;
                 }
                 else
                 {
-                    // 로그인 실패, 에러 메시지와 코드를 처리합니다.
+                    // 로그인 실패, 에러 메시지와 코드를 처리합니다.                    
                     var responseContent = await response.Content.ReadAsStringAsync();
                     var responseObject = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                     LastErrorMessage = $"Error {responseObject?.StatusCode}: {responseObject?.message}";
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = $"Login Failed : {LastErrorMessage}",
+                        Timestamp = DateTime.UtcNow
+                    });
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                LastErrorMessage = $"Network error: {ex.Message}";
+                LastErrorMessage = $"Network Error: {ex.Message}";
+                await databaseService.AddLogAsync(new Log
+                {
+                    Message = LastErrorMessage,
+                    Timestamp = DateTime.UtcNow
+                });
                 return false;
             }
         }
@@ -142,9 +157,14 @@ namespace AIpaca_App.ViewModels
         public string LastErrorMessage { get; private set; }
 
         // 로그아웃 로직 예시
-        public void Logout()
+        public async void Logout()
         {
             IsLoggedIn = false;
+            await databaseService.AddLogAsync(new Log
+            {
+                Message = $"Logout",
+                Timestamp = DateTime.UtcNow
+            });
         }
         #endregion
 
@@ -350,10 +370,14 @@ namespace AIpaca_App.ViewModels
                             RecommendedTrans = result.RecommandedTrans ?? "No recommendation",
                             Rating = result.Rating ?? "No rating"
                         };
-                        // 데이터베이스에 레코드 저장
-                        await _dbService.AddRecordAsync(record);
-
                         TranslationResult = $"{score} : {result?.Score}\n{recommend}: {result?.RecommandedTrans}\n{result?.Rating}";
+                        // 데이터베이스에 레코드 저장
+                        await databaseService.AddRecordAsync(record);
+                        await databaseService.AddLogAsync(new Log
+                        {
+                            Message = $"API Request Successful : {record}",
+                            Timestamp = DateTime.UtcNow
+                        });
                     }
                     else
                     {
@@ -365,11 +389,22 @@ namespace AIpaca_App.ViewModels
                     var errorMessage = $"오류 발생: {apiResponse?.StatusCode} - {apiResponse?.message}";
                     //await Toast.Make(errorMessage, ToastDuration.Long).Show();
                     TranslationResult = errorMessage;
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = errorMessage,
+                        Timestamp = DateTime.UtcNow
+                    });
                 }
             }
             catch (Exception ex)
             {
                 await Toast.Make($"네트워크 오류가 발생했습니다: {ex.Message}", ToastDuration.Long).Show();
+                TranslationResult = " 네트워크 오류가 발생했습니다\n 다시 시도해주세요";
+                await databaseService.AddLogAsync(new Log
+                {
+                    Message = $"API Request Failed : {ex.Message}",
+                    Timestamp = DateTime.UtcNow
+                });
             }
         }
 
