@@ -340,9 +340,9 @@ namespace AIpaca_App.ViewModels
                         var result = apiResponse.data.result;
                         var record = new EvRecord
                         {
-                            OriginalText = originalText,
+                            OriginalText = " " + originalText,
                             OriginalLang = originalLang,
-                            TranslatedText = translatedText,
+                            TranslatedText = " " + translatedText,
                             TranslatedLang = translatedLang,
                             Message = apiResponse.message ?? "No message",
                             RequestTime = apiResponse.data?.RequestTime ?? "No timestamp",
@@ -400,3 +400,4 @@ namespace AIpaca_App.ViewModels
         #endregion
     }
 }
+ 
