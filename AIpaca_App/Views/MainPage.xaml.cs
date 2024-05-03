@@ -14,6 +14,9 @@ namespace AIpaca_App.Views
             var databaseService = new DatabaseService();
             _viewModel = new MainViewModel(databaseService);
             BindingContext = _viewModel;
+            _viewModel.SetOriginalLang(LeftLanguagePicker.SelectedIndex);
+            _viewModel.SetTranslatedLang(RightLanguagePicker.SelectedIndex);
+
         }
 
         private void OnSwitchLanguageClicked(object sender, EventArgs e)

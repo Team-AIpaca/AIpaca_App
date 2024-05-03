@@ -210,6 +210,9 @@ namespace AIpaca_App.ViewModels
         {
             switch (selectedIndex)
             {
+                default:
+                    OriginalLang = "ko";
+                    break;
                 case 0:
                     OriginalLang = "ko"; // 한국어
                     break;
