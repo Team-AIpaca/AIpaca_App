@@ -4,60 +4,112 @@
              x:Class="AIpaca_App.Views.RobotPage"
              xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
+             BackgroundColor="{DynamicResource DefaultPageBackgroundColor}"
+             xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+             x:DataType="vm:RobotViewModel">
 
-    <VerticalStackLayout Spacing="25" Padding="20">
-        <!--구글 번역기-->
-        <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <Label Text="{x:Static resources:AppResources.googletranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </toolkit:Expander.Header>
-                <VerticalStackLayout>
-                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </VerticalStackLayout>
-            </toolkit:Expander>
-        </Frame>
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="20">
 
-        <!--파파고-->
-        <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <Label Text="{x:Static resources:AppResources.papagotranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </toolkit:Expander.Header>
-                <VerticalStackLayout>
-                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </VerticalStackLayout>
-            </toolkit:Expander>
-        </Frame>
-        
-        <!--DeepL 번역기-->
-        <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <Label Text="{x:Static resources:AppResources.deepltranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </toolkit:Expander.Header>
-                <VerticalStackLayout>
-                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </VerticalStackLayout>
-            </toolkit:Expander>
-        </Frame>
-        
-        <!--LibreTranslate  번역기-->
-        <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <Label Text="{x:Static resources:AppResources.libretranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </toolkit:Expander.Header>
-                <VerticalStackLayout>
-                    <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                    <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                </VerticalStackLayout>
-            </toolkit:Expander>
-        </Frame>
-    </VerticalStackLayout>
+            <Label Text="{x:Static resources:AppResources.text_to_be_translated}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+            <!-- 왼쪽 언어 선택 Picker -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                    <!-- 왼쪽 언어 선택 Picker -->
+                    <Picker x:Name="LeftLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}" SelectedIndexChanged="LeftLanguagePicker_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>한국어</x:String>
+                                <x:String>English</x:String>
+                                <x:String>日本語</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                </Frame>
+
+                <!-- 언어 변경 버튼 -->
+                <Button Grid.Column="1" Text="⇆" Clicked="OnSwitchLanguageClicked"/>
+
+                <!-- 오른쪽 언어 선택 Picker -->
+                <Frame Grid.Column="2" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="0" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                    <Picker x:Name="RightLanguagePicker" Title="{x:Static resources:AppResources.selectlanguage}" SelectedIndexChanged="RightLanguagePicker_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>한국어</x:String>
+                                <x:String>English</x:String>
+                                <x:String>日本語</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        <Picker.SelectedIndex>1</Picker.SelectedIndex>
+                    </Picker>
+                </Frame>
+            </Grid>
+
+            <!-- 번역할 텍스트 입력창 -->
+            <Frame CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="5" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <Editor x:Name="InputEditor" Text="{Binding OriginalTransText, Mode=TwoWay}" Grid.Row="0" Placeholder="{x:Static resources:AppResources.text_to_be_translated}" AutoSize="TextChanges" MinimumHeightRequest="100"/>
+            </Frame>
+
+            <!-- 번역 버튼 -->
+            <Button Text="{x:Static resources:AppResources.translation}" Clicked="OnTranslationButtonClicked"  />
+            
+            <!--구글 번역기-->
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="{x:Static resources:AppResources.googletranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label x:Name="TranslatedTextLabel" Text="{Binding GoogleTranslationResult}" />
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Frame>
+
+            <!--파파고-->
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="{x:Static resources:AppResources.papagotranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                        <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Frame>
+
+            <!--DeepL 번역기-->
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="{x:Static resources:AppResources.deepltranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                        <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Frame>
+
+            <!--LibreTranslate  번역기-->
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="{x:Static resources:AppResources.libretranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label Text="1번1" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                        <Label Text="1번2" FontAttributes="Bold" VerticalOptions="Center" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
 

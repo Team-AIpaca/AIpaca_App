@@ -239,6 +239,9 @@
   <data name="translated_text" xml:space="preserve">
     <value>번역된 텍스트</value>
   </data>
+  <data name="translation" xml:space="preserve">
+    <value>번역</value>
+  </data>
   <data name="update" xml:space="preserve">
     <value>업데이트</value>
   </data>

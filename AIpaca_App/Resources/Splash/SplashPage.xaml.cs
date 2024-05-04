@@ -71,7 +71,7 @@ namespace AIpaca_App.Resources.Splash
         private async Task<bool> CheckInternetConnectionAsync()
         {
             await Task.Delay(500);
-            var (baseUrl, _, _, _, pingEndpoint) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, _, _, _, pingEndpoint, _) = ApiConfigManager.LoadApiConfig();
             var requestUri = $"{baseUrl}{pingEndpoint}";
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
 

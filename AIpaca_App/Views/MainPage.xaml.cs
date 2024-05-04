@@ -34,14 +34,15 @@ namespace AIpaca_App.Views
             TranslatedEditor.Text = tempText;
         }
 
-        public void OnEvaluateButtonClicked(object sender, EventArgs e)
-        {
-            // Command 실행
-            if (_viewModel.EvaluateTranslationCommand.CanExecute(null))
-            {
-                _viewModel.EvaluateTranslationCommand.Execute(null);
-            }
-        }
+        // 버튼 클릭 이벤트 없이 구현됨
+        // public void OnEvaluateButtonClicked(object sender, EventArgs e)
+        // {
+        //     // Command 실행
+        //     if (_viewModel.EvaluateTranslationCommand.CanExecute(null))
+        //     {
+        //         _viewModel.EvaluateTranslationCommand.Execute(null);
+        //     }
+        // }
 
         private void LeftLanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
         {

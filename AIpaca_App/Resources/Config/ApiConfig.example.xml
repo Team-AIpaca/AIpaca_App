@@ -6,6 +6,7 @@
     <SignupEndpoint>api/user/signup</SignupEndpoint>
     <GeminiEndpoint>api/evaluation/gemini</GeminiEndpoint>
     <PingEndpoint>ping</PingEndpoint>
+    <GoogleTransEndpoint>api/trans/googletrans</GoogleTransEndpoint>
   </ApiSettings>
 </configuration>
 <!--속성 - 빌드 작업 : 포함 리소스-->

@@ -1,11 +1,12 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Xml.Linq;
 
 namespace AIpaca_App.Data
 {
     public static class ApiConfigManager
     {
-        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string GeminiEndpoint, string PingEndpoint) LoadApiConfig()
+        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string GeminiEndpoint, string PingEndpoint, string googletrans) LoadApiConfig()
         {
             var assembly = typeof(ApiConfigManager).GetTypeInfo().Assembly;
             var resourceName = "AIpaca_App.Resources.Config.ApiConfig.xml";
@@ -20,8 +21,9 @@ namespace AIpaca_App.Data
             var signupEndpoint = apiSettings.Element("SignupEndpoint")?.Value ?? string.Empty;
             var geminiEndpoint = apiSettings.Element("GeminiEndpoint")?.Value ?? string.Empty;
             var pingEndpoint = apiSettings.Element("PingEndpoint")?.Value ?? string.Empty;
+            var googletrans = apiSettings.Element("GoogleTransEndpoint")?.Value ?? string.Empty;
 
-            return (baseUrl, loginEndpoint, signupEndpoint, geminiEndpoint, pingEndpoint);
+            return (baseUrl, loginEndpoint, signupEndpoint, geminiEndpoint, pingEndpoint, googletrans);
         }
     }
 }

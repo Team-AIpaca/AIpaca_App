@@ -77,5 +77,7 @@ namespace AIpaca_App.ViewModels
         {
             GraphDrawable.Records = new List<EvRecord>(GraphRecords);
         }
+
+        
     }
 }

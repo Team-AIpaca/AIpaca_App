@@ -38,12 +38,13 @@ namespace AIpaca_App.ViewModels
             _appVersion = AppInfo.VersionString;
 
             // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
-            var (baseUrl, loginEndpoint, signupEndpoint, _, _) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, loginEndpoint, signupEndpoint, _, _, _) = ApiConfigManager.LoadApiConfig();
             _loginEndpoint = $"{baseUrl}{loginEndpoint}";
             _signupEndpoint = $"{baseUrl}{signupEndpoint}";
 
             // 에러 메시지 초기화
             LastErrorMessage = string.Empty;
+
             // 로그인 상태 초기화
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
 
@@ -210,9 +211,6 @@ namespace AIpaca_App.ViewModels
         {
             switch (selectedIndex)
             {
-                default:
-                    OriginalLang = "ko";
-                    break;
                 case 0:
                     OriginalLang = "ko"; // 한국어
                     break;
@@ -220,7 +218,7 @@ namespace AIpaca_App.ViewModels
                     OriginalLang = "en"; // 영어
                     break;
                 case 2:
-                    OriginalLang = "jp"; // 일본어
+                    OriginalLang = "ja"; // 일본어
                     break;
             }
         }
@@ -236,7 +234,7 @@ namespace AIpaca_App.ViewModels
                     TranslatedLang = "en"; // 영어
                     break;
                 case 2:
-                    TranslatedLang = "jp"; // 일본어
+                    TranslatedLang = "ja"; // 일본어
                     break;
             }
         }
@@ -303,7 +301,7 @@ namespace AIpaca_App.ViewModels
 
         public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
         {
-            var (baseUrl, _, _, geminiEndpoint, _) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, _, _, geminiEndpoint, _, _) = ApiConfigManager.LoadApiConfig();
 
             // 사용자가 입력한 API 키를 Preferences에서 불러옵니다.
             var userApiKey = await SecureStorage.GetAsync("GeminiApiKey");

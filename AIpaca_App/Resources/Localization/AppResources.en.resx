@@ -239,6 +239,9 @@ It needs to be updated.</value>
   <data name="translated_text" xml:space="preserve">
     <value>Translated text</value>
   </data>
+  <data name="translation" xml:space="preserve">
+    <value>Translation</value>
+  </data>
   <data name="update" xml:space="preserve">
     <value>Update</value>
   </data>

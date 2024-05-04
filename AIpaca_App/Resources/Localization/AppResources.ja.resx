@@ -243,6 +243,9 @@
   <data name="translated_text" xml:space="preserve">
     <value>テキストを翻訳しました</value>
   </data>
+  <data name="translation" xml:space="preserve">
+    <value>Translation</value>
+  </data>
   <data name="update" xml:space="preserve">
     <value>更新します</value>
   </data>

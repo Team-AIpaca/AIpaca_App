@@ -19,6 +19,7 @@ namespace AIpaca_App.Data
             db.CreateTableAsync<Log>().Wait(); // ErrorLog 테이블 생성
             db.CreateTableAsync<AchieveList>().Wait();
             db.CreateTableAsync<UserAchieve>().Wait();
+            db.CreateTableAsync<TransRecord>().Wait();
         }
         #region Record 관련 메서드
         public Task<int> AddRecordAsync(EvRecord record)
@@ -31,6 +32,18 @@ namespace AIpaca_App.Data
             //OrderByDescending(x => x.RequestTime)를 사용하여 역순으로 정렬 가능
             //return db.Table<EvRecord>().OrderByDescending(x => x.RequestTime).ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
             return db.Table<EvRecord>().ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
+        }
+        #endregion
+
+        #region TransRecord 관련 메서드
+        public Task<int> AddTransAsync(TransRecord trecord)
+        {
+            return db.InsertAsync(trecord);
+        }
+
+        public Task<List<TransRecord>> GetAllTransAsync()
+        {
+            return db.Table<TransRecord>().ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
         }
         #endregion
 

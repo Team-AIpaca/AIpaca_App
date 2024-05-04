@@ -74,7 +74,7 @@
 
             <!-- 평가받기 버튼 -->
             <Button Text="{x:Static resources:AppResources.evaluate}" Command="{Binding EvaluateTranslationCommand}"  />
-
+            
             <!-- 텍스트 반환 값 출력 -->
             <Frame Grid.Column="0" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="10" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <Label x:Name="TranslatedTextLabel" Text="{Binding TranslationResult}" />
