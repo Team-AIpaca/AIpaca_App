@@ -10,39 +10,38 @@
     <ContentPage.BindingContext>
         <vm:RecordViewModel />
     </ContentPage.BindingContext>
-    <ScrollView>
-        <VerticalStackLayout>
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+        <ScrollView Scrolled="ScrollView_Scrolled">
+            <VerticalStackLayout>
 
+                <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                    <ScrollView Orientation="Horizontal">
+                        <GraphicsView x:Name="graphicsView" HeightRequest="200" WidthRequest="{Binding GraphWidth}" Drawable="{Binding GraphDrawable}" />
+                    </ScrollView>
+                </Frame>
 
-            <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <ScrollView Orientation="Horizontal">
-                    <GraphicsView x:Name="graphicsView" HeightRequest="200" WidthRequest="{Binding GraphWidth}" Drawable="{Binding GraphDrawable}" />
-                </ScrollView>
-            </Frame>
-
-
-            <CollectionView ItemsSource="{Binding Records}" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                            <StackLayout>
-                                <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
-                                <Label Text="{Binding Message}" FontAttributes="Italic"/>
-                                <Label Text="{Binding OriginalText, StringFormat='Original: {0}'}" />
-                                <Label Text="{Binding OriginalLang}"/>
-                                <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
-                                <Label Text="{Binding TranslatedLang}"/>
-                                <Label Text="{Binding Score, StringFormat=' {0}'}" FontAttributes="Bold"/>
-                                <Label Text="{Binding RecommendedTrans}"/>
-                                <Label Text="{Binding Rating}"/>
-                            </StackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
-
+                <CollectionView ItemsSource="{Binding Records}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                                <StackLayout>
+                                    <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Message}" FontAttributes="Italic"/>
+                                    <Label Text="{Binding OriginalText, StringFormat='Original: {0}'}" />
+                                    <Label Text="{Binding OriginalLang}"/>
+                                    <Label Text="{Binding TranslatedText, StringFormat='Translated: {0}'}"/>
+                                    <Label Text="{Binding TranslatedLang}"/>
+                                    <Label Text="{Binding Score, StringFormat=' {0}'}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding RecommendedTrans}"/>
+                                    <Label Text="{Binding Rating}"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
 </ContentPage>
 
 

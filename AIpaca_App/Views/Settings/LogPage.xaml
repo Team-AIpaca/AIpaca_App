@@ -11,9 +11,9 @@
         <vm:LogViewModel />
     </ContentPage.BindingContext>
 
-    <ScrollView>
+    <ScrollView Scrolled="ScrollView_Scrolled">
         <VerticalStackLayout>
-            <CollectionView ItemsSource="{Binding Logs}" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
+            <CollectionView ItemsSource="{Binding Logs}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
@@ -27,5 +27,6 @@
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
+
 
 </ContentPage>

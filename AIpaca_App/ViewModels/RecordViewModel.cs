@@ -16,16 +16,25 @@ namespace AIpaca_App.ViewModels
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ObservableCollection<EvRecord> GraphRecords { get; private set; }
 
-        private const int PageSize = 5; // 페이지당 로드할 데이터 개수
+        private const int PageSize = 10; // 페이지당 로드할 데이터 개수
         private int _currentPage = 0;
-        private bool _isLoading = false;
+        public bool _isLoading = false;
+        private bool _isLastPage = false;
 
         public AsyncCommand LoadRecordsCommand { get; }
         public AsyncCommand<EvRecord> AddRecordCommand { get; }
         public AsyncCommand LoadNextPageCommand { get; }
+        public AsyncCommand RefreshCommand { get; }
 
         public ScoreGraphDrawable GraphDrawable { get; private set; }
         public double GraphWidth => GraphRecords.Count * 50; // 너비를 조정할 속성
+
+        private bool _isRefreshing;
+        public bool IsRefreshing
+        {
+            get => _isRefreshing;
+            set => SetProperty(ref _isRefreshing, value);
+        }
 
         public RecordViewModel()
         {
@@ -35,12 +44,13 @@ namespace AIpaca_App.ViewModels
             LoadRecordsCommand = new AsyncCommand(() => LoadRecords(0)); // 첫 페이지 로드
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
             LoadNextPageCommand = new AsyncCommand(LoadNextPage);
+            RefreshCommand = new AsyncCommand(RefreshGraph);
             GraphDrawable = new ScoreGraphDrawable();
         }
 
         public async Task LoadRecords(int pageNumber)
         {
-            if (_isLoading) return;
+            if (_isLoading || _isLastPage) return;
 
             _isLoading = true;
 
@@ -54,6 +64,7 @@ namespace AIpaca_App.ViewModels
                 Records.Add(record);
             }
 
+            _isLastPage = recordList.Count < PageSize;
             _currentPage = pageNumber;
             _isLoading = false;
 
@@ -62,6 +73,8 @@ namespace AIpaca_App.ViewModels
 
         public async Task LoadNextPage()
         {
+            if (_isLastPage || _isLoading) return;
+
             await LoadRecords(_currentPage + 1);
         }
 
@@ -71,7 +84,7 @@ namespace AIpaca_App.ViewModels
             if (result == 1)
             {
                 Records.Insert(0, record); // 상단에 insert
-                UpdateGraphRecords(); // db에 세로운 데이터 insert 하는경우 그래프에도 적용되도록 함
+                UpdateGraphRecords();
             }
             else
             {
@@ -83,7 +96,7 @@ namespace AIpaca_App.ViewModels
         {
             GraphRecords.Clear();
             // 그래프에는 30개의 항목만 들어감, 반대로 정렬하여 최신 데이터가 오른쪽에 위치하도록 함
-            var latestRecords = Records.OrderBy(r => r.RequestTime).TakeLast(30);
+            var latestRecords = Records.OrderBy(r => r.RequestTime).TakeLast(20);
             foreach (var record in latestRecords)
             {
                 GraphRecords.Add(record);
@@ -97,6 +110,15 @@ namespace AIpaca_App.ViewModels
             OnPropertyChanged(nameof(GraphWidth)); // GraphWidth 업데이트 알림
         }
 
-        
+        private async Task RefreshGraph()
+        {
+            IsRefreshing = true;
+
+            // 전체 데이터를 다시 로드하여 그래프를 새로 고침
+            await LoadRecords(0);
+
+            IsRefreshing = false;
+        }
+
     }
 }

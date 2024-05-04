@@ -21,8 +21,8 @@ namespace AIpaca_App.ViewModels
 
         private const int PageSize = 15; // 페이지당 로드할 데이터 개수
         private int _currentPage = 0;
-        private bool _isLoading = false;
-        private bool _isLastPage = false; // 마지막 페이지 여부 플래그
+        public bool _isLoading = false;
+        private bool _isLastPage = false;
 
         public LogViewModel()
         {
@@ -41,12 +41,14 @@ namespace AIpaca_App.ViewModels
 
             if (pageNumber == 0) Logs.Clear(); // 첫 페이지 로드 시 이전 데이터 지우기
 
-            foreach (var log in logList)
+            if (logList.Count > 0)
             {
-                Logs.Add(log);
+                foreach (var log in logList)
+                {
+                    Logs.Add(log);
+                }
             }
 
-            // 다음 페이지가 없는 경우 마지막 페이지로 간주
             _isLastPage = logList.Count < PageSize;
             _currentPage = pageNumber;
             _isLoading = false;
@@ -54,6 +56,8 @@ namespace AIpaca_App.ViewModels
 
         public async Task LoadNextPage()
         {
+            if (_isLastPage || _isLoading) return;
+
             await LoadLogs(_currentPage + 1);
         }
     }
