@@ -10,12 +10,13 @@
     <ContentPage.BindingContext>
         <vm:RecordViewModel />
     </ContentPage.BindingContext>
+    
     <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
         <ScrollView Scrolled="ScrollView_Scrolled">
             <VerticalStackLayout>
 
                 <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                    <ScrollView Orientation="Horizontal">
+                    <ScrollView x:Name="graphicsScrollView" Orientation="Horizontal">
                         <GraphicsView x:Name="graphicsView" HeightRequest="200" WidthRequest="{Binding GraphWidth}" Drawable="{Binding GraphDrawable}" />
                     </ScrollView>
                 </Frame>

@@ -95,7 +95,7 @@ namespace AIpaca_App.ViewModels
         private void UpdateGraphRecords()
         {
             GraphRecords.Clear();
-            // 그래프에는 30개의 항목만 들어감, 반대로 정렬하여 최신 데이터가 오른쪽에 위치하도록 함
+            // 그래프에는 20개의 항목만 들어감, 반대로 정렬하여 최신 데이터가 오른쪽에 위치하도록 함
             var latestRecords = Records.OrderBy(r => r.RequestTime).TakeLast(20);
             foreach (var record in latestRecords)
             {
@@ -116,6 +116,8 @@ namespace AIpaca_App.ViewModels
 
             // 전체 데이터를 다시 로드하여 그래프를 새로 고침
             await LoadRecords(0);
+
+            UpdateGraphRecords();
 
             IsRefreshing = false;
         }
