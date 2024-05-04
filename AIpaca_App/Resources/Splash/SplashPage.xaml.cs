@@ -25,8 +25,8 @@ namespace AIpaca_App.Resources.Splash
         {
             try
             {
-                await Task.Delay(1000);
-                statusLabel.Text = "앱 로딩중..";
+                await Task.Delay(300);
+                statusLabel.Text = "Loading..";
 
                 // 인터넷 연결 확인
                 if (await CheckInternetConnectionAsync())
@@ -55,7 +55,7 @@ namespace AIpaca_App.Resources.Splash
             }
             catch (Exception)
             {
-                await Toast.Make("오류").Show();
+                await Toast.Make("Error").Show();
                 // 오류 발생시 ApiConfig.xml 확인
             }
             finally
@@ -70,7 +70,7 @@ namespace AIpaca_App.Resources.Splash
 
         private async Task<bool> CheckInternetConnectionAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(300);
             var (baseUrl, _, _, _, pingEndpoint, _) = ApiConfigManager.LoadApiConfig();
             var requestUri = $"{baseUrl}{pingEndpoint}";
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
@@ -82,7 +82,7 @@ namespace AIpaca_App.Resources.Splash
             while (retryCount < maxRetries)
             {
 
-                await Task.Delay(1000); // 재시도 전 1초 대기
+                await Task.Delay(500); // 재시도 대기
                 try
                 {
                     var response = await client.GetAsync(requestUri);
@@ -91,33 +91,32 @@ namespace AIpaca_App.Resources.Splash
                         // 성공 시도 횟수를 ErrorLog에 기록
                         await databaseService.AddLogAsync(new Log
                         {
-                            Message = $"인터넷 연결 성공 : 시도 횟수: {retryCount + 1}",
+                            Message = $"Server connection successful - Count : {retryCount + 1}",
                             Timestamp = DateTime.UtcNow
                         });
                         return true;
                     }
-                    
                 }
                 catch (TaskCanceledException)
                 {
                     // 타임아웃 로그 업데이트
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        statusLabel.Text = $"서버 연결 시도중 {retryCount + 1}/{maxRetries}..";
+                        statusLabel.Text = $"Connecting to server - Count :  {retryCount + 1}/{maxRetries}..";
                     });
                 }
 
                 retryCount++;
-                await Task.Delay(1000); // 재시도 전 1초 대기
+                await Task.Delay(500); // 재시도 대기
             }
             // 기타 예외 로그
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                statusLabel.Text = "네트워크 오류";
+                statusLabel.Text = "Server connection failed";
             });
             await databaseService.AddLogAsync(new Log
             {
-                Message = $"인터넷 연결 실패",
+                Message = $"{statusLabel.Text}",
                 Timestamp = DateTime.UtcNow
             });
             return false;  // 모든 재시도 실패 시 false 반환
@@ -129,15 +128,15 @@ namespace AIpaca_App.Resources.Splash
         {
             try
             {
-                statusLabel.Text = $"앱 버전 확인중..";
-                await Task.Delay(500);
+                statusLabel.Text = $"Checking app version..";
+                await Task.Delay(300);
 
                 bool isLatestVersion = await CheckIfAppIsLatestVersionAsync();
                 await MainThread.InvokeOnMainThreadAsync(async () =>
                 {
                     if (isLatestVersion)
                     {
-                        await Toast.Make("앱이 최신 버전입니다.").Show();
+                        await Toast.Make("It's the latest version").Show();
                     }
                     else
                     {
@@ -157,7 +156,7 @@ namespace AIpaca_App.Resources.Splash
             }
             catch (Exception)
             {
-                await Toast.Make("앱 버전 확인 오류").Show();
+                await Toast.Make("App Version Verification Error").Show();
             }
         }
 
@@ -170,12 +169,12 @@ namespace AIpaca_App.Resources.Splash
                 if (!success)
                 {
                     // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
-                    await Toast.Make("앱 스토어를 열 수 없습니다. 수동으로 업데이트를 확인해 주세요.", ToastDuration.Long).Show();
+                    await Toast.Make("App Store could not be opened, please check manually for updates.", ToastDuration.Long).Show();
                 }
             }
             catch (Exception)
             {
-                await Toast.Make("오류발생").Show();
+                await Toast.Make("Error").Show();
             }
         }
 
