@@ -20,9 +20,11 @@ public partial class LogPage : ContentPage
         // 첫 페이지 로드
         await _viewModel.LoadLogs(0);
     }
+
     private async void OnRemainingItemsThresholdReached(object sender, EventArgs e)
     {
         // 다음 페이지 로드
         await _viewModel.LoadNextPage();
     }
+
 }

@@ -25,6 +25,7 @@ namespace AIpaca_App.ViewModels
         public AsyncCommand LoadNextPageCommand { get; }
 
         public ScoreGraphDrawable GraphDrawable { get; private set; }
+        public double GraphWidth => GraphRecords.Count * 50; // 너비를 조정할 속성
 
         public RecordViewModel()
         {
@@ -93,6 +94,7 @@ namespace AIpaca_App.ViewModels
         private void UpdateGraph()
         {
             GraphDrawable.Records = new List<EvRecord>(GraphRecords);
+            OnPropertyChanged(nameof(GraphWidth)); // GraphWidth 업데이트 알림
         }
 
         

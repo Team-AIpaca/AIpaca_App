@@ -13,9 +13,13 @@
     <ScrollView>
         <VerticalStackLayout>
 
+
             <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <GraphicsView x:Name="graphicsView" HeightRequest="200" Drawable="{Binding GraphDrawable}" />
+                <ScrollView Orientation="Horizontal">
+                    <GraphicsView x:Name="graphicsView" HeightRequest="200" WidthRequest="{Binding GraphWidth}" Drawable="{Binding GraphDrawable}" />
+                </ScrollView>
             </Frame>
+
 
             <CollectionView ItemsSource="{Binding Records}" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
                 <CollectionView.ItemTemplate>
