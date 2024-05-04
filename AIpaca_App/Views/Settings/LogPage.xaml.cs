@@ -17,7 +17,12 @@ public partial class LogPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        // ViewModel의 LoadLogs 메서드를 직접 호출하여 데이터 로드
-        await _viewModel.LoadLogs();
+        // 첫 페이지 로드
+        await _viewModel.LoadLogs(0);
+    }
+    private async void OnRemainingItemsThresholdReached(object sender, EventArgs e)
+    {
+        // 다음 페이지 로드
+        await _viewModel.LoadNextPage();
     }
 }

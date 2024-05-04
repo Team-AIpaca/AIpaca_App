@@ -13,10 +13,17 @@ public partial class RecordPage : ContentPage
         _viewModel = new RecordViewModel();
         this.BindingContext = _viewModel;
     }
-    protected override void OnAppearing()
+
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        // ViewModel의 LoadRecords 메서드를 호출하여 데이터 로드
-        _viewModel.LoadRecordsCommand.Execute(null);
+        // 첫 페이지 로드
+        await _viewModel.LoadRecords(0);
+    }
+
+    private async void OnRemainingItemsThresholdReached(object sender, EventArgs e)
+    {
+        // 다음 페이지 로드
+        await _viewModel.LoadNextPage();
     }
 }

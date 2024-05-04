@@ -8,6 +8,7 @@ namespace AIpaca_App.ViewModels
     public class ScoreGraphDrawable : IDrawable
     {
         public List<EvRecord>? Records { get; set; }
+        public Color GraphColor { get; set; } = Colors.DarkGray;   // 기본 색상 검정
 
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
@@ -39,7 +40,7 @@ namespace AIpaca_App.ViewModels
 
                 // 점수를 데이터 포인트 위에 표시
                 canvas.FontSize = 12;
-                canvas.FontColor = Colors.Black;
+                canvas.FontColor = GraphColor;
                 string scoreLabel = Records[i].Score.ToString();
                 canvas.DrawString(scoreLabel, x, y - 10, HorizontalAlignment.Center);
 
@@ -64,7 +65,7 @@ namespace AIpaca_App.ViewModels
             }
 
             // 데이터 포인트를 이어주는 선 그리기
-            canvas.StrokeColor = Colors.Black;
+            canvas.StrokeColor = GraphColor;
             canvas.StrokeSize = 2;
             canvas.DrawPath(path);
         }

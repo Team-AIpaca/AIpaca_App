@@ -15,8 +15,15 @@ namespace AIpaca_App.ViewModels
         private DatabaseService databaseService;
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ObservableCollection<EvRecord> GraphRecords { get; private set; }
-        public ICommand LoadRecordsCommand { get; }
-        public ICommand AddRecordCommand { get; }
+
+        private const int PageSize = 5; // 페이지당 로드할 데이터 개수
+        private int _currentPage = 0;
+        private bool _isLoading = false;
+
+        public AsyncCommand LoadRecordsCommand { get; }
+        public AsyncCommand<EvRecord> AddRecordCommand { get; }
+        public AsyncCommand LoadNextPageCommand { get; }
+
         public ScoreGraphDrawable GraphDrawable { get; private set; }
 
         public RecordViewModel()
@@ -24,27 +31,37 @@ namespace AIpaca_App.ViewModels
             databaseService = new DatabaseService();
             Records = new ObservableCollection<EvRecord>();
             GraphRecords = new ObservableCollection<EvRecord>();
-            LoadRecordsCommand = new AsyncCommand(LoadRecords);
+            LoadRecordsCommand = new AsyncCommand(() => LoadRecords(0)); // 첫 페이지 로드
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
+            LoadNextPageCommand = new AsyncCommand(LoadNextPage);
             GraphDrawable = new ScoreGraphDrawable();
         }
 
-        private async Task LoadRecords()
+        public async Task LoadRecords(int pageNumber)
         {
-            try
+            if (_isLoading) return;
+
+            _isLoading = true;
+
+            var skip = pageNumber * PageSize;
+            var recordList = await databaseService.GetRecordsAsync(skip, PageSize);
+
+            if (pageNumber == 0) Records.Clear(); // 첫 페이지 로드 시 이전 데이터 지우기
+
+            foreach (var record in recordList)
             {
-                Records.Clear();
-                var records = await databaseService.GetAllRecordsAsync();
-                foreach (var record in records)
-                {
-                    Records.Insert(0, record); // 역순으로 삽입
-                }
-                UpdateGraphRecords();
+                Records.Add(record);
             }
-            catch (Exception ex)
-            {
-                await Toast.Make($"업적 목록을 로드하는 데 실패했습니다: {ex.Message}", ToastDuration.Long).Show();
-            }
+
+            _currentPage = pageNumber;
+            _isLoading = false;
+
+            UpdateGraphRecords();
+        }
+
+        public async Task LoadNextPage()
+        {
+            await LoadRecords(_currentPage + 1);
         }
 
         private async Task AddRecord(EvRecord record)
@@ -53,7 +70,7 @@ namespace AIpaca_App.ViewModels
             if (result == 1)
             {
                 Records.Insert(0, record); // 상단에 insert
-                UpdateGraphRecords();    // db에 세로운 데이터 insert 하는경우 그래프에도 적용되도록 함
+                UpdateGraphRecords(); // db에 세로운 데이터 insert 하는경우 그래프에도 적용되도록 함
             }
             else
             {

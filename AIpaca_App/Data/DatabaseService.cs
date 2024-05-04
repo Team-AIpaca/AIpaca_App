@@ -33,6 +33,15 @@ namespace AIpaca_App.Data
             //return db.Table<EvRecord>().OrderByDescending(x => x.RequestTime).ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
             return db.Table<EvRecord>().ToListAsync(); // 비동기적으로 모든 레코드를 가져옵니다
         }
+
+        public async Task<List<EvRecord>> GetRecordsAsync(int skip, int take)
+        {
+            return await db.Table<EvRecord>()
+                           .OrderByDescending(x => x.RequestTime)
+                           .Skip(skip)
+                           .Take(take)
+                           .ToListAsync();
+        }
         #endregion
 
         #region TransRecord 관련 메서드
@@ -47,7 +56,7 @@ namespace AIpaca_App.Data
         }
         #endregion
 
-        #region ErrorLog 관련 메서드
+        #region Log 관련 메서드
         public Task<int> AddLogAsync(Log log)
         {
             return db.InsertAsync(log);
@@ -57,6 +66,16 @@ namespace AIpaca_App.Data
         {
             return db.Table<Log>().OrderByDescending(x => x.Timestamp).ToListAsync(); // 역순으로 정렬하여 모든 오류 로그 가져오기
         }
+
+        public async Task<List<Log>> GetLogsAsync(int skip, int take)
+        {
+            return await db.Table<Log>()
+                           .OrderByDescending(x => x.Timestamp)
+                           .Skip(skip)
+                           .Take(take)
+                           .ToListAsync();
+        }
+
         #endregion
     }
 }

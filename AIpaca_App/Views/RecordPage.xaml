@@ -17,7 +17,7 @@
                 <GraphicsView x:Name="graphicsView" HeightRequest="200" Drawable="{Binding GraphDrawable}" />
             </Frame>
 
-            <CollectionView ItemsSource="{Binding Records}">
+            <CollectionView ItemsSource="{Binding Records}" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">

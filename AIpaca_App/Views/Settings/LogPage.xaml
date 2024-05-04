@@ -8,12 +8,12 @@
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
     <ContentPage.BindingContext>
-        <vm:LogViewModel />  
+        <vm:LogViewModel />
     </ContentPage.BindingContext>
-    
+
     <ScrollView>
         <VerticalStackLayout>
-            <CollectionView ItemsSource="{Binding Logs}">
+            <CollectionView ItemsSource="{Binding Logs}" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
@@ -29,5 +29,3 @@
     </ScrollView>
 
 </ContentPage>
-
-
