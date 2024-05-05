@@ -33,12 +33,12 @@ namespace AIpaca_App.ViewModels
             try
             {
                 var apiKey = await SecureStorage.GetAsync("GeminiApiKey");
-                CurrentApiKey = apiKey ?? "API 키가 설정되지 않았습니다."; // null일 경우 대체 텍스트
+                CurrentApiKey = apiKey ?? "API is not set."; // null일 경우 대체 텍스트
             }
             catch (Exception)
             {
-                CurrentApiKey = "API 키 로드에 실패했습니다.";
-                await Toast.Make("API 키 로드에 실패했습니다.", ToastDuration.Long).Show();
+                CurrentApiKey = "API key loading failed";
+                await Toast.Make($"{CurrentApiKey}", ToastDuration.Long).Show();
             }
         }
 

@@ -110,4 +110,9 @@ public partial class SettingsPage : ContentPage
         var errorLogPage = new LogPage();
         await this.Navigation.PushAsync(errorLogPage);
     }
+
+    private void OnStackLayoutPressed(object sender, EventArgs e)
+    {
+        // 터치 이벤트에 대한 원하는 동작을 작성합니다.
+    }
 }
