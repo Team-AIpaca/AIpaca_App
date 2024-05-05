@@ -61,6 +61,33 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   업적 목록을 로드하는 데 실패했습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string achievement_load_failed {
+            get {
+                return ResourceManager.GetString("achievement_load_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 요청 실패과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string api_request_failed {
+            get {
+                return ResourceManager.GetString("api_request_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 요청 성공과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string api_request_successful {
+            get {
+                return ResourceManager.GetString("api_request_successful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   api키가 저장되었습니다과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string api_save_complete {
@@ -84,6 +111,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string appversion {
             get {
                 return ResourceManager.GetString("appversion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   사용자 인증 성공과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string authenticated_success {
+            get {
+                return ResourceManager.GetString("authenticated_success", resourceCulture);
             }
         }
         
@@ -142,6 +178,42 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   에러과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 키 로드에 실패했습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_api_load_failed {
+            get {
+                return ResourceManager.GetString("error_api_load_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 응답이 유효하지 않습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_api_response {
+            get {
+                return ResourceManager.GetString("error_api_response", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 키가 설정되지 않았습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_api_set {
+            get {
+                return ResourceManager.GetString("error_api_set", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   연결 오류과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_connection {
@@ -151,8 +223,18 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   API키가 설정되어 있지 않습니다.
-        ///설정 확인 바랍니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   네트워크 오류가 발생했습니다
+        ///다시 시도해주세요과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string error_network {
+            get {
+                return ResourceManager.GetString("error_network", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API키가 설정되어 있지 않습니다
+        ///설정 확인 바랍니다과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_no_api {
             get {
@@ -251,6 +333,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   로딩중과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string loading {
+            get {
+                return ResourceManager.GetString("loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   로그인과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string login {
@@ -287,8 +378,8 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   앱의 새로운 버전이 있습니다. 
-        ///업데이트가 필요합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   앱의 새로운 버전이 있습니다.
+        ///업데이트가 필요합니다과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string newupdate {
             get {
@@ -342,6 +433,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   레코드 추가에 실패했습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string record_addition_failed {
+            get {
+                return ResourceManager.GetString("record_addition_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   로봇놈들과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string robots {
@@ -383,6 +483,79 @@ namespace AIpaca_App.Resources.Localization {
         internal static string signup {
             get {
                 return ResourceManager.GetString("signup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   회원가입 성공과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string signup_successful {
+            get {
+                return ResourceManager.GetString("signup_successful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   앱 버전 확인중과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_check_version {
+            get {
+                return ResourceManager.GetString("splash_check_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   앱스토어를 열지 못했습니다
+        ///업데이트 내용을 수동으로 확인하십시오과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_error_appstore {
+            get {
+                return ResourceManager.GetString("splash_error_appstore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   앱 버전 확인 오류과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_error_appversion {
+            get {
+                return ResourceManager.GetString("splash_error_appversion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버 연결 실패과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_server_connect_failed {
+            get {
+                return ResourceManager.GetString("splash_server_connect_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버 연결 성공 - 횟수과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_server_connect_success {
+            get {
+                return ResourceManager.GetString("splash_server_connect_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버 연결중 - 횟수과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_server_try_connect {
+            get {
+                return ResourceManager.GetString("splash_server_try_connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   최신버전입니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string splash_version_latest {
+            get {
+                return ResourceManager.GetString("splash_version_latest", resourceCulture);
             }
         }
         

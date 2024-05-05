@@ -26,7 +26,7 @@ namespace AIpaca_App.Resources.Splash
             try
             {
                 await Task.Delay(300);
-                statusLabel.Text = "Loading..";
+                statusLabel.Text = AppResources.loading;
 
                 // 인터넷 연결 확인
                 if (await CheckInternetConnectionAsync())
@@ -55,7 +55,7 @@ namespace AIpaca_App.Resources.Splash
             }
             catch (Exception)
             {
-                await Toast.Make("Error").Show();
+                await Toast.Make(AppResources.error).Show();
                 // 오류 발생시 ApiConfig.xml 확인
             }
             finally
@@ -91,7 +91,7 @@ namespace AIpaca_App.Resources.Splash
                         // 성공 시도 횟수를 ErrorLog에 기록
                         await databaseService.AddLogAsync(new Log
                         {
-                            Message = $"Server connection successful - Count : {retryCount + 1}",
+                            Message = AppResources.splash_server_connect_success + $" : {retryCount + 1}",
                             Timestamp = DateTime.UtcNow
                         });
                         return true;
@@ -102,7 +102,7 @@ namespace AIpaca_App.Resources.Splash
                     // 타임아웃 로그 업데이트
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        statusLabel.Text = $"Connecting to server - Count :  {retryCount + 1}/{maxRetries}..";
+                        statusLabel.Text = AppResources.splash_server_try_connect + $": {retryCount + 1} / {maxRetries}";
                     });
                 }
 
@@ -112,23 +112,21 @@ namespace AIpaca_App.Resources.Splash
             // 기타 예외 로그
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                statusLabel.Text = "Server connection failed";
+                statusLabel.Text = AppResources.splash_server_connect_failed;
             });
             await databaseService.AddLogAsync(new Log
             {
-                Message = $"{statusLabel.Text}",
+                Message = statusLabel.Text,
                 Timestamp = DateTime.UtcNow
             });
             return false;  // 모든 재시도 실패 시 false 반환
         }
 
-
-
         private async Task CheckAppVersionAndUpdateUI()
         {
             try
             {
-                statusLabel.Text = $"Checking app version..";
+                statusLabel.Text = AppResources.splash_check_version;
                 await Task.Delay(300);
 
                 bool isLatestVersion = await CheckIfAppIsLatestVersionAsync();
@@ -136,7 +134,7 @@ namespace AIpaca_App.Resources.Splash
                 {
                     if (isLatestVersion)
                     {
-                        await Toast.Make("It's the latest version").Show();
+                        await Toast.Make(AppResources.splash_version_latest).Show();
                     }
                     else
                     {
@@ -156,7 +154,7 @@ namespace AIpaca_App.Resources.Splash
             }
             catch (Exception)
             {
-                await Toast.Make("App Version Verification Error").Show();
+                await Toast.Make(AppResources.splash_error_appversion).Show();
             }
         }
 
@@ -169,12 +167,12 @@ namespace AIpaca_App.Resources.Splash
                 if (!success)
                 {
                     // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
-                    await Toast.Make("App Store could not be opened, please check manually for updates.", ToastDuration.Long).Show();
+                    await Toast.Make(AppResources.splash_error_appstore, ToastDuration.Long).Show();
                 }
             }
             catch (Exception)
             {
-                await Toast.Make("Error").Show();
+                await Toast.Make(AppResources.error).Show();
             }
         }
 

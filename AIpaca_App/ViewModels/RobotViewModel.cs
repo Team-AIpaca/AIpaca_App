@@ -1,5 +1,6 @@
 ﻿using AIpaca_App.Data;
 using AIpaca_App.Models;
+using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.Input;
@@ -149,7 +150,7 @@ namespace AIpaca_App.ViewModels
 
             try
             {
-                GoogleTranslationResult = $"로딩중";
+                GoogleTranslationResult = AppResources.loading;
                 var response = await client.PostAsync(requestUri, content);
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
@@ -157,7 +158,7 @@ namespace AIpaca_App.ViewModels
                 {
                     if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                     {
-                        var translatedText = apiResponse.data.result.Translation ?? "번역오류";
+                        var translatedText = apiResponse.data.result.Translation ?? AppResources.error;
                         var trecord = new TransRecord
                         {
                             OriginalText = originalText,
@@ -175,19 +176,19 @@ namespace AIpaca_App.ViewModels
                         //로그 저장
                         await databaseService.AddLogAsync(new Log
                         {
-                            Message = $"API Request Successful : {trecord}",
+                            Message = AppResources.api_request_successful + $" : {trecord}",
                             Timestamp = DateTime.UtcNow
                         });
                     }
                     else
                     {
-                        GoogleTranslationResult = "API 응답이 유효하지 않습니다.";
-                        await Toast.Make("API 응답이 유효하지 않습니다.", ToastDuration.Long).Show();
+                        GoogleTranslationResult = AppResources.error_api_response;
+                        await Toast.Make(GoogleTranslationResult, ToastDuration.Long).Show();
                     }
                 }
                 else
                 {
-                    var errorMessage = $"오류 발생: {apiResponse?.StatusCode} - {apiResponse?.message}";
+                    var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     //await Toast.Make(errorMessage, ToastDuration.Long).Show();
                     GoogleTranslationResult = errorMessage;
                     await databaseService.AddLogAsync(new Log
@@ -199,11 +200,12 @@ namespace AIpaca_App.ViewModels
             }
             catch (Exception ex)
             {
-                await Toast.Make($"네트워크 오류가 발생했습니다: {ex.Message}", ToastDuration.Long).Show();
-                GoogleTranslationResult = " 네트워크 오류가 발생했습니다\n 다시 시도해주세요";
+                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                GoogleTranslationResult = AppResources.error_network;
+                //db에 로그 저장
                 await databaseService.AddLogAsync(new Log
                 {
-                    Message = $"API Request Failed : {ex.Message}",
+                    Message = AppResources.api_request_failed + $" : {ex.Message}",
                     Timestamp = DateTime.UtcNow
                 });
             }

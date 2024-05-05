@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="achievement_load_failed" xml:space="preserve">
+    <value>Failed to load achievement list</value>
+  </data>
   <data name="apisetting" xml:space="preserve">
     <value>API 設定です</value>
+  </data>
+  <data name="api_request_failed" xml:space="preserve">
+    <value>API Request Failed</value>
+  </data>
+  <data name="api_request_successful" xml:space="preserve">
+    <value>API Request Successful</value>
   </data>
   <data name="api_save_complete" xml:space="preserve">
     <value>APIキーが保存されました</value>
   </data>
   <data name="appversion" xml:space="preserve">
     <value>APP のバージョンです</value>
+  </data>
+  <data name="authenticated_success" xml:space="preserve">
+    <value>User authenticated successfully</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>キャンセルします</value>
@@ -144,11 +156,27 @@
   <data name="en" xml:space="preserve">
     <value>英語</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="errorlog" xml:space="preserve">
     <value>Error Log</value>
   </data>
+  <data name="error_api_load_failed" xml:space="preserve">
+    <value>API key loading failed</value>
+  </data>
+  <data name="error_api_response" xml:space="preserve">
+    <value>API response is not valid</value>
+  </data>
+  <data name="error_api_set" xml:space="preserve">
+    <value>API is not set</value>
+  </data>
   <data name="error_connection" xml:space="preserve">
     <value>接続エラーです</value>
+  </data>
+  <data name="error_network" xml:space="preserve">
+    <value>A network error has occurred
+Please try again</value>
   </data>
   <data name="error_no_api" xml:space="preserve">
     <value>API キーは設定されていません。</value>
@@ -180,6 +208,9 @@
   <data name="libretranslate" xml:space="preserve">
     <value>LibreTranslate</value>
   </data>
+  <data name="loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>ログインします</value>
   </data>
@@ -210,6 +241,9 @@
   <data name="record" xml:space="preserve">
     <value>記録します</value>
   </data>
+  <data name="record_addition_failed" xml:space="preserve">
+    <value>Record addition failed</value>
+  </data>
   <data name="robots" xml:space="preserve">
     <value>ロボットです</value>
   </data>
@@ -224,6 +258,30 @@
   </data>
   <data name="signup" xml:space="preserve">
     <value>登録します</value>
+  </data>
+  <data name="signup_successful" xml:space="preserve">
+    <value>SignUp Successful</value>
+  </data>
+  <data name="splash_check_version" xml:space="preserve">
+    <value>Checking app version</value>
+  </data>
+  <data name="splash_error_appstore" xml:space="preserve">
+    <value>App Store could not be opened, please check manually for updates.</value>
+  </data>
+  <data name="splash_error_appversion" xml:space="preserve">
+    <value>App Version Verification Error</value>
+  </data>
+  <data name="splash_server_connect_failed" xml:space="preserve">
+    <value>Server connection failed</value>
+  </data>
+  <data name="splash_server_connect_success" xml:space="preserve">
+    <value>Server connection successful - Count</value>
+  </data>
+  <data name="splash_server_try_connect" xml:space="preserve">
+    <value>Connecting to server - Count</value>
+  </data>
+  <data name="splash_version_latest" xml:space="preserve">
+    <value>It's the latest version</value>
   </data>
   <data name="String" xml:space="preserve">
     <value>設定の確認をお願いします。</value>

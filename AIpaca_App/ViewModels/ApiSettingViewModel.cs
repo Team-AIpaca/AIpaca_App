@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Microsoft.Maui.Storage;
@@ -33,11 +34,11 @@ namespace AIpaca_App.ViewModels
             try
             {
                 var apiKey = await SecureStorage.GetAsync("GeminiApiKey");
-                CurrentApiKey = apiKey ?? "API is not set."; // null일 경우 대체 텍스트
+                CurrentApiKey = apiKey ?? AppResources.error_api_set; // null일 경우 대체 텍스트
             }
             catch (Exception)
             {
-                CurrentApiKey = "API key loading failed";
+                CurrentApiKey = AppResources.error_api_load_failed;
                 await Toast.Make($"{CurrentApiKey}", ToastDuration.Long).Show();
             }
         }

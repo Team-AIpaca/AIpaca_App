@@ -111,8 +111,14 @@ public partial class SettingsPage : ContentPage
         await this.Navigation.PushAsync(errorLogPage);
     }
 
-    private void OnStackLayoutPressed(object sender, EventArgs e)
+    void OnDarkModeTouchGestureCompleted(object sender, EventArgs e)
     {
-        // 터치 이벤트에 대한 원하는 동작을 작성합니다.
+        // Switch의 현재 상태를 반전하여 토글 상태를 변경합니다.
+        DarkModeToggle.IsToggled = !DarkModeToggle.IsToggled;
+    }
+    void OnLowPowerModeTouchGestureCompleted(object sender, EventArgs e)
+    {
+        // Switch의 현재 상태를 반전하여 토글 상태를 변경합니다.
+        LowPowerModeToggle.IsToggled = !LowPowerModeToggle.IsToggled;
     }
 }

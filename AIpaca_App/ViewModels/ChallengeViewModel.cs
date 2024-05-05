@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Reflection;
+using AIpaca_App.Resources.Localization;
 
 namespace AIpaca_App.ViewModels
 {
@@ -64,7 +65,7 @@ namespace AIpaca_App.ViewModels
             }
             else
             {
-                Toast.Make("업적 목록을 로드하는 데 실패했습니다.").Show();
+                Toast.Make(AppResources.achievement_load_failed).Show();
             }
         }
 

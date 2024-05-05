@@ -92,8 +92,16 @@
 	  <None Remove="Resources\Images\nav_record.png" />
 	  <None Remove="Resources\Images\nav_robot.png" />
 	  <None Remove="Resources\Images\nav_settings.png" />
+	  <None Remove="Resources\Images\setting_api.png" />
+	  <None Remove="Resources\Images\setting_darkmode.png" />
 	  <None Remove="Resources\Images\setting_error.png" />
+	  <None Remove="Resources\Images\setting_language.png" />
+	  <None Remove="Resources\Images\setting_login.png" />
+	  <None Remove="Resources\Images\setting_logout.png" />
+	  <None Remove="Resources\Images\setting_lowspecmode.png" />
 	  <None Remove="Resources\Images\setting_right_arrow.png" />
+	  <None Remove="Resources\Images\setting_signup.png" />
+	  <None Remove="Resources\Images\setting_version.png" />
 	  <None Remove="Resources\Splash\icon_aipaca.png" />
 	</ItemGroup>
 

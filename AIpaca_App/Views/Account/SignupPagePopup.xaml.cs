@@ -1,4 +1,5 @@
 using AIpaca_App.Data;
+using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
@@ -31,7 +32,7 @@ public partial class SignupPagePopup : Popup
         if (signupSuccess)
         {
             // 회원가입 성공 시 사용자에게 알림을 표시하고 팝업을 닫습니다.
-            await Toast.Make("회원가입이 완료되었습니다.", ToastDuration.Long).Show();
+            await Toast.Make(AppResources.signup_successful, ToastDuration.Long).Show();
             await this.CloseAsync();
         }
         // 실패 시, MainViewModel 내부에서 오류 메시지를 Toast로 표시하므로 여기서 별도의 처리는 필요 없습니다.

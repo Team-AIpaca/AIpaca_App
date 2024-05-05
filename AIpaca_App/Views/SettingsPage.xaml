@@ -12,214 +12,167 @@
         <VerticalStackLayout Spacing="25" Padding="20">
             <!--로그인 섹션-->
             <Label Text="{x:Static resources:AppResources.login}" FontAttributes="Bold" FontSize="Large"
-                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-            <Frame CornerRadius="15" HasShadow="True" Padding="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
-                    BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <VerticalStackLayout Spacing="10">
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.login}" FontAttributes="Bold" VerticalOptions="Center" />
-                        <!-- 여백을 주어 버튼들을 오른쪽에 배치 -->
-                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
-                        <!-- 로그인 버튼 -->
-                        <Button Text="{x:Static resources:AppResources.login}" Clicked="OnLoginButtonClicked" WidthRequest="80" HorizontalOptions="End" 
-                                IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
-                        <!-- 회원가입 버튼 -->
-                        <Button Text="{x:Static resources:AppResources.signup}" Clicked="OnSignupButtonClicked" WidthRequest="80" HorizontalOptions="End" 
-                                IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"/>
-                        <!-- 로그아웃 버튼 -->
-                        <Button Text="{x:Static resources:AppResources.logout}" Clicked="OnLogoutButtonClicked" IsVisible="{Binding IsLoggedIn}" />
-                        <Image Source="setting_right_arrow.png" 
-                                HorizontalOptions="End" 
-                                VerticalOptions="Center" 
-                                WidthRequest="10" 
-                                HeightRequest="10" />
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </VerticalStackLayout>
-            </Frame>
-
-
-            <!-- 테마 설정 섹션 -->
-            <Label Text="{x:Static resources:AppResources.theme}" FontAttributes="Bold" FontSize="Large"
                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-            <Frame CornerRadius="15" HasShadow="True" Padding="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
                    BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <VerticalStackLayout Spacing="10">
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.darkmode}" FontAttributes="Bold" VerticalOptions="Center" 
-                               TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <Switch x:Name="DarkModeToggle" HorizontalOptions="EndAndExpand" IsToggled="{Binding IsDarkModeEnabled}" />
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
+                <VerticalStackLayout Spacing="0">
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15" IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLoginButtonClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_login.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.login}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
                     </StackLayout>
 
                     <!-- 검은색 막대 구분선 추가 -->
                     <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
 
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.lowspecmode}" FontAttributes="Bold" VerticalOptions="Center" 
-                               TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <Switch HorizontalOptions="EndAndExpand" Toggled="LowPowerModeEnabled"/>
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15" IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnSignupButtonClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_signup.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.signup}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
                     </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15" IsVisible="{Binding IsLoggedIn}">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLogoutButtonClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_logout.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.logout}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+                    </StackLayout>
+                    
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- 네트워크 설정 섹션 -->
-            <Label Text="{x:Static resources:AppResources.network}" FontAttributes="Bold" FontSize="Large" 
-                 TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-            <Frame CornerRadius="15" HasShadow="True" Padding="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
-                 BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <VerticalStackLayout Spacing="10">
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.apisetting}" FontAttributes="Bold" VerticalOptions="Center" 
+            <!-- 테마 설정 섹션 -->
+            <Label Text="{x:Static resources:AppResources.theme}" FontAttributes="Bold" FontSize="Large"
                    TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <!-- 공간 채움 -->
-                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
-                        <Button Text="{x:Static resources:AppResources.apisetting}" Clicked="OnAPISettingButtonClicked" WidthRequest="80" HorizontalOptions="End"/>
-                        <Image Source="setting_right_arrow.png" 
-                               HorizontalOptions="End" 
-                               VerticalOptions="Center" 
-                               WidthRequest="10" 
-                               HeightRequest="10" />
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+
+                <VerticalStackLayout Spacing="0">
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnDarkModeTouchGestureCompleted"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_darkmode.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.darkmode}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Switch x:Name="DarkModeToggle" HorizontalOptions="EndAndExpand" IsToggled="{Binding IsDarkModeEnabled}" />
+                    </StackLayout>
+
+                    <!-- 검은색 막대 구분선 추가 -->
+                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLowPowerModeTouchGestureCompleted"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_lowspecmode.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.lowspecmode}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Switch x:Name="LowPowerModeToggle" HorizontalOptions="EndAndExpand" Toggled="LowPowerModeEnabled"/>
                         <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- 네트워크 설정 섹션 -->
+            <Label Text="{x:Static resources:AppResources.network}" FontAttributes="Bold" FontSize="Large" 
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+
+                <VerticalStackLayout Spacing="0">
+                    
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnAPISettingButtonClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_api.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.apisetting}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+                    </StackLayout>
+                    
                 </VerticalStackLayout>
             </Frame>
 
             <!-- 시스템 설정 섹션 -->
             <Label Text="{x:Static resources:AppResources.system}" FontAttributes="Bold" FontSize="Large"  
-                TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-            <Frame CornerRadius="15" HasShadow="True" Padding="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
                    BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <VerticalStackLayout Spacing="10">
 
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.appversion}" FontAttributes="Bold" VerticalOptions="Center" 
-                            TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                <VerticalStackLayout Spacing="0">
 
-                        <Label Text="{Binding AppVersion}" HorizontalOptions="EndAndExpand"
-                            TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                    <!-- 검은색 막대 구분선 추가 -->
-                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
-
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.languageset}" FontAttributes="Bold" VerticalOptions="Center" 
-                               TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <!-- 공간 채움 -->
-                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
-                        <Button Text="{x:Static resources:AppResources.languageset}" Clicked="OnLanguageSettingsClicked" HorizontalOptions="End"/>
-                        <Image Source="setting_right_arrow.png"
-                               HorizontalOptions="End" 
-                               VerticalOptions="Center" 
-                               WidthRequest="10" 
-                               HeightRequest="10" />
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-
-                    <!-- 검은색 막대 구분선 추가 -->
-                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
-
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Label Text="{x:Static resources:AppResources.errorlog}" FontAttributes="Bold" VerticalOptions="Center" 
-                               TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
-                        <!-- 공간 채움 -->
-                        <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"/>
-                        <Button Text="{x:Static resources:AppResources.errorlog}" Clicked="OnErrorLogButtonClicked" HorizontalOptions="End"/>
-                        <Image Source="icon_right_arrow.png" 
-                               HorizontalOptions="End" 
-                               VerticalOptions="Center" 
-                               WidthRequest="10" 
-                               HeightRequest="10" />
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-
-                    <!-- 검은색 막대 구분선 추가 -->
-                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
-
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="setting_error.png" 
-                               HorizontalOptions="Start" 
-                               VerticalOptions="Center" 
-                               WidthRequest="20" 
-                               HeightRequest="20" />
-                        <Button Text="{x:Static resources:AppResources.errorlog}" BackgroundColor="Transparent" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Medium" Clicked="OnErrorLogButtonClicked" HorizontalOptions="FillAndExpand"/>
-                        <Image Source="setting_right_arrow.png" 
-                                HorizontalOptions="End" 
-                                VerticalOptions="Center" 
-                                WidthRequest="10" 
-                                HeightRequest="10" />
-                        <!-- 탭 인식을 위한 GestureRecognizer 추가 -->
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRippleEffectRequested"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-
-
-                    <!-- 검은색 막대 구분선 추가 -->
-                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
-
-                    <StackLayout Orientation="Horizontal" Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
                         <StackLayout.Behaviors>
-                            <toolkit:TouchBehavior
-                DefaultAnimationDuration="250"
-                DefaultAnimationEasing="{x:Static Easing.CubicInOut}"
-                PressedOpacity="0.6"
-                PressedScale="0.8" />
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" PressedBackgroundColor="DarkGray"/>
                         </StackLayout.Behaviors>
+                        <Image Source="setting_version.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
 
-                        <Image Source="setting_error.png" 
-        HorizontalOptions="Start" 
-        VerticalOptions="Center" 
-        WidthRequest="20" 
-        HeightRequest="20" />
+                        <Label Text="{x:Static resources:AppResources.appversion}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding AppVersion}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="End"/>
+                    </StackLayout>
 
-                        <Button Text="{x:Static resources:AppResources.errorlog}" 
-        BackgroundColor="Transparent" 
-        TextColor="{AppThemeBinding Dark=White, Light=Black}" 
-        FontSize="Medium" 
-        Clicked="OnErrorLogButtonClicked" 
-        HorizontalOptions="FillAndExpand">
-                        </Button>
+                    <!-- 검은색 막대 구분선 추가 -->
+                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
 
-                        <Image Source="setting_right_arrow.png" 
-        HorizontalOptions="End" 
-        VerticalOptions="Center" 
-        WidthRequest="10" 
-        HeightRequest="10" />
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLanguageSettingsClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_language.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.languageset}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+                    </StackLayout>
+
+                    <!-- 검은색 막대 구분선 추가 -->
+                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnErrorLogButtonClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_error.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.errorlog}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
                     </StackLayout>
 
                 </VerticalStackLayout>
             </Frame>
-            <Image Source="logo_aipaca.png"
-                 HorizontalOptions="Center" 
-                 VerticalOptions="End" 
-                 WidthRequest="200" 
-                 HeightRequest="200" 
-                 Margin="0,0,0,20" />
-        </VerticalStackLayout>
 
+            <Image Source="logo_aipaca.png" HorizontalOptions="Center" VerticalOptions="End" WidthRequest="200" HeightRequest="200" Margin="0,0,0,20" />
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,4 +1,5 @@
 using AIpaca_App.Data;
+using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
@@ -28,7 +29,7 @@ public partial class LoginPagePopup : Popup
         if (loginSuccess)
         {
             // 로그인 성공 메시지
-            await Toast.Make("User authenticated successfully.", ToastDuration.Long).Show();
+            await Toast.Make(AppResources.authenticated_success, ToastDuration.Long).Show();
             await this.CloseAsync();
         }
         else

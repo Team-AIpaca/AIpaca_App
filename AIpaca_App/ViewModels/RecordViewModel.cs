@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using AIpaca_App.Data;
 using AIpaca_App.Models;
+using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using MvvmHelpers;
@@ -88,7 +89,7 @@ namespace AIpaca_App.ViewModels
             }
             else
             {
-                await Toast.Make("레코드 추가에 실패했습니다.", ToastDuration.Short).Show();
+                await Toast.Make(AppResources.record_addition_failed, ToastDuration.Short).Show();
             }
         }
 
