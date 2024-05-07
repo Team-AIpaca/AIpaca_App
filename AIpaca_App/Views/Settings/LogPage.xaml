@@ -17,11 +17,11 @@
             <CollectionView ItemsSource="{Binding Logs}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                             <StackLayout Orientation="Vertical" Spacing="10" Padding="10">
                                 <StackLayout.Behaviors>
                                     <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                           PressedBackgroundColor="DarkGray" LongPressCompleted="OnCopyButtonClicked" />
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
                                 </StackLayout.Behaviors>
                                 <Label Text="{Binding Timestamp, StringFormat='Timestamp: {0:yyyy-MM-dd HH:mm:ss}'}"/>
                                 <Label Text="{Binding Message}"/>
