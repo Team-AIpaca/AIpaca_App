@@ -85,6 +85,9 @@
 	  <None Remove="Resources\Config\ApiConfig.xml" />
 	  <None Remove="Resources\data\AchieveList.xml" />
 	  <None Remove="Resources\drawable\icon_aipaca.png" />
+	  <None Remove="Resources\Images\flag_jp.png" />
+	  <None Remove="Resources\Images\flag_ko.png" />
+	  <None Remove="Resources\Images\flag_us.png" />
 	  <None Remove="Resources\Images\logo_aipaca.png" />
 	  <None Remove="Resources\Images\logo_logo_aipaca.png" />
 	  <None Remove="Resources\Images\nav_challenge.png" />

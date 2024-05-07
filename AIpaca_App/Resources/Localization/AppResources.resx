@@ -144,6 +144,12 @@
   <data name="challenge" xml:space="preserve">
     <value>도전과제</value>
   </data>
+  <data name="copy_failed" xml:space="preserve">
+    <value>복사 실패 : 복사할 텍스트가 없습니다</value>
+  </data>
+  <data name="copy_successful" xml:space="preserve">
+    <value>복사 완료</value>
+  </data>
   <data name="darkmode" xml:space="preserve">
     <value>다크 모드</value>
   </data>
@@ -158,9 +164,6 @@
   </data>
   <data name="error" xml:space="preserve">
     <value>에러</value>
-  </data>
-  <data name="errorlog" xml:space="preserve">
-    <value>에러로그</value>
   </data>
   <data name="error_api_load_failed" xml:space="preserve">
     <value>API 키 로드에 실패했습니다</value>
@@ -211,6 +214,9 @@
   </data>
   <data name="loading" xml:space="preserve">
     <value>로딩중</value>
+  </data>
+  <data name="log" xml:space="preserve">
+    <value>로그</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>로그인</value>

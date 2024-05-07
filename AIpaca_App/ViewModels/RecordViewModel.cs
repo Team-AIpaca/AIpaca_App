@@ -17,7 +17,7 @@ namespace AIpaca_App.ViewModels
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ObservableCollection<EvRecord> GraphRecords { get; private set; }
 
-        private const int PageSize = 10; // 페이지당 로드할 데이터 개수
+        private const int PageSize = 15; // 페이지당 로드할 데이터 개수
         private int _currentPage = 0;
         public bool _isLoading = false;
         private bool _isLastPage = false;

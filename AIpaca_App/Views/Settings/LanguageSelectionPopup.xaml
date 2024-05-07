@@ -3,18 +3,55 @@
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                x:Class="AIpaca_App.Views.Settings.LanguageSelectionPopup"
-               Size="300,400"
                Color= "{x:Static Colors.Transparent}">
-    
+
+
     <!-- Border를 사용하여 모서리를 둥글게 설정 -->
-    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}" WidthRequest="300">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="15" >
-            <Button Text="English" Clicked="OnEnglishSelected"/>
-            <Button Text="한국어" Clicked="OnKoreanSelected"/>
-            <Button Text="日本語" Clicked="OnJapaneseSelected"/>
+            
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#eeeeee}">
+                <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnEnglishSelected"/>
+                    </StackLayout.Behaviors>
+                    <Image Source="flag_us.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="English" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                           FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#eeeeee}">
+                <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnKoreanSelected"/>
+                    </StackLayout.Behaviors>
+                    <Image Source="flag_ko.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="한국어" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                           FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="15" HasShadow="True" Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#eeeeee}">
+                <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnJapaneseSelected"/>
+                    </StackLayout.Behaviors>
+                    <Image Source="flag_jp.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="日本語" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                           FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
         </VerticalStackLayout>
     </Border>
 

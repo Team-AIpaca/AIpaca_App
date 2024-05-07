@@ -105,7 +105,7 @@ public partial class SettingsPage : ContentPage
         await this.ShowPopupAsync(apisettingpopup);
     }
 
-    private async void OnErrorLogButtonClicked(object sender, EventArgs e)
+    private async void OnLogButtonClicked(object sender, EventArgs e)
     {
         var errorLogPage = new LogPage();
         await this.Navigation.PushAsync(errorLogPage);

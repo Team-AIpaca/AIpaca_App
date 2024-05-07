@@ -142,6 +142,24 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   복사 실패 : 복사할 텍스트가 없습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string copy_failed {
+            get {
+                return ResourceManager.GetString("copy_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   복사 완료과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string copy_successful {
+            get {
+                return ResourceManager.GetString("copy_successful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   다크 모드과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string darkmode {
@@ -261,15 +279,6 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   에러로그과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string errorlog {
-            get {
-                return ResourceManager.GetString("errorlog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   평가받기과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string evaluate {
@@ -338,6 +347,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string loading {
             get {
                 return ResourceManager.GetString("loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   로그과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string log {
+            get {
+                return ResourceManager.GetString("log", resourceCulture);
             }
         }
         

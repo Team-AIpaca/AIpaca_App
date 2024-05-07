@@ -161,10 +161,10 @@
                     <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
                         <StackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnErrorLogButtonClicked"/>
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLogButtonClicked"/>
                         </StackLayout.Behaviors>
                         <Image Source="setting_error.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="{x:Static resources:AppResources.errorlog}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                        <Label Text="{x:Static resources:AppResources.log}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
                                FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                         <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
                     </StackLayout>
