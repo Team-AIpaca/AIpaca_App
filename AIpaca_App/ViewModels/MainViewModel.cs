@@ -377,7 +377,8 @@ namespace AIpaca_App.ViewModels
                         await databaseService.AddLogAsync(new Log
                         {
                             Message = $"API Request Successful : {record}",
-                            Timestamp = DateTime.UtcNow
+                            Timestamp = DateTime.UtcNow,
+                            Success = "Success"
                         });
                     }
                     else
@@ -393,7 +394,8 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Failed"
                     });
                 }
             }
@@ -404,7 +406,8 @@ namespace AIpaca_App.ViewModels
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = $"API Request Failed : {ex.Message}",
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.UtcNow,
+                    Success = "Failed"
                 });
             }
         }

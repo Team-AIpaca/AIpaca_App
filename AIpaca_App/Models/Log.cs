@@ -17,5 +17,7 @@ namespace AIpaca_App.Models
 
         [NotNull]
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+
+        public string? Success { get; set; }
     }
 }
