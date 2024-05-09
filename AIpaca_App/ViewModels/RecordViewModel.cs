@@ -40,18 +40,18 @@ namespace AIpaca_App.ViewModels
         public RecordViewModel()
         {
             databaseService = new DatabaseService();
+            RefreshCommand = new AsyncCommand(RefreshGraph);
             Records = new ObservableCollection<EvRecord>();
             GraphRecords = new ObservableCollection<EvRecord>();
             LoadRecordsCommand = new AsyncCommand(() => LoadRecords(0)); // 첫 페이지 로드
             AddRecordCommand = new AsyncCommand<EvRecord>(AddRecord);
-            LoadNextPageCommand = new AsyncCommand(LoadNextPage);
-            RefreshCommand = new AsyncCommand(RefreshGraph);
+            LoadNextPageCommand = new AsyncCommand(LoadNextPage); 
             GraphDrawable = new ScoreGraphDrawable();
         }
 
         public async Task LoadRecords(int pageNumber)
         {
-            if (_isLoading || _isLastPage) return;
+            if (_isLoading) return;
 
             _isLoading = true;
 
@@ -117,7 +117,6 @@ namespace AIpaca_App.ViewModels
 
             // 전체 데이터를 다시 로드하여 그래프를 새로 고침
             await LoadRecords(0);
-
             UpdateGraphRecords();
 
             IsRefreshing = false;

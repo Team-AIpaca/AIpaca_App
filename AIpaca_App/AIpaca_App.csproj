@@ -104,6 +104,7 @@
 	  <None Remove="Resources\Images\setting_lowspecmode.png" />
 	  <None Remove="Resources\Images\setting_right_arrow.png" />
 	  <None Remove="Resources\Images\setting_signup.png" />
+	  <None Remove="Resources\Images\Setting_update.png" />
 	  <None Remove="Resources\Images\setting_version.png" />
 	  <None Remove="Resources\Splash\icon_aipaca.png" />
 	</ItemGroup>

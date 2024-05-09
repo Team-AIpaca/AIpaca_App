@@ -6,6 +6,9 @@ using AIpaca_App.ViewModels;
 using AIpaca_App.Views.Settings;
 using AIpaca_App.Data;
 using AIpaca_App.Models;
+using AIpaca_App.Resources.Localization;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
@@ -111,14 +114,33 @@ public partial class SettingsPage : ContentPage
         await this.Navigation.PushAsync(errorLogPage);
     }
 
-    void OnDarkModeTouchGestureCompleted(object sender, EventArgs e)
+    private void OnDarkModeTouchGestureCompleted(object sender, EventArgs e)
     {
         // Switch의 현재 상태를 반전하여 토글 상태를 변경합니다.
         DarkModeToggle.IsToggled = !DarkModeToggle.IsToggled;
     }
-    void OnLowPowerModeTouchGestureCompleted(object sender, EventArgs e)
+    private void OnLowPowerModeTouchGestureCompleted(object sender, EventArgs e)
     {
         // Switch의 현재 상태를 반전하여 토글 상태를 변경합니다.
         LowPowerModeToggle.IsToggled = !LowPowerModeToggle.IsToggled;
     }
+    private async void OnManualupdateClicked(object sender, EventArgs e)
+    {
+        // 수동 업데이트 로직 수행
+        try
+        {
+            // 사용자가 업데이트를 원할 경우 앱 스토어로 리디렉션
+            var success = await Launcher.TryOpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.AIpaca&hl=en-US"));
+            if (!success)
+            {
+                // URL을 열 수 없는 경우, 사용자에게 추가적인 알림 제공
+                await Toast.Make(AppResources.splash_error_appstore, ToastDuration.Long).Show();
+            }
+        }
+        catch (Exception)
+        {
+            await Toast.Make(AppResources.error).Show();
+        }
+    }
+    
 }

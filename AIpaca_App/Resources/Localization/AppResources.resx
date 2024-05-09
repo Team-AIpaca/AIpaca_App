@@ -227,6 +227,9 @@
   <data name="lowspecmode" xml:space="preserve">
     <value>저사양 모드</value>
   </data>
+  <data name="manualupdate" xml:space="preserve">
+    <value>수동 업데이트</value>
+  </data>
   <data name="network" xml:space="preserve">
     <value>네트워크</value>
   </data>

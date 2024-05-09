@@ -129,7 +129,7 @@
 
                 <VerticalStackLayout Spacing="0">
 
-                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
                         <StackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" PressedBackgroundColor="DarkGray"/>
                         </StackLayout.Behaviors>
@@ -139,6 +139,20 @@
                                FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                         <Label Text="{Binding AppVersion}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
                                FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="End"/>
+                    </StackLayout>
+
+                    <!-- 검은색 막대 구분선 추가 -->
+                    <BoxView HeightRequest="1.5" Color="{AppThemeBinding Dark=#555555, Light=#cfcfcf}" HorizontalOptions="FillAndExpand"/>
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="15">
+                        <StackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnManualupdateClicked"/>
+                        </StackLayout.Behaviors>
+                        <Image Source="setting_update.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{x:Static resources:AppResources.manualupdate}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                               FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="setting_right_arrow.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
                     </StackLayout>
 
                     <!-- 검은색 막대 구분선 추가 -->

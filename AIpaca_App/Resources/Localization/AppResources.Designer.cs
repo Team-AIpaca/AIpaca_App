@@ -387,6 +387,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   수동 업데이트과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string manualupdate {
+            get {
+                return ResourceManager.GetString("manualupdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   네트워크과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string network {

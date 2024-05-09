@@ -227,6 +227,9 @@ Please check the settings.</value>
   <data name="lowspecmode" xml:space="preserve">
     <value>Low Spec Mode</value>
   </data>
+  <data name="manualupdate" xml:space="preserve">
+    <value>Manual Update</value>
+  </data>
   <data name="network" xml:space="preserve">
     <value>Network</value>
   </data>

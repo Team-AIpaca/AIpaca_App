@@ -226,6 +226,9 @@ Please try again</value>
   <data name="lowspecmode" xml:space="preserve">
     <value>低仕様モードです</value>
   </data>
+  <data name="manualupdate" xml:space="preserve">
+    <value>Manual Update</value>
+  </data>
   <data name="network" xml:space="preserve">
     <value>ネットワークです</value>
   </data>
