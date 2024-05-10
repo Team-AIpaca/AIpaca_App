@@ -138,11 +138,17 @@
   <data name="authenticated_success" xml:space="preserve">
     <value>사용자 인증 성공</value>
   </data>
+  <data name="backup" xml:space="preserve">
+    <value>백업</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>취소</value>
   </data>
   <data name="challenge" xml:space="preserve">
     <value>도전과제</value>
+  </data>
+  <data name="checkserverconnection" xml:space="preserve">
+    <value>서버 연결 확인</value>
   </data>
   <data name="copy_failed" xml:space="preserve">
     <value>복사 실패 : 복사할 텍스트가 없습니다</value>

@@ -138,11 +138,17 @@
   <data name="authenticated_success" xml:space="preserve">
     <value>User authenticated successfully</value>
   </data>
+  <data name="backup" xml:space="preserve">
+    <value>Backup</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>キャンセルします</value>
   </data>
   <data name="challenge" xml:space="preserve">
     <value>挑戦します</value>
+  </data>
+  <data name="checkserverconnection" xml:space="preserve">
+    <value>Check server connection</value>
   </data>
   <data name="copy_failed" xml:space="preserve">
     <value>Copy failed : There is no text to copy</value>

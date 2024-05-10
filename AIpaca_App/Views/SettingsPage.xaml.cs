@@ -142,5 +142,13 @@ public partial class SettingsPage : ContentPage
             await Toast.Make(AppResources.error).Show();
         }
     }
-    
+    private void OnPingButtonClicked(object sender, EventArgs e)
+    {
+        // Ping 서버로부터 응답을 받아오는 로직 수행
+        //_viewModel.PingServer();
+    }
+    private void OnBackUpButtonClicked(object sender, EventArgs e)
+    {
+        // 백업 로직 수행
+    }
 }

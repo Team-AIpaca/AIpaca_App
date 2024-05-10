@@ -124,6 +124,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   백업과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string backup {
+            get {
+                return ResourceManager.GetString("backup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   취소과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string cancel {
@@ -138,6 +147,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string challenge {
             get {
                 return ResourceManager.GetString("challenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버 연결 확인과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string checkserverconnection {
+            get {
+                return ResourceManager.GetString("checkserverconnection", resourceCulture);
             }
         }
         
