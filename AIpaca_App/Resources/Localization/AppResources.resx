@@ -264,6 +264,9 @@
   <data name="robots" xml:space="preserve">
     <value>로봇놈들</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>저장</value>
+  </data>
   <data name="score" xml:space="preserve">
     <value>점수</value>
   </data>

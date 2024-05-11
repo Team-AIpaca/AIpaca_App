@@ -262,6 +262,9 @@ Please try again</value>
   <data name="robots" xml:space="preserve">
     <value>ロボットです</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="score" xml:space="preserve">
     <value>点数を付けます</value>
   </data>

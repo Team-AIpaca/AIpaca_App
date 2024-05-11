@@ -1,5 +1,7 @@
 using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 
 namespace AIpaca_App.Views.Settings;
@@ -47,6 +49,38 @@ public partial class ApiSettingPopup : Popup
             {
                 await Application.Current.MainPage.ShowPopupAsync(updatePopup);
             }
+        }
+    }
+
+    private async void OnCreateAPIKeyClicked(object sender, EventArgs e)
+    {
+        await Toast.Make("미구현 기능!", ToastDuration.Long).Show();
+        //try
+        //{
+        //    var success = await Launcher.TryOpenAsync(new Uri("https://aistudio.google.com/app/apikey"));
+        //    if (!success)
+        //    {
+        //        await Toast.Make(AppResources.splash_error_appstore, ToastDuration.Long).Show();
+        //    }
+        //}
+        //catch (Exception)
+        //{
+        //    await Toast.Make(AppResources.error).Show();
+        //}
+    }
+    private async void OnCreateGeminiAPIKeyClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            var success = await Launcher.TryOpenAsync(new Uri("https://aistudio.google.com/app/apikey"));
+            if (!success)
+            {
+                await Toast.Make(AppResources.splash_error_appstore, ToastDuration.Long).Show();
+            }
+        }
+        catch (Exception)
+        {
+            await Toast.Make(AppResources.error).Show();
         }
     }
 }

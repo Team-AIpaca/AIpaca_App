@@ -496,6 +496,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   저장과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   점수과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string score {

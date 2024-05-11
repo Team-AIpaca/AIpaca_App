@@ -264,6 +264,9 @@ It needs to be updated.</value>
   <data name="robots" xml:space="preserve">
     <value>Robots</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="score" xml:space="preserve">
     <value>Score</value>
   </data>
