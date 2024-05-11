@@ -3,6 +3,7 @@ using AIpaca_App.Models;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.Input;
+using MvvmHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ using static AIpaca_App.Views.Account.SignupPagePopup;
 
 namespace AIpaca_App.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel
     {
         private bool _isLoggedIn;
         private bool _isDarkModeEnabled;
@@ -29,6 +30,9 @@ namespace AIpaca_App.ViewModels
         private string _translatedLang = string.Empty;
         private string _translationResult = string.Empty;
         private DatabaseService databaseService;
+
+        public string LastErrorMessage { get; private set; }
+        public IAsyncRelayCommand EvaluateTranslationCommand { get; }
 
         public MainViewModel(DatabaseService dbService)
         {
@@ -52,14 +56,6 @@ namespace AIpaca_App.ViewModels
             databaseService = dbService;
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
         #region 다크모드
         //다크모드
         public bool IsDarkModeEnabled
@@ -67,9 +63,7 @@ namespace AIpaca_App.ViewModels
             get => _isDarkModeEnabled;
             set
             {
-                _isDarkModeEnabled = value;
-                OnPropertyChanged(nameof(IsDarkModeEnabled));
-                // 다크 모드 설정값을 앱 설정에 저장합니다.
+                SetProperty(ref _isDarkModeEnabled, value);
                 Preferences.Set("IsDarkModeEnabled", value);
                 if (App.Current != null)
                 {
@@ -84,11 +78,7 @@ namespace AIpaca_App.ViewModels
         public string AppVersion
         {
             get => _appVersion;
-            set
-            {
-                _appVersion = value;
-                OnPropertyChanged(nameof(AppVersion));
-            }
+            set => SetProperty(ref _appVersion, value);
         }
         #endregion
 
@@ -97,14 +87,7 @@ namespace AIpaca_App.ViewModels
         public bool IsLoggedIn
         {
             get => _isLoggedIn;
-            set
-            {
-                if (_isLoggedIn != value)
-                {
-                    _isLoggedIn = value;
-                    OnPropertyChanged(nameof(IsLoggedIn));
-                }
-            }
+            set => SetProperty(ref _isLoggedIn, value);
         }
 
         // 로그인 로직
@@ -137,7 +120,7 @@ namespace AIpaca_App.ViewModels
                     LastErrorMessage = $"Error {responseObject?.StatusCode}: {responseObject?.message}";
                     await databaseService.AddLogAsync(new Log
                     {
-                        Message = $"Login Failed : {LastErrorMessage}",
+                        Message = $"Login Failed : {LastErrorMessage}", 
                         Timestamp = DateTime.UtcNow
                     });
                     return false;
@@ -155,7 +138,6 @@ namespace AIpaca_App.ViewModels
             }
         }
 
-        public string LastErrorMessage { get; private set; }
 
         // 로그아웃 로직 예시
         public async void Logout()
@@ -242,54 +224,33 @@ namespace AIpaca_App.ViewModels
         public string OriginalText
         {
             get => _originalText;
-            set
-            {
-                _originalText = value;
-                OnPropertyChanged(nameof(OriginalText));
-            }
+            set => SetProperty(ref _originalText, value);
         }
 
         public string TranslatedText
         {
             get => _translatedText;
-            set
-            {
-                _translatedText = value;
-                OnPropertyChanged(nameof(TranslatedText));
-            }
+            set => SetProperty(ref _translatedText, value);
         }
 
         public string OriginalLang
         {
             get => _originalLang;
-            set
-            {
-                _originalLang = value;
-                OnPropertyChanged(nameof(OriginalLang));
-            }
+            set => SetProperty(ref _originalLang, value);
         }
 
         public string TranslatedLang
         {
             get => _translatedLang;
-            set
-            {
-                _translatedLang = value;
-                OnPropertyChanged(nameof(TranslatedLang));
-            }
+            set => SetProperty(ref _translatedLang, value);
         }
 
         public string TranslationResult
         {
             get => _translationResult;
-            set
-            {
-                _translationResult = value;
-                OnPropertyChanged(nameof(TranslationResult));
-            }
+            set => SetProperty(ref _translationResult, value);
         }
 
-        public IAsyncRelayCommand EvaluateTranslationCommand { get; }
 
         // 래퍼 메서드
         private async Task EvaluateTranslationWrapper()

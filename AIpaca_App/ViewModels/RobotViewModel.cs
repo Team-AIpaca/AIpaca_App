@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AIpaca_App.ViewModels
 {
-    public class RobotViewModel : INotifyPropertyChanged
+    public class RobotViewModel : BaseViewModel
     {
 
         private string _originalTransText = string.Empty;
@@ -31,52 +31,29 @@ namespace AIpaca_App.ViewModels
             databaseService = new DatabaseService();
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         #region 번역 기능
         public string OriginalTransText
         {
             get => _originalTransText;
-            set
-            {
-                _originalTransText = value;
-                OnPropertyChanged(nameof(OriginalTransText));
-            }
+            set => SetProperty(ref _originalTransText, value);
         }
 
         public string OriginalLang
         {
             get => _originalLang;
-            set
-            {
-                _originalLang = value;
-                OnPropertyChanged(nameof(OriginalLang));
-            }
+            set => SetProperty(ref _originalLang, value);
         }
 
         public string TranslatedLang
         {
             get => _translatedLang;
-            set
-            {
-                _translatedLang = value;
-                OnPropertyChanged(nameof(TranslatedLang));
-            }
+            set => SetProperty(ref _translatedLang, value);
         }
 
         public string GoogleTranslationResult
         {
             get => _GoogleTranslationResult;
-            set
-            {
-                _GoogleTranslationResult = value;
-                OnPropertyChanged(nameof(GoogleTranslationResult));
-            }
+            set => SetProperty(ref _GoogleTranslationResult, value);
         }
 
         public void SetOriginalLang(int selectedIndex)

@@ -4,24 +4,18 @@ using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Microsoft.Maui.Storage;
+using MvvmHelpers;
 
 namespace AIpaca_App.ViewModels
 {
-    public class ApiSettingViewModel : INotifyPropertyChanged
+    public class ApiSettingViewModel : BaseViewModel
     {
         private string? _currentApiKey;
 
         public string? CurrentApiKey
         {
             get => _currentApiKey;
-            set
-            {
-                if (_currentApiKey != value)
-                {
-                    _currentApiKey = value;
-                    OnPropertyChanged();
-                }
-            }
+            set => SetProperty(ref _currentApiKey, value, onChanged: () => OnPropertyChanged(nameof(CurrentApiKey)));
         }
 
         public ApiSettingViewModel()
@@ -57,13 +51,6 @@ namespace AIpaca_App.ViewModels
                     // 로그 기록 또는 사용자에게 피드백
                 }
             }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
