@@ -72,7 +72,7 @@ public partial class ApiSettingPopup : Popup
     {
         try
         {
-            var success = await Launcher.TryOpenAsync(new Uri("https://aistudio.google.com/app/apikey"));
+            var success = await Launcher.OpenAsync(new Uri("https://aistudio.google.com/app/apikey"));
             if (!success)
             {
                 await Toast.Make(AppResources.splash_error_appstore, ToastDuration.Long).Show();
