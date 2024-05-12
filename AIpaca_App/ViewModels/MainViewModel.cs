@@ -1,5 +1,6 @@
 ﻿using AIpaca_App.Data;
 using AIpaca_App.Models;
+using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.Input;
@@ -120,7 +121,7 @@ namespace AIpaca_App.ViewModels
                     LastErrorMessage = $"Error {responseObject?.StatusCode}: {responseObject?.message}";
                     await databaseService.AddLogAsync(new Log
                     {
-                        Message = $"Login Failed : {LastErrorMessage}", 
+                        Message = $"Login Failed : {LastErrorMessage}",
                         Timestamp = DateTime.UtcNow
                     });
                     return false;
@@ -187,8 +188,8 @@ namespace AIpaca_App.ViewModels
         }
         #endregion
 
-        #region Mainpage 평가받기 기능
 
+        #region 값을 받아오는 메서드
         public void SetOriginalLang(int selectedIndex)
         {
             switch (selectedIndex)
@@ -204,7 +205,7 @@ namespace AIpaca_App.ViewModels
                     break;
             }
         }
-        
+
         public void SetTranslatedLang(int selectedIndex)
         {
             switch (selectedIndex)
@@ -250,7 +251,9 @@ namespace AIpaca_App.ViewModels
             get => _translationResult;
             set => SetProperty(ref _translationResult, value);
         }
+        #endregion
 
+        #region Mainpage 평가받기 기능
 
         // 래퍼 메서드
         private async Task EvaluateTranslationWrapper()
@@ -259,28 +262,26 @@ namespace AIpaca_App.ViewModels
             await EvaluateTranslation(OriginalText, TranslatedText, OriginalLang, TranslatedLang);
         }
 
-
-        public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
+        private async Task<bool> CheckApiKey(string userApiKey)
         {
-            var (baseUrl, _, _, geminiEndpoint, _, _) = ApiConfigManager.LoadApiConfig();
-
-            // 사용자가 입력한 API 키를 Preferences에서 불러옵니다.
-            var userApiKey = await SecureStorage.GetAsync("GeminiApiKey");
-
             // userApiKey가 비어있는지 확인
             if (string.IsNullOrEmpty(userApiKey))
             {
                 // API 키가 없다면 사용자에게 알림
                 await Toast.Make(Resources.Localization.AppResources.error_no_api, ToastDuration.Long).Show();
-                return; // 메서드 종료
+                return false; // 메서드 종료
             }
+            return true;
+        }
 
+        private async Task<bool> CheckText(string originalText, string translatedText)
+        {
             // originalText가 비어있는지 확인
             if (string.IsNullOrEmpty(originalText))
             {
                 // originalText가 비어있다면 사용자에게 알림
                 await Toast.Make(Resources.Localization.AppResources.error_no_text1, ToastDuration.Long).Show();
-                return; // 메서드 종료
+                return false; // 메서드 종료
             }
 
             //vtranslatedText가 비어있는지 확인
@@ -288,10 +289,36 @@ namespace AIpaca_App.ViewModels
             {
                 // translatedText가 비어있다면 사용자에게 알림
                 await Toast.Make(Resources.Localization.AppResources.error_no_text2, ToastDuration.Long).Show();
-                return; // 메서드 종료
+                return false; // 메서드 종료
+            }
+            return true;
+        }
+
+
+        public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
+        {
+            var (baseUrl, _, _, geminiEndpoint, _, _) = ApiConfigManager.LoadApiConfig();
+
+            // 각 요소 값 확인
+            if (!await CheckText(originalText, translatedText))
+            {
+                return;
             }
 
-            var requestUri = $"{baseUrl}{geminiEndpoint}";
+            string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
+            await EvaluateTranslation_GPT();
+            await EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
+
+        }
+
+
+        public async Task EvaluateTranslation_Gemini(string requestUri, string originalText, string translatedText, string originalLang, string translatedLang)
+        {
+            string userApiKey = await SecureStorage.GetAsync("GeminiApiKey") ?? string.Empty;
+            if (!await CheckApiKey(userApiKey))
+            {
+                return;
+            }
 
             var requestData = new
             {
@@ -300,56 +327,51 @@ namespace AIpaca_App.ViewModels
                 OriginalLang = originalLang,
                 Translated = translatedText,
                 TranslatedLang = translatedLang,
-                EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName  
+                EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
             };
 
             var client = new HttpClient();
             var json = JsonSerializer.Serialize(requestData);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
+            TranslationResult = AppResources.loading;
+            var response = await client.PostAsync(requestUri, content);
+            var responseContent = await response.Content.ReadAsStringAsync();
 
             try
-            {
-                TranslationResult = $"로딩중";
-                var response = await client.PostAsync(requestUri, content);
-                var responseContent = await response.Content.ReadAsStringAsync();
+            { 
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
-                if (response.IsSuccessStatusCode)
+                var score = AppResources.score;
+                var recommend = AppResources.recommend;
+                if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                 {
-                    var score = Resources.Localization.AppResources.score;
-                    var recommend = Resources.Localization.AppResources.recommend;
-                    if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
+                    var result = apiResponse.data.result;
+                    var record = new EvRecord
                     {
-                        var result = apiResponse.data.result;
-                        var record = new EvRecord
-                        {
-                            OriginalText = " " + originalText,
-                            OriginalLang = originalLang,
-                            TranslatedText = " " + translatedText,
-                            TranslatedLang = translatedLang,
-                            Message = apiResponse.message ?? "No message",
-                            RequestTime = apiResponse.data?.RequestTime ?? "No timestamp",
-                            Score = result.Score,
-                            RecommendedTrans = result.RecommandedTrans ?? "No recommendation",
-                            Rating = result.Rating ?? "No rating"
-                        };
-                        TranslationResult = $"{score} : {result?.Score}\n{recommend}: {result?.RecommandedTrans}\n{result?.Rating}";
-                        // 데이터베이스에 레코드 저장
-                        await databaseService.AddRecordAsync(record);
-                        await databaseService.AddLogAsync(new Log
-                        {
-                            Message = $"API Request Successful : {record}",
-                            Timestamp = DateTime.UtcNow,
-                            Success = "Success"
-                        });
-                    }
-                    else
+                        OriginalText = " " + originalText,
+                        OriginalLang = originalLang,
+                        TranslatedText = " " + translatedText,
+                        TranslatedLang = translatedLang,
+                        Message = apiResponse.message ?? "No message",
+                        RequestTime = apiResponse.data?.RequestTime ?? "No timestamp",
+                        Score = result.Score,
+                        RecommendedTrans = result.RecommandedTrans ?? "No recommendation",
+                        Rating = result.Rating ?? "No rating"
+                    };
+                    TranslationResult = $"{score} : {result?.Score}\n{recommend}: {result?.RecommandedTrans}\n{result?.Rating}";
+                    // 데이터베이스에 레코드 저장
+                    await databaseService.AddRecordAsync(record);
+                    await databaseService.AddLogAsync(new Log
                     {
-                        await Toast.Make("API 응답이 유효하지 않습니다.", ToastDuration.Long).Show();
-                    }
+                        Message = $"API Request Successful : {record}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Success"
+                    });
                 }
                 else
                 {
-                    var errorMessage = $"오류 발생: {apiResponse?.StatusCode} - {apiResponse?.message}";
+                    await Toast.Make(AppResources.api_request_failed, ToastDuration.Long).Show();
+
+                    var errorMessage = $"{AppResources.error} : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     //await Toast.Make(errorMessage, ToastDuration.Long).Show();
                     TranslationResult = errorMessage;
                     await databaseService.AddLogAsync(new Log
@@ -362,8 +384,8 @@ namespace AIpaca_App.ViewModels
             }
             catch (Exception ex)
             {
-                await Toast.Make($"네트워크 오류가 발생했습니다: {ex.Message}", ToastDuration.Long).Show();
-                TranslationResult = " 네트워크 오류가 발생했습니다\n 다시 시도해주세요";
+                await Toast.Make($"{AppResources.error}: {ex.Message}", ToastDuration.Long).Show();
+                TranslationResult = AppResources.error + responseContent;
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = $"API Request Failed : {ex.Message}",
@@ -373,7 +395,12 @@ namespace AIpaca_App.ViewModels
             }
         }
 
-        // 받아온 api 요청을 db에 저장
+        public async Task EvaluateTranslation_GPT()
+        {
+            //미구현 
+            await Toast.Make("gpt 테스트 코드 : 미구현", ToastDuration.Long).Show();
+        }
+
 
         #endregion
 
@@ -400,4 +427,4 @@ namespace AIpaca_App.ViewModels
         #endregion
     }
 }
- 
+
