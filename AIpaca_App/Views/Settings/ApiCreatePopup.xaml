@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
+               x:Class="AIpaca_App.Views.Settings.ApiCreatePopup"
+               xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+               Color="{x:Static Colors.Transparent}"
+               x:DataType="vm:ApiSettingViewModel">
+
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}"  WidthRequest="300">
+
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+
+        <VerticalStackLayout Padding="0" Spacing="15">
+            
+            <Frame Padding="5">
+                <StackLayout Spacing="5">
+
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="5" HorizontalOptions="Center">
+                        <Frame CornerRadius="15"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                               BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCreateGeminiAPIKeyClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="Gemini API 발급" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="15"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"   
+                               BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCreateGPTAPIKeyClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="GPT API 발급" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="5" HorizontalOptions ="Center">
+
+                        <Frame CornerRadius="15"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"
+                               BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCreateAPIKeyClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="API 발급" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="15"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}"   
+                               BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCreateAPIKeyClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="API 발급" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="15"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" 
+                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnSaveClicked"/>
+                    </StackLayout.Behaviors>
+                    <Label Text="{x:Static resources:AppResources.ok}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                           FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="" HorizontalOptions="Center"/>
+
+
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

@@ -178,6 +178,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   API 키 만들기과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string createapikey {
+            get {
+                return ResourceManager.GetString("createapikey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   다크 모드과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string darkmode {

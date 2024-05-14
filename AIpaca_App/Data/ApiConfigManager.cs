@@ -6,7 +6,7 @@ namespace AIpaca_App.Data
 {
     public static class ApiConfigManager
     {
-        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string GeminiEndpoint, string PingEndpoint, string googletrans) LoadApiConfig()
+        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string gptEndpoint, string GeminiEndpoint, string PingEndpoint, string googletrans) LoadApiConfig()
         {
             var assembly = typeof(ApiConfigManager).GetTypeInfo().Assembly;
             var resourceName = "AIpaca_App.Resources.Config.ApiConfig.xml";
@@ -19,11 +19,12 @@ namespace AIpaca_App.Data
             var baseUrl = apiSettings.Element("BaseUrl")?.Value ?? string.Empty;
             var loginEndpoint = apiSettings.Element("LoginEndpoint")?.Value ?? string.Empty;
             var signupEndpoint = apiSettings.Element("SignupEndpoint")?.Value ?? string.Empty;
+            var gptEndpoint = apiSettings.Element("GPTEndpoint")?.Value ?? string.Empty;
             var geminiEndpoint = apiSettings.Element("GeminiEndpoint")?.Value ?? string.Empty;
             var pingEndpoint = apiSettings.Element("PingEndpoint")?.Value ?? string.Empty;
             var googletrans = apiSettings.Element("GoogleTransEndpoint")?.Value ?? string.Empty;
 
-            return (baseUrl, loginEndpoint, signupEndpoint, geminiEndpoint, pingEndpoint, googletrans);
+            return (baseUrl, loginEndpoint, signupEndpoint, gptEndpoint, geminiEndpoint, pingEndpoint, googletrans);
         }
     }
 }

@@ -156,6 +156,9 @@
   <data name="copy_successful" xml:space="preserve">
     <value>Copy complete</value>
   </data>
+  <data name="createapikey" xml:space="preserve">
+    <value>Create API key</value>
+  </data>
   <data name="darkmode" xml:space="preserve">
     <value>DarkMode</value>
   </data>

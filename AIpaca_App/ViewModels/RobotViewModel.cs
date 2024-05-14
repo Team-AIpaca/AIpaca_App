@@ -99,7 +99,7 @@ namespace AIpaca_App.ViewModels
 
         public async Task Translation(string originalText, string originalLang, string translatedLang)
         {
-            var (baseUrl, _, _, _, _, googletrans) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, _, _, _, _, _, googletrans) = ApiConfigManager.LoadApiConfig();
 
 
             //var userApiKey = await SecureStorage.GetAsync("GeminiApiKey");

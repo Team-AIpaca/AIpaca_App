@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AIpaca_App.Views.MainPage"
              xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}"
              xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
              x:DataType="vm:MainViewModel">
@@ -76,8 +77,26 @@
             <Button Text="{x:Static resources:AppResources.evaluate}" Command="{Binding EvaluateTranslationCommand}"  />
             
             <!-- 텍스트 반환 값 출력 -->
-            <Frame Grid.Column="0" CornerRadius="10" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="10" HasShadow="False" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <Label x:Name="TranslatedTextLabel" Text="{Binding TranslationResult}" />
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander IsExpanded="True">
+                    <toolkit:Expander.Header>
+                        <Label Text="GPT" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label x:Name="TranslatedTextLabel_GPT" Text="{Binding TranslationResult_GPT}" />
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Frame>
+
+            <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="Gemini" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label x:Name="TranslatedTextLabel_Gemini" Text="{Binding TranslationResult_Gemini}" />
+                    </VerticalStackLayout>
+                </toolkit:Expander>
             </Frame>
 
         </VerticalStackLayout>

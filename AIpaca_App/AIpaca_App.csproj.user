@@ -40,6 +40,9 @@
     <MauiXaml Update="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Settings\ApiCreatePopup.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\Settings\ApiSettingPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

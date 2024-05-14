@@ -107,6 +107,11 @@ public partial class SettingsPage : ContentPage
         var apisettingpopup = new ApiSettingPopup();
         await this.ShowPopupAsync(apisettingpopup);
     }
+    private async void OnCreateAPIkeyButtonClicked(object sender, EventArgs e)
+    {
+        var createAPIkey = new ApiCreatePopup();
+        await this.ShowPopupAsync(createAPIkey);
+    }
 
     private async void OnLogButtonClicked(object sender, EventArgs e)
     {
