@@ -83,6 +83,10 @@
                         <Label Text="GPT" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label x:Name="TranslatedTextLabel_GPT" Text="{Binding TranslationResult_GPT}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>
@@ -94,6 +98,10 @@
                         <Label Text="Gemini" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label x:Name="TranslatedTextLabel_Gemini" Text="{Binding TranslationResult_Gemini}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>

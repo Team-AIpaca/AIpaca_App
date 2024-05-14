@@ -1,5 +1,8 @@
 ﻿using AIpaca_App.Data;
+using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 
 namespace AIpaca_App.Views
 {
@@ -98,6 +101,25 @@ namespace AIpaca_App.Views
             }
         }
 
+        private async void OnCopyButtonClicked(object sender, EventArgs e)
+        {
+            var stackLayout = sender as VerticalStackLayout;
+            if (stackLayout != null)
+            {
+                var labels = stackLayout.Children.OfType<Label>().ToList();
+                string labelText = string.Join("\n", labels.Select(l => l.Text).ToArray());
+
+                if (!string.IsNullOrEmpty(labelText))
+                {
+                    await Clipboard.Default.SetTextAsync(labelText);
+                    await Toast.Make(AppResources.copy_successful, ToastDuration.Long).Show();
+                }
+                else
+                {
+                    await Toast.Make(AppResources.copy_failed, ToastDuration.Long).Show();
+                }
+            }
+        }
     }
         
 }

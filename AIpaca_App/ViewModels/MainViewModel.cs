@@ -286,7 +286,7 @@ namespace AIpaca_App.ViewModels
             if (string.IsNullOrEmpty(originalText))
             {
                 // originalText가 비어있다면 사용자에게 알림
-                await Toast.Make(Resources.Localization.AppResources.error_no_text1, ToastDuration.Long).Show();
+                await Toast.Make(AppResources.error_no_text1, ToastDuration.Long).Show();
                 return false; // 메서드 종료
             }
 
@@ -294,7 +294,7 @@ namespace AIpaca_App.ViewModels
             if (string.IsNullOrEmpty(translatedText))
             {
                 // translatedText가 비어있다면 사용자에게 알림
-                await Toast.Make(Resources.Localization.AppResources.error_no_text2, ToastDuration.Long).Show();
+                await Toast.Make(AppResources.error_no_text2, ToastDuration.Long).Show();
                 return false; // 메서드 종료
             }
             return true;

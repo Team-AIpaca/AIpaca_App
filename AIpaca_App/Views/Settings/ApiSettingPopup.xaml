@@ -16,7 +16,7 @@
 
         <VerticalStackLayout Padding="0" Spacing="10">
 
-            <Frame Padding="10" CornerRadius="15">
+            <Frame Padding="10" CornerRadius="15" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Padding="0" Spacing="5">
                     <Label Text="GPT API 키" HorizontalOptions="Center"/>
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
@@ -28,7 +28,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <Frame Padding="10" CornerRadius="15">
+            <Frame Padding="10" CornerRadius="15" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Padding="0" Spacing="5">
                     <Label Text="Gemini API 키" HorizontalOptions="Center"/>
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
