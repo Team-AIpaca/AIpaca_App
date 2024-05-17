@@ -15,8 +15,8 @@
         </Border.StrokeShape>
 
         <VerticalStackLayout Padding="0" Spacing="15">
-            
-            <Frame Padding="5">
+
+            <Frame Padding="5" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <StackLayout Spacing="5">
 
                     <StackLayout Orientation="Horizontal" Padding="0" Spacing="5" HorizontalOptions="Center">
