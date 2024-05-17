@@ -623,6 +623,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   성공과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string success {
+            get {
+                return ResourceManager.GetString("success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   시스템과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string system {

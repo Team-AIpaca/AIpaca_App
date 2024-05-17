@@ -310,6 +310,9 @@ Please try again</value>
   <data name="String1" xml:space="preserve">
     <value>更新する必要があります。</value>
   </data>
+  <data name="success" xml:space="preserve">
+    <value>Success</value>
+  </data>
   <data name="system" xml:space="preserve">
     <value>システムです</value>
   </data>

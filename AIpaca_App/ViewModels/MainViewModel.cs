@@ -20,11 +20,6 @@ namespace AIpaca_App.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private bool _isLoggedIn;
-        private bool _isDarkModeEnabled;
-        private string _appVersion;
-        private string _loginEndpoint;
-        private string _signupEndpoint;
         private string _originalText = string.Empty;
         private string _translatedText = string.Empty;
         private string _originalLang = string.Empty;
@@ -38,156 +33,12 @@ namespace AIpaca_App.ViewModels
 
         public MainViewModel(DatabaseService dbService)
         {
-            // 앱 설정에서 다크 모드 값을 불러와 프로퍼티에 설정합니다.
-            IsDarkModeEnabled = Preferences.Get("IsDarkModeEnabled", false);
-            // 앱 버전 가져오기
-            _appVersion = AppInfo.VersionString;
-
-            // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
-            var (baseUrl, loginEndpoint, signupEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
-            _loginEndpoint = $"{baseUrl}{loginEndpoint}";
-            _signupEndpoint = $"{baseUrl}{signupEndpoint}";
-
             // 에러 메시지 초기화
             LastErrorMessage = string.Empty;
-
-            // 로그인 상태 초기화
-            IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
 
             EvaluateTranslationCommand = new AsyncRelayCommand(EvaluateTranslationWrapper);
             databaseService = dbService;
         }
-
-        #region 다크모드
-        //다크모드
-        public bool IsDarkModeEnabled
-        {
-            get => _isDarkModeEnabled;
-            set
-            {
-                SetProperty(ref _isDarkModeEnabled, value);
-                Preferences.Set("IsDarkModeEnabled", value);
-                if (App.Current != null)
-                {
-                    App.Current.ApplyTheme(value);
-                }
-            }
-        }
-        #endregion
-
-        #region 앱 버전
-        //앱 버전
-        public string AppVersion
-        {
-            get => _appVersion;
-            set => SetProperty(ref _appVersion, value);
-        }
-        #endregion
-
-        #region 로그인
-        //로그인 유지
-        public bool IsLoggedIn
-        {
-            get => _isLoggedIn;
-            set => SetProperty(ref _isLoggedIn, value);
-        }
-
-        // 로그인 로직
-        public async Task<bool> LoginAsync(string username, string password)
-        {
-            var loginData = new { username, password };
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(loginData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            try
-            {
-                var response = await client.PostAsync(_loginEndpoint, content);
-                if (response.IsSuccessStatusCode)
-                {
-                    // 로그인 성공
-                    IsLoggedIn = true;
-                    await databaseService.AddLogAsync(new Log
-                    {
-                        Message = $"Login Success",
-                        Timestamp = DateTime.UtcNow
-                    });
-                    return true;
-                }
-                else
-                {
-                    // 로그인 실패, 에러 메시지와 코드를 처리합니다.                    
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonSerializer.Deserialize<ApiResponse>(responseContent);
-                    LastErrorMessage = $"Error {responseObject?.StatusCode}: {responseObject?.message}";
-                    await databaseService.AddLogAsync(new Log
-                    {
-                        Message = $"Login Failed : {LastErrorMessage}",
-                        Timestamp = DateTime.UtcNow
-                    });
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                LastErrorMessage = $"Network Error: {ex.Message}";
-                await databaseService.AddLogAsync(new Log
-                {
-                    Message = LastErrorMessage,
-                    Timestamp = DateTime.UtcNow
-                });
-                return false;
-            }
-        }
-
-
-        // 로그아웃 로직 예시
-        public async void Logout()
-        {
-            IsLoggedIn = false;
-            await databaseService.AddLogAsync(new Log
-            {
-                Message = $"Logout",
-                Timestamp = DateTime.UtcNow
-            });
-        }
-        #endregion
-
-        #region 회원가입
-        // 회원가입 기능
-        public async Task<bool> SignupAsync(string email, string username, string password)
-        {
-            var signupData = new { email, username, password };
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(signupData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            try
-            {
-                var response = await client.PostAsync(_signupEndpoint, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    await Toast.Make("회원가입이 완료되었습니다.", ToastDuration.Long).Show();
-                    return true;
-                }
-                else
-                {
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonSerializer.Deserialize<ApiResponse>(responseContent);
-                    LastErrorMessage = $"오류 {response.StatusCode}: {responseObject?.message ?? "알 수 없는 오류가 발생했습니다."}";
-                    await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                LastErrorMessage = $"네트워크 오류가 발생했습니다: {ex.Message}";
-                await Toast.Make(LastErrorMessage, ToastDuration.Long).Show();
-                return false;
-            }
-        }
-        #endregion
 
         #region 값을 받아오는 메서드
         public void SetOriginalLang(int selectedIndex)
@@ -251,7 +102,7 @@ namespace AIpaca_App.ViewModels
             get => _translationResult_GPT;
             set => SetProperty(ref _translationResult_GPT, value);
         }
-        
+
         public string TranslationResult_Gemini
         {
             get => _translationResult_Gemini;
@@ -323,34 +174,34 @@ namespace AIpaca_App.ViewModels
         {
             //미구현 
             //await Toast.Make("gpt 테스트 코드 : 미구현", ToastDuration.Long).Show();
-
-            string userApiKey = await SecureStorage.GetAsync("GPTApiKey") ?? string.Empty; 
-            if (!await CheckApiKey(userApiKey))
-            {
-                TranslationResult_GPT = AppResources.error_no_api;
-                return;
-            }
-
-            var requestData = new
-            {
-                OpenAIAPIKey = userApiKey,
-                GPTVersion = "GPT-4o",
-                Original = originalText,
-                OriginalLang = originalLang,
-                Translated = translatedText,
-                TranslatedLang = translatedLang,
-                EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
-            };
-
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(requestData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            TranslationResult_GPT = AppResources.loading;
-            var response = await client.PostAsync(requestUri, content);
-            var responseContent = await response.Content.ReadAsStringAsync();
-
             try
             {
+                string userApiKey = await SecureStorage.GetAsync("GPTApiKey") ?? string.Empty;
+                if (!await CheckApiKey(userApiKey))
+                {
+                    TranslationResult_GPT = AppResources.error_no_api;
+                    return;
+                }
+
+                var requestData = new
+                {
+                    OpenAIAPIKey = userApiKey,
+                    GPTVersion = "GPT-4o",
+                    Original = originalText,
+                    OriginalLang = originalLang,
+                    Translated = translatedText,
+                    TranslatedLang = translatedLang,
+                    EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
+                };
+
+                var client = new HttpClient();
+                var json = JsonSerializer.Serialize(requestData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                TranslationResult_GPT = AppResources.loading;
+                var response = await client.PostAsync(requestUri, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                 var score = AppResources.score;
                 var recommend = AppResources.recommend;
@@ -397,7 +248,7 @@ namespace AIpaca_App.ViewModels
             catch (Exception ex)
             {
                 await Toast.Make($"{AppResources.error}: {ex.Message}", ToastDuration.Long).Show();
-                TranslationResult_GPT = AppResources.error + responseContent;
+                TranslationResult_GPT = AppResources.error;
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = $"API Request Failed : {ex.Message}",
@@ -411,31 +262,32 @@ namespace AIpaca_App.ViewModels
 
         public async Task EvaluateTranslation_Gemini(string requestUri, string originalText, string translatedText, string originalLang, string translatedLang)
         {
-            string userApiKey = await SecureStorage.GetAsync("GeminiApiKey") ?? string.Empty;
-            if (!await CheckApiKey(userApiKey))
-            {
-                return;
-            }
-
-            var requestData = new
-            {
-                GeminiAPIKey = userApiKey,
-                Original = originalText,
-                OriginalLang = originalLang,
-                Translated = translatedText,
-                TranslatedLang = translatedLang,
-                EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
-            };
-
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(requestData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            TranslationResult_Gemini = AppResources.loading;
-            var response = await client.PostAsync(requestUri, content);
-            var responseContent = await response.Content.ReadAsStringAsync();
-
             try
-            { 
+            {
+                string userApiKey = await SecureStorage.GetAsync("GeminiApiKey") ?? string.Empty;
+                if (!await CheckApiKey(userApiKey))
+                {
+                    return;
+                }
+
+                var requestData = new
+                {
+                    GeminiAPIKey = userApiKey,
+                    Original = originalText,
+                    OriginalLang = originalLang,
+                    Translated = translatedText,
+                    TranslatedLang = translatedLang,
+                    EvaluationLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
+                };
+
+                var client = new HttpClient();
+                var json = JsonSerializer.Serialize(requestData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                TranslationResult_Gemini = AppResources.loading;
+                var response = await client.PostAsync(requestUri, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
                 var score = AppResources.score;
                 var recommend = AppResources.recommend;
@@ -482,7 +334,7 @@ namespace AIpaca_App.ViewModels
             catch (Exception ex)
             {
                 await Toast.Make($"{AppResources.error}: {ex.Message}", ToastDuration.Long).Show();
-                TranslationResult_Gemini = AppResources.error + responseContent;
+                TranslationResult_Gemini = AppResources.error;
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = $"API Request Failed : {ex.Message}",
@@ -492,7 +344,7 @@ namespace AIpaca_App.ViewModels
             }
         }
 
-        
+
 
 
         #endregion

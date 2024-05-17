@@ -5,9 +5,10 @@
              xmlns:vm="clr-namespace:AIpaca_App.ViewModels"
              xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:DataType="vm:MainViewModel"
+             x:DataType="vm:SettingViewModel"
              BackgroundColor="{DynamicResource DefaultPageBackgroundColor}">
 
+    
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="20">
             <!--로그인 섹션-->
@@ -87,7 +88,7 @@
                         <Image Source="setting_lowspecmode.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
                         <Label Text="{x:Static resources:AppResources.lowspecmode}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
                                FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-                        <Switch x:Name="LowPowerModeToggle" HorizontalOptions="EndAndExpand" Toggled="LowPowerModeEnabled"/>
+                        <Switch x:Name="LowPowerModeToggle" HorizontalOptions="EndAndExpand" IsToggled="{Binding LowPowerModeEnabled}"/>
                     </StackLayout>
 
                 </VerticalStackLayout>

@@ -11,9 +11,9 @@ namespace AIpaca_App.Views.Account;
 
 public partial class LoginPagePopup : Popup
 {
-    private MainViewModel _viewModel;
+    private SettingViewModel _viewModel;
 
-    public LoginPagePopup(MainViewModel viewModel)
+    public LoginPagePopup(SettingViewModel viewModel)
     {
         InitializeComponent();
         _viewModel = viewModel; // 외부에서 전달받은 MainViewModel 인스턴스를 사용

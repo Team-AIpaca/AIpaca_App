@@ -9,17 +9,17 @@ using AIpaca_App.Models;
 using AIpaca_App.Resources.Localization;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+
 namespace AIpaca_App.Views;
 
 public partial class SettingsPage : ContentPage
 {
-    private MainViewModel _viewModel;
+    private SettingViewModel _viewModel;
 
     public SettingsPage()
     {
         InitializeComponent();
-        var databaseService = new DatabaseService();
-        _viewModel = new MainViewModel(databaseService);
+        _viewModel = new SettingViewModel();
         this.BindingContext = _viewModel;
     }
 
@@ -63,7 +63,7 @@ public partial class SettingsPage : ContentPage
 
             // 애니메이션 실행
             await view.ScaleTo(0.95, 50, Easing.SinInOut);
-            view.BackgroundColor = Color.FromArgb("#E0E0E0").MultiplyAlpha((float)0.5); // 임8888858시 리플 색상
+            view.BackgroundColor = Color.FromArgb("#E0E0E0").MultiplyAlpha((float)0.5); // 임시 리플 색상
             await view.ScaleTo(1, 50, Easing.SinInOut);
 
             // 원래 색상으로 복원
@@ -147,10 +147,10 @@ public partial class SettingsPage : ContentPage
             await Toast.Make(AppResources.error).Show();
         }
     }
-    private void OnPingButtonClicked(object sender, EventArgs e)
+    private async void OnPingButtonClicked(object sender, EventArgs e)
     {
         // Ping 서버로부터 응답을 받아오는 로직 수행
-        //_viewModel.PingServer();
+        await _viewModel.CheckServerAsync();
     }
     private void OnBackUpButtonClicked(object sender, EventArgs e)
     {

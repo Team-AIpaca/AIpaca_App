@@ -18,8 +18,7 @@ namespace AIpaca_App.ViewModels
     {
         private DatabaseService _databaseService;
         public ObservableCollection<Log> Logs { get; private set; }
-
-        private const int PageSize = 15; // 페이지당 로드할 데이터 개수
+        public int PageSize = 15;// 페이지당 로드할 데이터 개수
         private int _currentPage = 0;
         public bool _isLoading = false;
         private bool _isLastPage = false;

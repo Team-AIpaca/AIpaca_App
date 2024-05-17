@@ -303,6 +303,9 @@ It needs to be updated.</value>
   <data name="splash_version_latest" xml:space="preserve">
     <value>It's the latest version</value>
   </data>
+  <data name="success" xml:space="preserve">
+    <value>Success</value>
+  </data>
   <data name="system" xml:space="preserve">
     <value>System</value>
   </data>
