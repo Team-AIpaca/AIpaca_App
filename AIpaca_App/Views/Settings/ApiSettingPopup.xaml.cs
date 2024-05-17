@@ -84,4 +84,14 @@ public partial class ApiSettingPopup : Popup
             }
         }
     }
+
+    private void OnGPTAPIDeleteClicked(object sender, EventArgs e)
+    {
+        _viewModel.DeleteGPTApiKey();
+    }
+
+    private void OnGeminiAPIDeleteClicked(object sender, EventArgs e)
+    {
+        _viewModel.DeleteGeminiApiKey();
+    }
 }

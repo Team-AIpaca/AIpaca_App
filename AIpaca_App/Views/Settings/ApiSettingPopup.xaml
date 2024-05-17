@@ -17,14 +17,27 @@
         <VerticalStackLayout Padding="0" Spacing="10">
 
             <Frame Padding="10" CornerRadius="15" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+
                 <VerticalStackLayout Padding="0" Spacing="5">
+
                     <Label Text="GPT API 키" HorizontalOptions="Center"/>
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
                         <Label x:Name="CurrentApiKeyLabel" Text="{Binding CurrentApiKey_GPT}" HorizontalTextAlignment="Center"/>
                     </Frame>
-                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
-                        <Entry x:Name="GPTApiKeyEntry" Placeholder="여기에 GPT API 키를 입력하세요"/>
-                    </Frame>
+
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
+                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
+                            <Entry x:Name="GPTApiKeyEntry" Placeholder="GPT Key Here"/>
+                        </Frame>
+                        <Frame>
+                            <Frame.Behaviors>
+                                <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGPTAPIDeleteClicked"/>
+                            </Frame.Behaviors>
+                            <Image Source="setting_ping.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+                        </Frame>
+                    </StackLayout>
+                    
                 </VerticalStackLayout>
             </Frame>
 
@@ -34,14 +47,27 @@
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
                         <Label x:Name="CurrentApiKeyLabel2" Text="{Binding CurrentApiKey_Gemini}" HorizontalTextAlignment="Center"/>
                     </Frame>
-                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
-                        <Entry x:Name="GeminiApiKeyEntry" Placeholder="여기에 Gemini API 키를 입력하세요"/>
-                    </Frame>
+
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
+                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
+                            <Entry x:Name="GeminiApiKeyEntry" Placeholder="Gemini Key Here"/>
+                        </Frame>
+                        <Frame>
+                            <Frame.Behaviors>
+                                <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPIDeleteClicked"/>
+                            </Frame.Behaviors>
+                            <Image Source="setting_ping.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+                        </Frame>
+
+
+
+                    </StackLayout>
                 </VerticalStackLayout>
             </Frame>
-            
+
             <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
-                
+
                 <Frame CornerRadius="8"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" 
                        BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                     <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">

@@ -88,7 +88,7 @@
                         <Image Source="setting_lowspecmode.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" />
                         <Label Text="{x:Static resources:AppResources.lowspecmode}" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
                                FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-                        <Switch x:Name="LowPowerModeToggle" HorizontalOptions="EndAndExpand" IsToggled="{Binding LowPowerModeEnabled}"/>
+                        <Switch x:Name="LowPowerModeToggle" HorizontalOptions="EndAndExpand" />
                     </StackLayout>
 
                 </VerticalStackLayout>

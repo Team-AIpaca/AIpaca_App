@@ -4,8 +4,10 @@ using System.Windows.Input;
 using AIpaca_App.Data;
 using AIpaca_App.Models;
 using AIpaca_App.Resources.Localization;
+using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 
@@ -14,6 +16,7 @@ namespace AIpaca_App.ViewModels
     public class RecordViewModel : BaseViewModel
     {
         private DatabaseService databaseService;
+
         public ObservableCollection<EvRecord> Records { get; private set; }
         public ObservableCollection<EvRecord> GraphRecords { get; private set; }
 
@@ -72,6 +75,7 @@ namespace AIpaca_App.ViewModels
             UpdateGraphRecords();
         }
 
+        #region 페이지 로드 및 추가
         public async Task LoadNextPage()
         {
             if (_isLastPage || _isLoading) return;
@@ -92,7 +96,9 @@ namespace AIpaca_App.ViewModels
                 await Toast.Make(AppResources.record_addition_failed, ToastDuration.Short).Show();
             }
         }
+        #endregion
 
+        #region 그래프 업데이트
         private void UpdateGraphRecords()
         {
             GraphRecords.Clear();
@@ -121,7 +127,6 @@ namespace AIpaca_App.ViewModels
 
             IsRefreshing = false;
         }
-
-        
+        #endregion
     }
 }

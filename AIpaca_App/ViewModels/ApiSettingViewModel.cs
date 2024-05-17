@@ -76,7 +76,7 @@ namespace AIpaca_App.ViewModels
                 }
             }
         }
-        
+
         public async void SaveGeminiApiKey(string? newApiKey)
         {
             if (newApiKey != null)  // null 체크
@@ -90,6 +90,32 @@ namespace AIpaca_App.ViewModels
                 {
                     // 로그 기록 또는 사용자에게 피드백
                 }
+            }
+        }
+
+        public async void DeleteGPTApiKey()
+        {
+            try
+            {
+                await SecureStorage.SetAsync("GPTApiKey", "");
+                LoadApiKey();  // Refresh the displayed key
+            }
+            catch (Exception)
+            {
+                // 로그 기록 또는 사용자에게 피드백
+            }
+        }
+
+        public async void DeleteGeminiApiKey()
+        {
+            try
+            {
+                await SecureStorage.SetAsync("GeminiApiKey", "");
+                LoadApiKey();  // Refresh the displayed key
+            }
+            catch (Exception)
+            {
+                // 로그 기록 또는 사용자에게 피드백
             }
         }
     }

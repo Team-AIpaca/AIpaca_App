@@ -21,26 +21,20 @@ namespace AIpaca_App.ViewModels
     {
         private bool _isLoggedIn;
         private bool _isDarkModeEnabled;
-        private bool _isLowPowerModeEnabled;
         private string _appVersion;
         private string _loginEndpoint;
         private string _signupEndpoint;
         private DatabaseService databaseService;
-        private LogViewModel _logViewModel;
-        private RecordViewModel _recordViewModel;
+        public int _pageSize;
 
         public string LastErrorMessage { get; private set; }
-        public int page;
 
         public SettingViewModel()
         {
             databaseService = new DatabaseService();
-            _logViewModel = new LogViewModel();
-            _recordViewModel = new RecordViewModel();
 
             // 앱 설정에서 다크 모드 값을 불러와 프로퍼티에 설정합니다.
             IsDarkModeEnabled = Preferences.Get("IsDarkModeEnabled", false);
-            LowPowerModeEnabled = Preferences.Get("IsLowPowerModeEnabled", false);
 
             // 앱 버전 가져오기
             _appVersion = AppInfo.VersionString;
@@ -57,7 +51,7 @@ namespace AIpaca_App.ViewModels
             IsLoggedIn = false;  // 초기 로그인 상태를 false로 설정
         }
 
-        #region 다크모드 / 저사양모드
+        #region 다크모드
         //다크모드
         public bool IsDarkModeEnabled
         {
@@ -73,23 +67,6 @@ namespace AIpaca_App.ViewModels
             }
         }
 
-        public bool LowPowerModeEnabled
-        {
-            get => _isLowPowerModeEnabled;
-            set
-            {
-                if (SetProperty(ref _isLowPowerModeEnabled, value))
-                {
-                    Preferences.Set("IsLowPowerModeEnabled", value);
-
-                    // LogViewModel 및 RecordViewModel의 PageSize를 업데이트
-                    page = value ? 10 : 15; // 10은 기본값
-                    page = value ? 10 : 15; // 10은 기본값
-
-                    OnPropertyChanged(nameof(LowPowerModeEnabled)); // 프로퍼티 변경 알림
-                }
-            }
-        }
         #endregion
 
         #region 앱 버전

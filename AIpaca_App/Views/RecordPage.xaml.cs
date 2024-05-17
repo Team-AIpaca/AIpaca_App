@@ -3,6 +3,7 @@ using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 
 namespace AIpaca_App.Views;
 
