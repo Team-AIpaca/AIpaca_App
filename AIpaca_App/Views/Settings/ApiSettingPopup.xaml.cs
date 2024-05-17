@@ -19,7 +19,7 @@ public partial class ApiSettingPopup : Popup
 
     private async void OnGPTAPISaveClicked(object sender, EventArgs e)
     {
-        var GPTapiKey = ApiKeyEntry.Text;
+        var GPTapiKey = GPTApiKeyEntry.Text;
         if (!string.IsNullOrWhiteSpace(GPTapiKey))
         {
             _viewModel.SaveGPTApiKey(GPTapiKey);
@@ -53,7 +53,7 @@ public partial class ApiSettingPopup : Popup
     
     private async void OnGeminiAPISaveClicked(object sender, EventArgs e)
     {
-        var GeminiapiKey = ApiKeyEntry.Text;
+        var GeminiapiKey = GeminiApiKeyEntry.Text;
         if (!string.IsNullOrWhiteSpace(GeminiapiKey))
         {
             _viewModel.SaveGeminiApiKey(GeminiapiKey);

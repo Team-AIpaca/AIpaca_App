@@ -23,7 +23,7 @@
                         <Label x:Name="CurrentApiKeyLabel" Text="{Binding CurrentApiKey_GPT}" HorizontalTextAlignment="Center"/>
                     </Frame>
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
-                        <Entry x:Name="ApiKeyEntry" Placeholder="여기에 GPT API 키를 입력하세요"/>
+                        <Entry x:Name="GPTApiKeyEntry" Placeholder="여기에 GPT API 키를 입력하세요"/>
                     </Frame>
                 </VerticalStackLayout>
             </Frame>
@@ -35,7 +35,7 @@
                         <Label x:Name="CurrentApiKeyLabel2" Text="{Binding CurrentApiKey_Gemini}" HorizontalTextAlignment="Center"/>
                     </Frame>
                     <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
-                        <Entry x:Name="ApiKeyEntry2" Placeholder="여기에 Gemini API 키를 입력하세요"/>
+                        <Entry x:Name="GeminiApiKeyEntry" Placeholder="여기에 Gemini API 키를 입력하세요"/>
                     </Frame>
                 </VerticalStackLayout>
             </Frame>
