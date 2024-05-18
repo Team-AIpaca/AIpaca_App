@@ -54,9 +54,6 @@ namespace AIpaca_App
             var languageCode = Preferences.Get("LanguageCode", "ko");
             CultureInfo.CurrentCulture = new CultureInfo(languageCode);
             CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
-
-            // 언어 변경 메시지 발송
-            WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(languageCode));
         }
 
         public void ApplyTheme(bool isDarkMode)

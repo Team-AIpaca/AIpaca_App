@@ -29,6 +29,7 @@ namespace AIpaca_App.ViewModels
             Logs = new ObservableCollection<Log>();
         }
 
+        #region 로그 출력
         public async Task LoadLogs(int pageNumber)
         {
             if (_isLoading || _isLastPage) return;
@@ -59,5 +60,6 @@ namespace AIpaca_App.ViewModels
 
             await LoadLogs(_currentPage + 1);
         }
+        #endregion
     }
 }

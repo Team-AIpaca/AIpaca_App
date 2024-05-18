@@ -351,6 +351,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   언어과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   언어 설정과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string languageset {
@@ -451,6 +460,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   원문과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string originaltext {
+            get {
+                return ResourceManager.GetString("originaltext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   파파고 번역기과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string papagotranslate {
@@ -469,11 +487,29 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   평가과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string rating {
+            get {
+                return ResourceManager.GetString("rating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   추천번역과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string recommend {
             get {
                 return ResourceManager.GetString("recommend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   추천번역과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string recommendedtext {
+            get {
+                return ResourceManager.GetString("recommendedtext", resourceCulture);
             }
         }
         
@@ -492,6 +528,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string record_addition_failed {
             get {
                 return ResourceManager.GetString("record_addition_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   요청시간과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string requesttime {
+            get {
+                return ResourceManager.GetString("requesttime", resourceCulture);
             }
         }
         
@@ -664,6 +709,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string translated_text {
             get {
                 return ResourceManager.GetString("translated_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   번역문과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string translatedtext {
+            get {
+                return ResourceManager.GetString("translatedtext", resourceCulture);
             }
         }
         

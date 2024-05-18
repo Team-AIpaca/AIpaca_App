@@ -13,6 +13,11 @@ namespace AIpaca_App.ViewModels
         private string? _currentApiKey_GPT;
         private string? _currentApiKey_Gemini;
 
+        public ApiSettingViewModel()
+        {
+            LoadApiKey();
+        }
+
         public string? CurrentApiKey_GPT
         {
             get => _currentApiKey_GPT;
@@ -24,11 +29,7 @@ namespace AIpaca_App.ViewModels
             set => SetProperty(ref _currentApiKey_Gemini, value, onChanged: () => OnPropertyChanged(nameof(CurrentApiKey_Gemini)));
         }
 
-        public ApiSettingViewModel()
-        {
-            LoadApiKey();
-        }
-
+        #region API 키 로드
         private void LoadApiKey()
         {
             LoadGPTApiKey();
@@ -60,7 +61,9 @@ namespace AIpaca_App.ViewModels
                 await Toast.Make(AppResources.error_api_load_failed, ToastDuration.Long).Show();
             }
         }
+        #endregion
 
+        #region API 키 저장
         public async void SaveGPTApiKey(string? newApiKey)
         {
             if (newApiKey != null)  // null 체크
@@ -92,7 +95,9 @@ namespace AIpaca_App.ViewModels
                 }
             }
         }
+        #endregion
 
+        #region API 키 삭제
         public async void DeleteGPTApiKey()
         {
             try
@@ -118,5 +123,6 @@ namespace AIpaca_App.ViewModels
                 // 로그 기록 또는 사용자에게 피드백
             }
         }
+        #endregion
     }
 }

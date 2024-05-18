@@ -214,6 +214,9 @@ Please try again</value>
   <data name="ko" xml:space="preserve">
     <value>韓国語</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="languageset" xml:space="preserve">
     <value>言語です</value>
   </data>
@@ -247,20 +250,32 @@ Please try again</value>
   <data name="ok" xml:space="preserve">
     <value>OK。</value>
   </data>
+  <data name="originaltext" xml:space="preserve">
+    <value>Original Text</value>
+  </data>
   <data name="papagotranslate" xml:space="preserve">
     <value>Papago Translate</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>パスワードです</value>
   </data>
+  <data name="rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
   <data name="recommend" xml:space="preserve">
     <value>推奨します</value>
+  </data>
+  <data name="recommendedtext" xml:space="preserve">
+    <value>Recommended Text</value>
   </data>
   <data name="record" xml:space="preserve">
     <value>記録します</value>
   </data>
   <data name="record_addition_failed" xml:space="preserve">
     <value>Record addition failed</value>
+  </data>
+  <data name="requesttime" xml:space="preserve">
+    <value>Request Time</value>
   </data>
   <data name="robots" xml:space="preserve">
     <value>ロボットです</value>
@@ -321,6 +336,9 @@ Please try again</value>
   </data>
   <data name="theme" xml:space="preserve">
     <value>テーマです</value>
+  </data>
+  <data name="translatedtext" xml:space="preserve">
+    <value>Translated Text</value>
   </data>
   <data name="translated_text" xml:space="preserve">
     <value>テキストを翻訳しました</value>

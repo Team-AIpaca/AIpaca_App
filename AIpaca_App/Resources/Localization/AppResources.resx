@@ -215,6 +215,9 @@
   <data name="ko" xml:space="preserve">
     <value>한국어</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>언어</value>
+  </data>
   <data name="languageset" xml:space="preserve">
     <value>언어 설정</value>
   </data>
@@ -249,13 +252,22 @@
   <data name="ok" xml:space="preserve">
     <value>확인</value>
   </data>
+  <data name="originaltext" xml:space="preserve">
+    <value>원문</value>
+  </data>
   <data name="papagotranslate" xml:space="preserve">
     <value>파파고 번역기</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>
   </data>
+  <data name="rating" xml:space="preserve">
+    <value>평가</value>
+  </data>
   <data name="recommend" xml:space="preserve">
+    <value>추천번역</value>
+  </data>
+  <data name="recommendedtext" xml:space="preserve">
     <value>추천번역</value>
   </data>
   <data name="record" xml:space="preserve">
@@ -263,6 +275,9 @@
   </data>
   <data name="record_addition_failed" xml:space="preserve">
     <value>레코드 추가에 실패했습니다</value>
+  </data>
+  <data name="requesttime" xml:space="preserve">
+    <value>요청시간</value>
   </data>
   <data name="robots" xml:space="preserve">
     <value>로봇놈들</value>
@@ -318,6 +333,9 @@
   </data>
   <data name="theme" xml:space="preserve">
     <value>테마</value>
+  </data>
+  <data name="translatedtext" xml:space="preserve">
+    <value>번역문</value>
   </data>
   <data name="translated_text" xml:space="preserve">
     <value>번역된 텍스트</value>

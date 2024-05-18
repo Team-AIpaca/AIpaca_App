@@ -215,6 +215,9 @@ Please check the settings.</value>
   <data name="ko" xml:space="preserve">
     <value>Korean</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="languageset" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -249,20 +252,32 @@ It needs to be updated.</value>
   <data name="ok" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="originaltext" xml:space="preserve">
+    <value>Original Text</value>
+  </data>
   <data name="papagotranslate" xml:space="preserve">
     <value>Papago Translate</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
   <data name="recommend" xml:space="preserve">
     <value>Recommend</value>
+  </data>
+  <data name="recommendedtext" xml:space="preserve">
+    <value>Recommended Text</value>
   </data>
   <data name="record" xml:space="preserve">
     <value>Record</value>
   </data>
   <data name="record_addition_failed" xml:space="preserve">
     <value>Record addition failed</value>
+  </data>
+  <data name="requesttime" xml:space="preserve">
+    <value>Request Time</value>
   </data>
   <data name="robots" xml:space="preserve">
     <value>Robots</value>
@@ -314,6 +329,9 @@ It needs to be updated.</value>
   </data>
   <data name="theme" xml:space="preserve">
     <value>Theme</value>
+  </data>
+  <data name="translatedtext" xml:space="preserve">
+    <value>Translated Text</value>
   </data>
   <data name="translated_text" xml:space="preserve">
     <value>Translated text</value>

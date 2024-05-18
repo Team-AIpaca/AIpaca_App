@@ -22,6 +22,10 @@ namespace AIpaca_App.ViewModels
         private string _originalLang = string.Empty;
         private string _translatedLang = string.Empty;
         private string _GoogleTranslationResult = string.Empty;
+        private string _PapagoTranslationResult = string.Empty;
+        private string _DeepLTranslationResult = string.Empty;
+        private string _LibreTranslationResult = string.Empty;
+
         private DatabaseService databaseService;
         public IAsyncRelayCommand TranslationCommand { get; }
 
@@ -54,6 +58,24 @@ namespace AIpaca_App.ViewModels
         {
             get => _GoogleTranslationResult;
             set => SetProperty(ref _GoogleTranslationResult, value);
+        }
+
+        public string PapagoTranslationResult
+        {
+            get => _PapagoTranslationResult;
+            set => SetProperty(ref _PapagoTranslationResult, value);
+        }
+
+        public string DeepLTranslationResult
+        {
+            get => _DeepLTranslationResult;
+            set => SetProperty(ref _DeepLTranslationResult, value);
+        }
+
+        public string LibreTranslationResult
+        {
+            get => _LibreTranslationResult;
+            set => SetProperty(ref _LibreTranslationResult, value);
         }
 
         public void SetOriginalLang(int selectedIndex)
@@ -121,7 +143,7 @@ namespace AIpaca_App.ViewModels
             var requestUri_papago = $"{baseUrl}{papago}";
             var requestUri_deepl = $"{baseUrl}{deepltrans}";
             var requestUri_Libre = $"{baseUrl}{libretrans}";
-            
+
 
             var googleTask = Translation_Google(requestUri_google, originalText, originalLang, translatedLang);
             var papagoTask = Translation_Papago(requestUri_papago, originalText, originalLang, translatedLang);
@@ -130,7 +152,6 @@ namespace AIpaca_App.ViewModels
 
             // 모든 작업이 완료될 때까지 기다림
             await Task.WhenAll(googleTask, papagoTask, deeplTask, libreTask);
-
         }
 
         public async Task Translation_Google(string requestUri, string originalText, string originalLang, string translatedLang)
@@ -149,7 +170,6 @@ namespace AIpaca_App.ViewModels
                 var client = new HttpClient();
                 var json = JsonSerializer.Serialize(requestData);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-
                 var response = await client.PostAsync(requestUri, content);
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
@@ -157,6 +177,10 @@ namespace AIpaca_App.ViewModels
                 if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                 {
                     var translatedText = apiResponse.data.result.Translation ?? AppResources.error;
+                    //번역 출력
+                    GoogleTranslationResult = translatedText;
+
+                    // 번역 기록 저장
                     var trecord = new TransRecord
                     {
                         OriginalText = originalText,
@@ -164,30 +188,27 @@ namespace AIpaca_App.ViewModels
                         TranslatedLang = translatedLang,
                         TranslatedText = translatedText,
                     };
-
-                    //번역 출력
-                    GoogleTranslationResult = translatedText;
-
-                    // 데이터베이스에 레코드 저장
                     await databaseService.AddTransAsync(trecord);
 
-                    //로그 저장
+                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = AppResources.api_request_successful + $" : {trecord}",
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Success"
                     });
                 }
                 else
                 {
                     var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     GoogleTranslationResult = errorMessage;
-                    await Toast.Make(GoogleTranslationResult, ToastDuration.Long).Show();
+
+                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
                         Timestamp = DateTime.UtcNow,
-                        Success = "false"
+                        Success = "Failed"
                     });
                 }
             }
@@ -200,7 +221,7 @@ namespace AIpaca_App.ViewModels
                 {
                     Message = AppResources.api_request_failed + $" : {ex.Message}",
                     Timestamp = DateTime.UtcNow,
-                    Success = "false"
+                    Success = "Failed"
                 });
             }
         }
@@ -217,7 +238,74 @@ namespace AIpaca_App.ViewModels
 
         public async Task Translation_Libre(string requestUri, string originalText, string originalLang, string translatedLang)
         {
-            await Toast.Make("LibreTranslate 번역기능은 준비중입니다.", ToastDuration.Long).Show();
+            try
+            {
+                LibreTranslationResult = AppResources.loading;
+
+                var requestData = new
+                {
+                    text = originalText,
+                    OriginalLang = originalLang,
+                    TranslatedLang = translatedLang
+                };
+
+                var client = new HttpClient();
+                var json = JsonSerializer.Serialize(requestData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(requestUri, content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse>(responseContent);
+
+                if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
+                {
+                    var translatedText = apiResponse.data.result.Translation ?? AppResources.error;
+                    //번역 출력
+                    LibreTranslationResult = translatedText;
+
+                    // 번역 기록 저장
+                    var trecord = new TransRecord
+                    {
+                        OriginalText = originalText,
+                        OriginalLang = originalLang,
+                        TranslatedLang = translatedLang,
+                        TranslatedText = translatedText,
+                    };
+                    await databaseService.AddTransAsync(trecord);
+
+                    // 로그 저장
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = AppResources.api_request_successful + $" : {trecord}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Success"
+                    });
+                }
+                else
+                {
+                    var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
+                    LibreTranslationResult = errorMessage;
+
+                    // 로그 저장
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = errorMessage,
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Failed"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                LibreTranslationResult = AppResources.error_network;
+                //db에 로그 저장
+                await databaseService.AddLogAsync(new Log
+                {
+                    Message = AppResources.api_request_failed + $" : {ex.Message}",
+                    Timestamp = DateTime.UtcNow,
+                    Success = "Failed"
+                });
+            }
         }
         #endregion
 
@@ -241,6 +329,4 @@ namespace AIpaca_App.ViewModels
         }
         #endregion
     }
-
-
 }
