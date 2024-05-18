@@ -165,9 +165,17 @@ namespace AIpaca_App.ViewModels
             string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
             string requestUri_gpt = $"{baseUrl}{gptEndpoint}";
 
-            await EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
-            await EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
+            // 코드를 직렬로 수행하는 경우
+            // await EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
+            // await EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
 
+
+            // 두 작업을 병렬로 실행
+            var gptTask = EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
+            var geminiTask = EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
+
+            // 모든 작업이 완료될 때까지 기다림
+            await Task.WhenAll(gptTask, geminiTask);
         }
 
         public async Task EvaluateTranslation_GPT(string requestUri, string originalText, string translatedText, string originalLang, string translatedLang)
@@ -267,6 +275,7 @@ namespace AIpaca_App.ViewModels
                 string userApiKey = await SecureStorage.GetAsync("GeminiApiKey") ?? string.Empty;
                 if (!await CheckApiKey(userApiKey))
                 {
+                    TranslationResult_Gemini = AppResources.error_no_api;
                     return;
                 }
 

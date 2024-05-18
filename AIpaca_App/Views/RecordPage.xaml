@@ -30,7 +30,8 @@
                                 <StackLayout Spacing="10" Padding="10">
                                     <StackLayout.Behaviors>
                                         <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                                                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" 
+                                                               LongPressDuration="750" LongPressCompleted="OnCopyButtonClicked" />
                                     </StackLayout.Behaviors>
                                     <Label Text="{Binding RequestTime, StringFormat='Timestamp: {0}'}" FontAttributes="Bold"/>
                                     <Label Text="{Binding Message}" FontAttributes="Italic"/>
