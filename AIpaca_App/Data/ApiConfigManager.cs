@@ -1,12 +1,14 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using System.Security;
 using System.Xml.Linq;
 
 namespace AIpaca_App.Data
 {
     public static class ApiConfigManager
     {
-        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string gptEndpoint, string GeminiEndpoint, string PingEndpoint, string googletrans) LoadApiConfig()
+        public static (string BaseUrl, string LoginEndpoint, string SignupEndpoint, string gptEndpoint, string GeminiEndpoint, 
+            string PingEndpoint, string googletrans, string papago, string deepl, string libre) LoadApiConfig()
         {
             var assembly = typeof(ApiConfigManager).GetTypeInfo().Assembly;
             var resourceName = "AIpaca_App.Resources.Config.ApiConfig.xml";
@@ -23,8 +25,11 @@ namespace AIpaca_App.Data
             var geminiEndpoint = apiSettings.Element("GeminiEndpoint")?.Value ?? string.Empty;
             var pingEndpoint = apiSettings.Element("PingEndpoint")?.Value ?? string.Empty;
             var googletrans = apiSettings.Element("GoogleTransEndpoint")?.Value ?? string.Empty;
+            var papago = apiSettings.Element("PapagoTransEndpoint")?.Value ?? string.Empty;
+            var deepl = apiSettings.Element("DeepLTransEndpoint")?.Value ?? string.Empty;
+            var libre = apiSettings.Element("LibretranslateTransEndpoint")?.Value ?? string.Empty;
 
-            return (baseUrl, loginEndpoint, signupEndpoint, gptEndpoint, geminiEndpoint, pingEndpoint, googletrans);
+            return (baseUrl, loginEndpoint, signupEndpoint, gptEndpoint, geminiEndpoint, pingEndpoint, googletrans, papago, deepl, libre);
         }
     }
 }

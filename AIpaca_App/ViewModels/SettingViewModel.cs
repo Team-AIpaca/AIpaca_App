@@ -40,7 +40,7 @@ namespace AIpaca_App.ViewModels
             _appVersion = AppInfo.VersionString;
 
             // ApiConfigManager.LoadApiConfig()에서 반환된 5개의 요소를 받기 위해 변수를 추가합니다.
-            var (baseUrl, loginEndpoint, signupEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, loginEndpoint, signupEndpoint, _, _, _, _, _, _, _) = ApiConfigManager.LoadApiConfig();
             _loginEndpoint = $"{baseUrl}{loginEndpoint}";
             _signupEndpoint = $"{baseUrl}{signupEndpoint}";
 
@@ -81,7 +81,7 @@ namespace AIpaca_App.ViewModels
         #region 서버 연결 확인
         public async Task CheckServerAsync()
         {
-            var (baseUrl, _, _, _, _, pingEndpoint, _) = ApiConfigManager.LoadApiConfig();
+            var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
             var requestUri = $"{baseUrl}{pingEndpoint}";
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
 

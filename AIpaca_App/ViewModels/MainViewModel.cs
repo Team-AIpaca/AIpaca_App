@@ -154,21 +154,19 @@ namespace AIpaca_App.ViewModels
 
         public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
         {
-            var (baseUrl, _, _, gptEndpoint, geminiEndpoint, _, _) = ApiConfigManager.LoadApiConfig();
-
             // 각 요소 값 확인
             if (!await CheckText(originalText, translatedText))
             {
                 return;
             }
+            var (baseUrl, _, _, gptEndpoint, geminiEndpoint, _, _, _, _, _) = ApiConfigManager.LoadApiConfig();
 
             string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
             string requestUri_gpt = $"{baseUrl}{gptEndpoint}";
 
-            // 코드를 직렬로 수행하는 경우
+            // 코드를 직렬 실행
             // await EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
             // await EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
-
 
             // 두 작업을 병렬로 실행
             var gptTask = EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);

@@ -8,6 +8,9 @@
     <GeminiEndpoint>api/evaluation/gemini</GeminiEndpoint>
     <PingEndpoint>ping</PingEndpoint>
     <GoogleTransEndpoint>api/trans/googletrans</GoogleTransEndpoint>
+    <PapagoTransEndpoint>api/trans/papago</PapagoTransEndpoint>
+    <DeepLTransEndpoint>api/trans/deepl</DeepLTransEndpoint>
+    <LibretranslateTransEndpoint>api/trans/libretranslate</LibretranslateTransEndpoint>
   </ApiSettings>
 </configuration>
 <!--속성 - 빌드 작업 : 포함 리소스-->
