@@ -4,8 +4,8 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
                x:Class="AIpaca_App.Views.AlertPopup"
-               Color= "{x:Static Colors.Transparent}">
-    
+               Color="Transparent">
+
     <Border Padding="15" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
         <!-- Border를 사용하여 모서리를 둥글게 설정 -->
         <Border.StrokeShape>

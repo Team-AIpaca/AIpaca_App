@@ -21,45 +21,73 @@
                 <VerticalStackLayout Padding="0" Spacing="5">
 
                     <Label Text="GPT API 키" HorizontalOptions="Center"/>
-                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
+                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="5" HorizontalOptions="Center">
                         <Label x:Name="CurrentApiKeyLabel" Text="{Binding CurrentApiKey_GPT}" HorizontalTextAlignment="Center"/>
                     </Frame>
 
                     <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
-                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
+                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="2">
                             <Entry x:Name="GPTApiKeyEntry" Placeholder="GPT Key Here"/>
                         </Frame>
-                        <Frame>
-                            <Frame.Behaviors>
-                                <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGPTAPIDeleteClicked"/>
-                            </Frame.Behaviors>
-                            <Image Source="setting_ping.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+
+                        <Frame CornerRadius="8"  Padding="0" BorderColor="LightSeaGreen" BackgroundColor="LightSeaGreen">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGPTAPISaveClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Small" FontAttributes="Bold" 
+                                       VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame CornerRadius="8"  Padding="0" BorderColor="IndianRed" BackgroundColor="IndianRed">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGPTAPIDeleteClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="Del" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Small" FontAttributes="Bold" 
+                                       VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
                         </Frame>
                     </StackLayout>
-                    
+
                 </VerticalStackLayout>
             </Frame>
 
             <Frame Padding="10" CornerRadius="15" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <VerticalStackLayout Padding="0" Spacing="5">
                     <Label Text="Gemini API 키" HorizontalOptions="Center"/>
-                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5" HorizontalOptions="Center">
+                    <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="5" HorizontalOptions="Center">
                         <Label x:Name="CurrentApiKeyLabel2" Text="{Binding CurrentApiKey_Gemini}" HorizontalTextAlignment="Center"/>
                     </Frame>
 
                     <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
-                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="2">
+                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="2">
                             <Entry x:Name="GeminiApiKeyEntry" Placeholder="Gemini Key Here"/>
                         </Frame>
-                        <Frame>
-                            <Frame.Behaviors>
-                                <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPIDeleteClicked"/>
-                            </Frame.Behaviors>
-                            <Image Source="setting_ping.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="10" HeightRequest="10" />
+
+                        <Frame CornerRadius="8"  Padding="0" BorderColor="LightSeaGreen" BackgroundColor="LightSeaGreen">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPISaveClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
                         </Frame>
 
+                        <Frame CornerRadius="8"  Padding="0" BorderColor="IndianRed" BackgroundColor="IndianRed">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                <StackLayout.Behaviors>
+                                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                           PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPIDeleteClicked"/>
+                                </StackLayout.Behaviors>
+                                <Label Text="Del" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Small" FontAttributes="Bold" 
+                                       VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </Frame>
 
 
                     </StackLayout>
@@ -67,35 +95,18 @@
             </Frame>
 
             <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
-
-                <Frame CornerRadius="8"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" 
-                       BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <Frame CornerRadius="8"  Padding="0" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}">
                     <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
                         <StackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGPTAPISaveClicked"/>
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCloseClicked"/>
                         </StackLayout.Behaviors>
-                        <Label Text="GPT API Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
-                               FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
-                </Frame>
-
-                <Frame CornerRadius="8"  Padding="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" 
-                   BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
-                        <StackLayout.Behaviors>
-                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPISaveClicked"/>
-                        </StackLayout.Behaviors>
-                        <Label Text="Gemini API Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
-                           FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{x:Static resources:AppResources.ok}" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Small" FontAttributes="Bold" 
+                               VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
-
             <Label Text="" HorizontalOptions="Center"/>
-
-
         </VerticalStackLayout>
     </Border>
 </toolkit:Popup>

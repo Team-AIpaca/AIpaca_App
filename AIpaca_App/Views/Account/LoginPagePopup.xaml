@@ -4,11 +4,10 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:resources="clr-namespace:AIpaca_App.Resources.Localization"
                x:Class="AIpaca_App.Views.Account.LoginPagePopup"
-               Size="300,400"
                Color= "{x:Static Colors.Transparent}">
 
     <!-- Border를 사용하여 모서리를 둥글게 설정 -->
-    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}" WidthRequest="300">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>

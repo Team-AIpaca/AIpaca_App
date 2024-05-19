@@ -23,9 +23,9 @@ public partial class AlertPopup : Popup
     }
 
     // "취소" 버튼이 클릭될 때 실행될 메소드
-    private void Onbtn2Clicked(object sender, EventArgs e)
+    private async void Onbtn2Clicked(object sender, EventArgs e)
     {
-        Close();
+        await this.CloseAsync();
     }
 
     public string MainText

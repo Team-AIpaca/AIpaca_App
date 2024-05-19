@@ -23,6 +23,14 @@ public partial class SettingsPage : ContentPage
         this.BindingContext = _viewModel;
     }
 
+    // 팝업을 보여주는 메서드에서 배경색을 복구하도록 수정
+    private async Task ShowPopupAndRestoreBackgroundColor(Func<Task> showPopupFunc)
+    {
+        var originalColor = this.BackgroundColor; // 현재 배경색 저장
+        await showPopupFunc(); // 팝업 표시
+        this.BackgroundColor = originalColor; // 배경색 복구
+    }
+
     private void LowPowerModeEnabled(object sender, ToggledEventArgs e)
     {
         // 라이트 모드 상태를 저장하고 적용하는 코드

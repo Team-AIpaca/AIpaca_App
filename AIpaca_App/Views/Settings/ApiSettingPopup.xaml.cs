@@ -19,38 +19,65 @@ public partial class ApiSettingPopup : Popup
 
     private async void OnGPTAPISaveClicked(object sender, EventArgs e)
     {
-        var GPTapiKey = GPTApiKeyEntry.Text;
-        if (!string.IsNullOrWhiteSpace(GPTapiKey))
+        try
         {
-            _viewModel.SaveGPTApiKey(GPTapiKey);
-            // Close the popup
-            this.Close();
+            string GPTapiKey = GPTApiKeyEntry.Text;
+            if (!string.IsNullOrWhiteSpace(GPTapiKey))
+            {
+                // 새로운 업데이트 팝업을 표시합니다.
+                var updatePopup = new AlertPopup
+                {
+                    MainText = "Change API Key?",
+                    btn1Text = AppResources.ok
+                };
+                updatePopup.btn1Clicked += async (sender, e) => await OnGPTAPISave(GPTapiKey);
 
-            // Show a confirmation message
-            var updatePopup = new AlertPopup
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
+            }
+            else
             {
-                MainText = AppResources.api_save_complete,
-                btn1Text = AppResources.ok
-            };
-            if (Application.Current?.MainPage != null)
-            {
-                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.error_no_api,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
             }
         }
-        else
+        catch (Exception ex)
         {
-            var updatePopup = new AlertPopup
-            {
-                MainText = AppResources.error_no_api,
-                btn1Text = AppResources.ok
-            };
-            if (Application.Current?.MainPage != null)
-            {
-                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-            }
+            await Toast.Make(ex.Message).Show();
+
+        }
+
+    }
+
+    private async Task OnGPTAPISave(string GPTapiKey)
+    {
+        _viewModel.SaveGPTApiKey(GPTapiKey);
+
+        this.Close();
+
+        // Show a confirmation message
+        var updatePopup = new AlertPopup
+        {
+            MainText = AppResources.api_save_complete,
+            btn1Text = AppResources.ok
+        };
+        if (Application.Current?.MainPage != null)
+        {
+            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
         }
     }
-    
+
+
+
     private async void OnGeminiAPISaveClicked(object sender, EventArgs e)
     {
         var GeminiapiKey = GeminiApiKeyEntry.Text;
@@ -87,11 +114,44 @@ public partial class ApiSettingPopup : Popup
 
     private void OnGPTAPIDeleteClicked(object sender, EventArgs e)
     {
-        _viewModel.DeleteGPTApiKey();
+
+        MainThread.InvokeOnMainThreadAsync(async () =>
+        {
+            // 새로운 업데이트 팝업을 표시합니다.
+            var updatePopup = new AlertPopup
+            {
+                MainText = "Delete API Key?",
+                btn1Text = AppResources.ok
+            };
+            updatePopup.btn1Clicked += (sender, e) => _viewModel.DeleteGPTApiKey();
+
+            if (Application.Current?.MainPage != null)
+            {
+                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+            }
+        });
     }
 
     private void OnGeminiAPIDeleteClicked(object sender, EventArgs e)
     {
-        _viewModel.DeleteGeminiApiKey();
+        MainThread.InvokeOnMainThreadAsync(async () =>
+        {
+            // 새로운 업데이트 팝업을 표시합니다.
+            var updatePopup = new AlertPopup
+            {
+                MainText = "Delete API Key?",
+                btn1Text = AppResources.ok
+            };
+            updatePopup.btn1Clicked += (sender, e) => _viewModel.DeleteGeminiApiKey();
+            if (Application.Current?.MainPage != null)
+            {
+                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+            }
+        });
+    }
+
+    private void OnCloseClicked(object sender, EventArgs e)
+    {
+        this.Close();
     }
 }
