@@ -4,6 +4,7 @@ using AIpaca_App.ViewModels;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
+using System.Text;
 
 namespace AIpaca_App.Views;
 
@@ -53,7 +54,25 @@ public partial class RecordPage : ContentPage
         if (stackLayout != null)
         {
             var labels = stackLayout.Children.OfType<Label>().ToList();
-            string labelText = string.Join("\n", labels.Select(l => l.Text).ToArray());
+            var stringBuilder = new StringBuilder();
+
+            foreach (var label in labels)
+            {
+                if (label.FormattedText != null)
+                {
+                    foreach (var span in label.FormattedText.Spans)
+                    {
+                        stringBuilder.Append(span.Text);
+                    }
+                    stringBuilder.AppendLine(); // ¡ŸπŸ≤ﬁ √ﬂ∞°
+                }
+                else if (!string.IsNullOrEmpty(label.Text))
+                {
+                    stringBuilder.AppendLine(label.Text);
+                }
+            }
+
+            string labelText = stringBuilder.ToString();
 
             if (!string.IsNullOrEmpty(labelText))
             {

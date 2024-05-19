@@ -13,6 +13,9 @@ public partial class RobotPage : ContentPage
         BindingContext = _viewModel;
         _viewModel.SetOriginalLang(LeftLanguagePicker.SelectedIndex);
         _viewModel.SetTranslatedLang(RightLanguagePicker.SelectedIndex);
+
+        LeftLanguagePicker.SelectedIndexChanged += LeftLanguagePicker_SelectedIndexChanged;
+        RightLanguagePicker.SelectedIndexChanged += RightLanguagePicker_SelectedIndexChanged;
     }
 
     private void OnSwitchLanguageClicked(object sender, EventArgs e)
@@ -24,7 +27,7 @@ public partial class RobotPage : ContentPage
         RightLanguagePicker.SelectedIndex = temp;
     }
 
-    private void LeftLanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
+    private void LeftLanguagePicker_SelectedIndexChanged(object? sender, EventArgs e)
     {
         // ViewModel의 SetOriginalLang 메서드 호출
         if (BindingContext is RobotViewModel viewModel)
@@ -33,7 +36,7 @@ public partial class RobotPage : ContentPage
         }
     }
 
-    private void RightLanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
+    private void RightLanguagePicker_SelectedIndexChanged(object? sender, EventArgs e)
     {
         // ViewModel의 SetOriginalLang 메서드 호출
         if (BindingContext is RobotViewModel viewModel)

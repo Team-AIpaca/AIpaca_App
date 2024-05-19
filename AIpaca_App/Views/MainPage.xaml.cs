@@ -19,7 +19,6 @@ namespace AIpaca_App.Views
             BindingContext = _viewModel;
             _viewModel.SetOriginalLang(LeftLanguagePicker.SelectedIndex);
             _viewModel.SetTranslatedLang(RightLanguagePicker.SelectedIndex);
-
         }
 
         private void OnSwitchLanguageClicked(object sender, EventArgs e)
@@ -37,17 +36,7 @@ namespace AIpaca_App.Views
             TranslatedEditor.Text = tempText;
         }
 
-        // 버튼 클릭 이벤트 없이 구현됨
-        // public void OnEvaluateButtonClicked(object sender, EventArgs e)
-        // {
-        //     // Command 실행
-        //     if (_viewModel.EvaluateTranslationCommand.CanExecute(null))
-        //     {
-        //         _viewModel.EvaluateTranslationCommand.Execute(null);
-        //     }
-        // }
-
-        private void LeftLanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
+        private void LeftLanguagePicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
             // ViewModel의 SetOriginalLang 메서드 호출
             if (BindingContext is MainViewModel viewModel)
@@ -56,7 +45,7 @@ namespace AIpaca_App.Views
             }
         }
 
-        private void RightLanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
+        private void RightLanguagePicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
             // ViewModel의 SetOriginalLang 메서드 호출
             if (BindingContext is MainViewModel viewModel)
@@ -119,6 +108,13 @@ namespace AIpaca_App.Views
                     await Toast.Make(AppResources.copy_failed, ToastDuration.Long).Show();
                 }
             }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            LeftLanguagePicker.SelectedIndexChanged -= LeftLanguagePicker_SelectedIndexChanged;
+            RightLanguagePicker.SelectedIndexChanged -= RightLanguagePicker_SelectedIndexChanged;
         }
     }
         

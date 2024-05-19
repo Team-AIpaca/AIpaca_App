@@ -32,89 +32,82 @@
                                                                PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" 
                                                                LongPressDuration="750" LongPressCompleted="OnCopyButtonClicked" />
                                     </StackLayout.Behaviors>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Id, StringFormat='no. {0}'}" FontAttributes="Bold"/>
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding Message}" FontAttributes="Italic" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.requesttime}" FontAttributes="Bold" />
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding RequestTime}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
 
-                                    <StackLayout>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding Id, StringFormat='no. {0}'}" FontAttributes="Bold"/>
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding Message}" FontAttributes="Italic" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.requesttime}" FontAttributes="Bold" />
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding RequestTime}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.language}" FontAttributes="Bold"/>
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding OriginalLang}" />
+                                                <Span Text=" -> " />
+                                                <Span Text="{Binding TranslatedLang}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.originaltext}" FontAttributes="Bold" />
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding OriginalText}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.translatedtext}" FontAttributes="Bold" />
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding TranslatedText}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
 
-                                    <StackLayout>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.language}" FontAttributes="Bold"/>
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding OriginalLang}" />
-                                                    <Span Text=" -> " />
-                                                    <Span Text="{Binding TranslatedLang}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.originaltext}" FontAttributes="Bold" />
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding OriginalText}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.translatedtext}" FontAttributes="Bold" />
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding TranslatedText}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-
-                                    <StackLayout>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.score}" FontAttributes="Bold"/>
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding Score}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.recommendedtext}" FontAttributes="Bold"/>
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding RecommendedTrans}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{x:Static resources:AppResources.rating}" FontAttributes="Bold" />
-                                                    <Span Text=" : " FontAttributes="Bold" />
-                                                    <Span Text="{Binding Rating}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.score}" FontAttributes="Bold"/>
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding Score}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.recommendedtext}" FontAttributes="Bold"/>
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding RecommendedTrans}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static resources:AppResources.rating}" FontAttributes="Bold" />
+                                                <Span Text=" : " FontAttributes="Bold" />
+                                                <Span Text="{Binding Rating}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
 
                                 </StackLayout>
                             </Frame>

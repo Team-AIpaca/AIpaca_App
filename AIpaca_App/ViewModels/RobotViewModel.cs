@@ -17,7 +17,6 @@ namespace AIpaca_App.ViewModels
 {
     public class RobotViewModel : BaseViewModel
     {
-
         private string _originalTransText = string.Empty;
         private string _originalLang = string.Empty;
         private string _translatedLang = string.Empty;
@@ -177,10 +176,8 @@ namespace AIpaca_App.ViewModels
                 if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                 {
                     var translatedText = apiResponse.data.result.Translation ?? AppResources.error;
-                    //번역 출력
                     GoogleTranslationResult = translatedText;
 
-                    // 번역 기록 저장
                     var trecord = new TransRecord
                     {
                         OriginalText = originalText,
@@ -190,7 +187,6 @@ namespace AIpaca_App.ViewModels
                     };
                     await databaseService.AddTransAsync(trecord);
 
-                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = AppResources.api_request_successful + $" : {trecord}",
@@ -203,7 +199,6 @@ namespace AIpaca_App.ViewModels
                     var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     GoogleTranslationResult = errorMessage;
 
-                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
@@ -216,7 +211,7 @@ namespace AIpaca_App.ViewModels
             {
                 await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
                 GoogleTranslationResult = AppResources.error_network;
-                //db에 로그 저장
+
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = AppResources.api_request_failed + $" : {ex.Message}",
@@ -259,10 +254,8 @@ namespace AIpaca_App.ViewModels
                 if (apiResponse?.StatusCode == 200 && apiResponse.data?.result != null)
                 {
                     var translatedText = apiResponse.data.result.Translation ?? AppResources.error;
-                    //번역 출력
                     LibreTranslationResult = translatedText;
 
-                    // 번역 기록 저장
                     var trecord = new TransRecord
                     {
                         OriginalText = originalText,
@@ -272,7 +265,6 @@ namespace AIpaca_App.ViewModels
                     };
                     await databaseService.AddTransAsync(trecord);
 
-                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = AppResources.api_request_successful + $" : {trecord}",
@@ -285,7 +277,6 @@ namespace AIpaca_App.ViewModels
                     var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     LibreTranslationResult = errorMessage;
 
-                    // 로그 저장
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
@@ -298,7 +289,7 @@ namespace AIpaca_App.ViewModels
             {
                 await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
                 LibreTranslationResult = AppResources.error_network;
-                //db에 로그 저장
+
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = AppResources.api_request_failed + $" : {ex.Message}",

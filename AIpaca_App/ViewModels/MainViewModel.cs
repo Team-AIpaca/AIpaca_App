@@ -161,12 +161,8 @@ namespace AIpaca_App.ViewModels
             }
             var (baseUrl, _, _, gptEndpoint, geminiEndpoint, _, _, _, _, _) = ApiConfigManager.LoadApiConfig();
 
-            string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
             string requestUri_gpt = $"{baseUrl}{gptEndpoint}";
-
-            // 코드를 직렬 실행
-            // await EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
-            // await EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
+            string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
 
             // 두 작업을 병렬로 실행
             var gptTask = EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
@@ -223,14 +219,12 @@ namespace AIpaca_App.ViewModels
                         Rating = result.Rating ?? "No rating"
                     };
 
-                    TranslationResult_GPT = AppResources.score + $" : {result?.Score}\n" + AppResources.recommend + $" : {result?.RecommandedTrans}\n{result?.Rating}";
+                    TranslationResult_GPT = $"{AppResources.score} : {result?.Score}\n{AppResources.recommend} : {result?.RecommandedTrans}\n{result?.Rating}";
 
-                    // 기록 추가
                     await databaseService.AddRecordAsync(record);
-                    // 로그 추가
                     await databaseService.AddLogAsync(new Log
                     {
-                        Message = AppResources.api_request_successful + $" : {record}",
+                        Message = $"{AppResources.api_request_successful} : {record}",
                         Timestamp = DateTime.UtcNow,
                         Success = "Success"
                     });
@@ -239,7 +233,7 @@ namespace AIpaca_App.ViewModels
                 {
                     await Toast.Make(AppResources.api_request_failed, ToastDuration.Long).Show();
 
-                    var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
+                    var errorMessage = $"{AppResources.error} : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     TranslationResult_GPT = errorMessage;
                     await databaseService.AddLogAsync(new Log
                     {
@@ -251,11 +245,11 @@ namespace AIpaca_App.ViewModels
             }
             catch (Exception ex)
             {
-                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                await Toast.Make($"{AppResources.error} : {ex.Message}", ToastDuration.Long).Show();
                 TranslationResult_GPT = AppResources.error;
                 await databaseService.AddLogAsync(new Log
                 {
-                    Message = AppResources.api_request_failed + $"{ex.Message}",
+                    Message = $"{AppResources.api_request_failed}{ex.Message}",
                     Timestamp = DateTime.UtcNow,
                     Success = "Failed"
                 });
@@ -309,12 +303,11 @@ namespace AIpaca_App.ViewModels
                         RecommendedTrans = result.RecommandedTrans ?? "No recommendation",
                         Rating = result.Rating ?? "No rating"
                     };
-                    TranslationResult_Gemini = AppResources.score + $" : {result?.Score}\n" + AppResources.recommend + $" : {result?.RecommandedTrans}\n{result?.Rating}";
-                    // 데이터베이스에 레코드 저장
+                    TranslationResult_Gemini = $"{AppResources.score} : {result?.Score}\n{AppResources.recommend} : {result?.RecommandedTrans}\n{result?.Rating}";
                     await databaseService.AddRecordAsync(record);
                     await databaseService.AddLogAsync(new Log
                     {
-                        Message = AppResources.api_request_successful + $" : {record}",
+                        Message = $"{AppResources.api_request_successful} : {record}",
                         Timestamp = DateTime.UtcNow,
                         Success = "Success"
                     });
@@ -323,8 +316,7 @@ namespace AIpaca_App.ViewModels
                 {
                     await Toast.Make(AppResources.api_request_failed, ToastDuration.Long).Show();
 
-                    var errorMessage = AppResources.error + $" : {apiResponse?.StatusCode} - {apiResponse?.message}";
-                    //await Toast.Make(errorMessage, ToastDuration.Long).Show();
+                    var errorMessage = $"{AppResources.error} : {apiResponse?.StatusCode} - {apiResponse?.message}";
                     TranslationResult_Gemini = errorMessage;
                     await databaseService.AddLogAsync(new Log
                     {
@@ -336,11 +328,11 @@ namespace AIpaca_App.ViewModels
             }
             catch (Exception ex)
             {
-                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                await Toast.Make($"{AppResources.error} : {ex.Message}", ToastDuration.Long).Show();
                 TranslationResult_Gemini = AppResources.error;
                 await databaseService.AddLogAsync(new Log
                 {
-                    Message = AppResources.api_request_failed + $"{ex.Message}",
+                    Message = $"{AppResources.api_request_failed}{ex.Message}",
                     Timestamp = DateTime.UtcNow,
                     Success = "Failed"
                 });
