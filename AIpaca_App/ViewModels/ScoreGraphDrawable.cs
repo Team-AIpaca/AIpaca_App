@@ -15,7 +15,7 @@ namespace AIpaca_App.ViewModels
             float margin = 20;
             float width = dirtyRect.Width - 2 * margin;
             float height = dirtyRect.Height - 2 * margin - 30;  // 텍스트 표시 공간을 추가 확보
-            if (Records == null || Records.Count < 2) return;
+            if (Records == null || Records.Count < 1) return;
 
             // 범위를 0에서 100 사이로 고정
             float maxScore = 100;
@@ -24,7 +24,7 @@ namespace AIpaca_App.ViewModels
 
             // 데이터 포인트 간의 최소 간격
             float minGap = 50; // 최소 50 픽셀 간격
-            float xScale = Math.Max(minGap, width / (float)(Records.Count - 1));    // 최신 값이 오른족에 배치되도록 수정
+            float xScale = Math.Max(minGap, width / (float)(Records.Count));    // 최신 값이 오른족에 배치되도록 수정
             //float xScale = Math.Max(minGap, width / Records.Count);               // 최신 값이 왼쪽에 배치
 
             PathF path = new PathF();
