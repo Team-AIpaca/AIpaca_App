@@ -73,7 +73,7 @@
 
             <!--파파고-->
             <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <toolkit:Expander IsExpanded="True">
+                <toolkit:Expander IsExpanded="False">
                     <toolkit:Expander.Header>
                         <Label Text="{x:Static resources:AppResources.papagotranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
@@ -85,7 +85,7 @@
 
             <!--DeepL 번역기-->
             <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <toolkit:Expander IsExpanded="True">
+                <toolkit:Expander IsExpanded="False">
                     <toolkit:Expander.Header>
                         <Label Text="{x:Static resources:AppResources.deepltranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
