@@ -93,7 +93,7 @@
             </Frame>
 
             <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-                <toolkit:Expander>
+                <toolkit:Expander IsExpanded="True">
                     <toolkit:Expander.Header>
                         <Label Text="Gemini" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
