@@ -154,22 +154,30 @@ namespace AIpaca_App.ViewModels
 
         public async Task EvaluateTranslation(string originalText, string translatedText, string originalLang, string translatedLang)
         {
-            // 각 요소 값 확인
-            if (!await CheckText(originalText, translatedText))
+            try
             {
-                return;
+                // 각 요소 값 확인
+                if (!await CheckText(originalText, translatedText))
+                {
+                    return;
+                }
+                var (baseUrl, _, _, gptEndpoint, geminiEndpoint, _, _, _, _, _) = ApiConfigManager.LoadApiConfig();
+
+                string requestUri_gpt = $"{baseUrl}{gptEndpoint}";
+                string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
+
+                // 두 작업을 병렬로 실행
+                var gptTask = EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
+                var geminiTask = EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
+
+                // 모든 작업이 완료될 때까지 기다림
+                await Task.WhenAll(gptTask, geminiTask);
             }
-            var (baseUrl, _, _, gptEndpoint, geminiEndpoint, _, _, _, _, _) = ApiConfigManager.LoadApiConfig();
-
-            string requestUri_gpt = $"{baseUrl}{gptEndpoint}";
-            string requestUri_gemini = $"{baseUrl}{geminiEndpoint}";
-
-            // 두 작업을 병렬로 실행
-            var gptTask = EvaluateTranslation_GPT(requestUri_gpt, originalText, translatedText, originalLang, translatedLang);
-            var geminiTask = EvaluateTranslation_Gemini(requestUri_gemini, originalText, translatedText, originalLang, translatedLang);
-
-            // 모든 작업이 완료될 때까지 기다림
-            await Task.WhenAll(gptTask, geminiTask);
+            catch (Exception ex)
+            {
+                await Toast.Make($"{AppResources.error} : {ex.Message}", ToastDuration.Long).Show();
+                throw;
+            }
         }
 
         public async Task EvaluateTranslation_GPT(string requestUri, string originalText, string translatedText, string originalLang, string translatedLang)

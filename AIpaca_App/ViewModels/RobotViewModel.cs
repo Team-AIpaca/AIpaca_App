@@ -131,26 +131,35 @@ namespace AIpaca_App.ViewModels
 
         public async Task Translation(string originalText, string originalLang, string translatedLang)
         {
-            // 각 요소 값 확인
-            if (!await CheckText(originalText))
+            try
             {
-                await Toast.Make(AppResources.error_no_text1, ToastDuration.Long).Show();
-                return;
+                // 각 요소 값 확인
+                if (!await CheckText(originalText))
+                {
+                    await Toast.Make(AppResources.error_no_text1, ToastDuration.Long).Show();
+                    return;
+                }
+                var (baseUrl, _, _, _, _, _, googletrans, papago, deepltrans, libretrans) = ApiConfigManager.LoadApiConfig();
+                var requestUri_google = $"{baseUrl}{googletrans}";
+                var requestUri_papago = $"{baseUrl}{papago}";
+                var requestUri_deepl = $"{baseUrl}{deepltrans}";
+                var requestUri_Libre = $"{baseUrl}{libretrans}";
+
+
+                var googleTask = Translation_Google(requestUri_google, originalText, originalLang, translatedLang);
+                var papagoTask = Translation_Papago(requestUri_papago, originalText, originalLang, translatedLang);
+                var deeplTask = Translation_DeepL(requestUri_deepl, originalText, originalLang, translatedLang);
+                var libreTask = Translation_Libre(requestUri_Libre, originalText, originalLang, translatedLang);
+
+                // 모든 작업이 완료될 때까지 기다림
+                await Task.WhenAll(googleTask, papagoTask, deeplTask, libreTask);
             }
-            var (baseUrl, _, _, _, _, _, googletrans, papago, deepltrans, libretrans) = ApiConfigManager.LoadApiConfig();
-            var requestUri_google = $"{baseUrl}{googletrans}";
-            var requestUri_papago = $"{baseUrl}{papago}";
-            var requestUri_deepl = $"{baseUrl}{deepltrans}";
-            var requestUri_Libre = $"{baseUrl}{libretrans}";
-
-
-            var googleTask = Translation_Google(requestUri_google, originalText, originalLang, translatedLang);
-            var papagoTask = Translation_Papago(requestUri_papago, originalText, originalLang, translatedLang);
-            var deeplTask = Translation_DeepL(requestUri_deepl, originalText, originalLang, translatedLang);
-            var libreTask = Translation_Libre(requestUri_Libre, originalText, originalLang, translatedLang);
-
-            // 모든 작업이 완료될 때까지 기다림
-            await Task.WhenAll(googleTask, papagoTask, deeplTask, libreTask);
+            catch (Exception ex)
+            {
+                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                throw;
+            }
+            
         }
 
         public async Task Translation_Google(string requestUri, string originalText, string originalLang, string translatedLang)
@@ -223,12 +232,28 @@ namespace AIpaca_App.ViewModels
 
         public async Task Translation_Papago(string requestUri, string originalText, string originalLang, string translatedLang)
         {
-            await Toast.Make("Papago 번역기능은 준비중입니다.", ToastDuration.Long).Show();
+            try
+            {
+                PapagoTranslationResult = "Papago 번역기능은 준비중입니다.";
+            }
+            catch (Exception ex)
+            {
+                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                throw;
+            }
         }
 
         public async Task Translation_DeepL(string requestUri, string originalText, string originalLang, string translatedLang)
         {
-            await Toast.Make("DeepL 번역기능은 준비중입니다.", ToastDuration.Long).Show();
+            try
+            {
+                DeepLTranslationResult = "DeepL 번역기능은 준비중입니다.";
+            }
+            catch (Exception ex)
+            {
+                await Toast.Make(AppResources.error + $" : {ex.Message}", ToastDuration.Long).Show();
+                throw;
+            }
         }
 
         public async Task Translation_Libre(string requestUri, string originalText, string originalLang, string translatedLang)

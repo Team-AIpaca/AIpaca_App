@@ -85,4 +85,8 @@ public partial class RecordPage : ContentPage
             }
         }
     }
+    private async void OnDelButtonClicked(object sender, EventArgs e)
+    {
+        await Toast.Make("긴 누름 기능구현테스트", ToastDuration.Long).Show();
+    }
 }

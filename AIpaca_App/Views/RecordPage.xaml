@@ -24,13 +24,14 @@
                 <CollectionView ItemsSource="{Binding Records}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
+                            
 
                             <Frame Margin="10" Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                                 <StackLayout Spacing="10" Padding="10">
                                     <StackLayout.Behaviors>
                                         <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
                                                                PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" 
-                                                               LongPressDuration="750" LongPressCompleted="OnCopyButtonClicked" />
+                                                               LongPressDuration="750" LongPressCompleted="OnDelButtonClicked" />
                                     </StackLayout.Behaviors>
                                     <Label>
                                         <Label.FormattedText>

@@ -81,12 +81,11 @@ namespace AIpaca_App.ViewModels
         #region 서버 연결 확인
         public async Task CheckServerAsync()
         {
-            var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
-            var requestUri = $"{baseUrl}{pingEndpoint}";
-            using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
-
             try
             {
+                var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
+                var requestUri = $"{baseUrl}{pingEndpoint}";
+                using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
                 var response = await client.GetAsync(requestUri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -151,13 +150,13 @@ namespace AIpaca_App.ViewModels
         // 로그인 로직
         public async Task<bool> LoginAsync(string username, string password)
         {
-            var loginData = new { username, password };
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(loginData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
             try
             {
+                var loginData = new { username, password };
+                var client = new HttpClient();
+                var json = JsonSerializer.Serialize(loginData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
                 var response = await client.PostAsync(_loginEndpoint, content);
                 if (response.IsSuccessStatusCode)
                 {
@@ -213,13 +212,14 @@ namespace AIpaca_App.ViewModels
         // 회원가입 기능
         public async Task<bool> SignupAsync(string email, string username, string password)
         {
-            var signupData = new { email, username, password };
-            var client = new HttpClient();
-            var json = JsonSerializer.Serialize(signupData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
             try
             {
+                var signupData = new { email, username, password };
+                var client = new HttpClient();
+                var json = JsonSerializer.Serialize(signupData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+
                 var response = await client.PostAsync(_signupEndpoint, content);
 
                 if (response.IsSuccessStatusCode)
