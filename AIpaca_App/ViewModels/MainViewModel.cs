@@ -196,7 +196,7 @@ namespace AIpaca_App.ViewModels
                 var requestData = new
                 {
                     OpenAIAPIKey = userApiKey,
-                    GPTVersion = "gpt-4o",
+                    GPTVersion = "gpt-4-turbo",
                     Original = originalText,
                     OriginalLang = originalLang,
                     Translated = translatedText,
