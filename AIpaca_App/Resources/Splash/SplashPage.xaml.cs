@@ -70,56 +70,74 @@ namespace AIpaca_App.Resources.Splash
 
         private async Task<bool> CheckInternetConnectionAsync()
         {
-            await Task.Delay(300);
-            var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
-            var requestUri = $"{baseUrl}{pingEndpoint}";
-            using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
-
-            // 재시도 메커니즘
-            int retryCount = 0;
-            const int maxRetries = 3;
-
-            while (retryCount < maxRetries)
+            try
             {
+                await Task.Delay(300);
+                var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
+                var requestUri = $"{baseUrl}{pingEndpoint}";
+                using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
 
-                await Task.Delay(500); // 재시도 대기
-                try
+                // 재시도 메커니즘
+                int retryCount = 0;
+                const int maxRetries = 3;
+
+                while (retryCount < maxRetries)
                 {
-                    var response = await client.GetAsync(requestUri);
-                    if (response.IsSuccessStatusCode)
+
+                    await Task.Delay(500); // 재시도 대기
+                    try
                     {
-                        // 성공 시도 횟수를 ErrorLog에 기록
-                        await databaseService.AddLogAsync(new Log
+                        var response = await client.GetAsync(requestUri);
+                        if (response.IsSuccessStatusCode)
                         {
-                            Message = AppResources.splash_server_connect_success + $" : {retryCount + 1}",
-                            Timestamp = DateTime.UtcNow
-                        });
-                        return true;
+                            // 성공 시도 횟수를 ErrorLog에 기록
+                            await databaseService.AddLogAsync(new Log
+                            {
+                                Message = AppResources.splash_server_connect_success + $" : {retryCount + 1}",
+                                Timestamp = DateTime.UtcNow
+                            });
+                            return true;
+                        }
                     }
-                }
-                catch (TaskCanceledException)
-                {
-                    // 타임아웃 로그 업데이트
-                    MainThread.BeginInvokeOnMainThread(() =>
+                    catch (TaskCanceledException)
                     {
-                        statusLabel.Text = AppResources.splash_server_try_connect + $": {retryCount + 1} / {maxRetries}";
-                    });
-                }
+                        // 타임아웃 로그 업데이트
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            statusLabel.Text = AppResources.splash_server_try_connect + $": {retryCount + 1} / {maxRetries}";
+                        });
+                    }
 
-                retryCount++;
-                await Task.Delay(500); // 재시도 대기
+                    retryCount++;
+                    await Task.Delay(500); // 재시도 대기
+                }
+                // 기타 예외 로그
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    statusLabel.Text = AppResources.splash_server_connect_failed;
+                });
+                await databaseService.AddLogAsync(new Log
+                {
+                    Message = statusLabel.Text,
+                    Timestamp = DateTime.UtcNow
+                });
+                return false;  // 모든 재시도 실패 시 false 반환
             }
-            // 기타 예외 로그
-            MainThread.BeginInvokeOnMainThread(() =>
+            catch (Exception)
             {
-                statusLabel.Text = AppResources.splash_server_connect_failed;
-            });
-            await databaseService.AddLogAsync(new Log
-            {
-                Message = statusLabel.Text,
-                Timestamp = DateTime.UtcNow
-            });
-            return false;  // 모든 재시도 실패 시 false 반환
+                // 기타 예외 로그
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    statusLabel.Text = AppResources.splash_server_connect_failed;
+                });
+                await databaseService.AddLogAsync(new Log
+                {
+                    Message = statusLabel.Text,
+                    Timestamp = DateTime.UtcNow
+                });
+                return false;
+                throw;
+            }
         }
 
         private async Task CheckAppVersionAndUpdateUI()
