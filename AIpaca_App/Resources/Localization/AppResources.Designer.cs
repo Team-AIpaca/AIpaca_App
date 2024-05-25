@@ -70,6 +70,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   api키가 삭제되었습니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string api_del_complete {
+            get {
+                return ResourceManager.GetString("api_del_complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   API 요청 실패과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string api_request_failed {
@@ -147,6 +156,24 @@ namespace AIpaca_App.Resources.Localization {
         internal static string challenge {
             get {
                 return ResourceManager.GetString("challenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 키를 삭제하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string check_api_del {
+            get {
+                return ResourceManager.GetString("check_api_del", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API 키를 저장하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string check_api_save {
+            get {
+                return ResourceManager.GetString("check_api_save", resourceCulture);
             }
         }
         

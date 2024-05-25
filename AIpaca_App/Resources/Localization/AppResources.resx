@@ -123,6 +123,9 @@
   <data name="apisetting" xml:space="preserve">
     <value>API 설정</value>
   </data>
+  <data name="api_del_complete" xml:space="preserve">
+    <value>api키가 삭제되었습니다</value>
+  </data>
   <data name="api_request_failed" xml:space="preserve">
     <value>API 요청 실패</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>서버 연결 확인</value>
+  </data>
+  <data name="check_api_del" xml:space="preserve">
+    <value>API 키를 삭제하시겠습니까?</value>
+  </data>
+  <data name="check_api_save" xml:space="preserve">
+    <value>API 키를 저장하시겠습니까?</value>
   </data>
   <data name="copy_failed" xml:space="preserve">
     <value>복사 실패 : 복사할 텍스트가 없습니다</value>

@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AIpaca_App.Resources.Localization;
+using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Storage;
 using MvvmHelpers;
 
@@ -15,9 +17,11 @@ namespace AIpaca_App.ViewModels
 
         public ApiSettingViewModel()
         {
-            LoadApiKey();
+            LoadGPTApiKey();
+            LoadGeminiApiKey();
         }
 
+        #region 값을 받아오는 메서드
         public string? CurrentApiKey_GPT
         {
             get => _currentApiKey_GPT;
@@ -28,14 +32,9 @@ namespace AIpaca_App.ViewModels
             get => _currentApiKey_Gemini;
             set => SetProperty(ref _currentApiKey_Gemini, value, onChanged: () => OnPropertyChanged(nameof(CurrentApiKey_Gemini)));
         }
+        #endregion
 
         #region API 키 로드
-        private void LoadApiKey()
-        {
-            LoadGPTApiKey();
-            LoadGeminiApiKey();
-        }
-
         private async void LoadGPTApiKey()
         {
             try
@@ -64,63 +63,125 @@ namespace AIpaca_App.ViewModels
         #endregion
 
         #region API 키 저장
-        public async void SaveGPTApiKey(string? newApiKey)
+        public async Task SaveGPTApiKey(string newApiKey)
         {
-            if (newApiKey != null)  // null 체크
+            try
             {
-                try
+                await SecureStorage.SetAsync("GPTApiKey", newApiKey);
+                LoadGPTApiKey();
+                var updatePopup = new AlertPopup
                 {
-                    await SecureStorage.SetAsync("GPTApiKey", newApiKey);
-                    LoadApiKey();  // Refresh the displayed key
+                    MainText = AppResources.api_save_complete,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                 }
-                catch (Exception)
+            }
+            catch (Exception)
+            {
+                var updatePopup = new AlertPopup
                 {
-                    // 로그 기록 또는 사용자에게 피드백
+                    MainText = AppResources.error,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                 }
             }
         }
 
-        public async void SaveGeminiApiKey(string? newApiKey)
+        public async Task SaveGeminiApiKey(string newApiKey)
         {
-            if (newApiKey != null)  // null 체크
+            try
             {
-                try
+                await SecureStorage.SetAsync("GeminiApiKey", newApiKey);
+                LoadGeminiApiKey();
+                var updatePopup = new AlertPopup
                 {
-                    await SecureStorage.SetAsync("GeminiApiKey", newApiKey);
-                    LoadApiKey();  // Refresh the displayed key
+                    MainText = AppResources.api_save_complete,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                 }
-                catch (Exception)
+            }
+            catch (Exception)
+            {
+                var updatePopup = new AlertPopup
                 {
-                    // 로그 기록 또는 사용자에게 피드백
+                    MainText = AppResources.error,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                 }
             }
         }
         #endregion
 
         #region API 키 삭제
-        public async void DeleteGPTApiKey()
+        public async Task DeleteGPTApiKey()
         {
             try
             {
-                await SecureStorage.SetAsync("GPTApiKey", "");
-                LoadApiKey();  // Refresh the displayed key
+                SecureStorage.Remove("GPTApiKey");
+                LoadGPTApiKey();
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.api_del_complete,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
             }
             catch (Exception)
             {
-                // 로그 기록 또는 사용자에게 피드백
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.error,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
             }
         }
 
-        public async void DeleteGeminiApiKey()
+        public async Task DeleteGeminiApiKey()
         {
             try
             {
-                await SecureStorage.SetAsync("GeminiApiKey", "");
-                LoadApiKey();  // Refresh the displayed key
+                SecureStorage.Remove("GeminiApiKey");
+                LoadGeminiApiKey();
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.api_del_complete,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
             }
             catch (Exception)
             {
-                // 로그 기록 또는 사용자에게 피드백
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.error,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
             }
         }
         #endregion

@@ -123,6 +123,9 @@
   <data name="apisetting" xml:space="preserve">
     <value>API Setting</value>
   </data>
+  <data name="api_del_complete" xml:space="preserve">
+    <value>API key has been remove</value>
+  </data>
   <data name="api_request_failed" xml:space="preserve">
     <value>API Request Failed</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>Check server connection</value>
+  </data>
+  <data name="check_api_del" xml:space="preserve">
+    <value>Delete API Key?</value>
+  </data>
+  <data name="check_api_save" xml:space="preserve">
+    <value>Save API Key?</value>
   </data>
   <data name="copy_failed" xml:space="preserve">
     <value>Copy failed : There is no text to copy</value>

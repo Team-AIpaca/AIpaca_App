@@ -17,26 +17,24 @@ public partial class ApiSettingPopup : Popup
         BindingContext = _viewModel;
     }
 
+    #region api 저장버튼 클릭 이벤트
     private async void OnGPTAPISaveClicked(object sender, EventArgs e)
     {
         try
         {
             string GPTapiKey = GPTApiKeyEntry.Text;
+            
+            // null 체크
             if (!string.IsNullOrWhiteSpace(GPTapiKey))
             {
+                // 업데이트 팝업 생성
                 var updatePopup = new AlertPopup
                 {
-                    MainText = "Change API Key?",
+                    MainText = AppResources.check_api_save,
                     btn1Text = AppResources.ok
                 };
-
-                EventHandler? handler = null;
-                handler = async (s, args) =>
-                {
-                    await OnGPTAPISave(GPTapiKey);
-                    updatePopup.btn1Clicked -= handler;  // Remove handler after execution
-                };
-                updatePopup.btn1Clicked += handler;
+                // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+                updatePopup.btn1Clicked += async (sender, e) => await _viewModel.SaveGPTApiKey(GPTapiKey);
 
                 if (Application.Current?.MainPage != null)
                 {
@@ -62,102 +60,100 @@ public partial class ApiSettingPopup : Popup
         }
     }
 
-    private async Task OnGPTAPISave(string GPTapiKey)
-    {
-        _viewModel.SaveGPTApiKey(GPTapiKey);
-        
-
-        var updatePopup = new AlertPopup
-        {
-            MainText = AppResources.api_save_complete,
-            btn1Text = AppResources.ok
-        };
-        if (Application.Current?.MainPage != null)
-        {
-            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-        }
-    }
-
     private async void OnGeminiAPISaveClicked(object sender, EventArgs e)
     {
-        var GeminiapiKey = GeminiApiKeyEntry.Text;
-        if (!string.IsNullOrWhiteSpace(GeminiapiKey))
+        try
         {
-            _viewModel.SaveGeminiApiKey(GeminiapiKey);
+            var GeminiapiKey = GeminiApiKeyEntry.Text;
 
+            // null 체크
+            if (!string.IsNullOrWhiteSpace(GeminiapiKey))
+            {
+                // 업데이트 팝업 생성
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.check_api_save,
+                    btn1Text = AppResources.ok
+                };
+                // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+                updatePopup.btn1Clicked += async (sender, e) => await _viewModel.SaveGeminiApiKey(GeminiapiKey);
+
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
+            }
+            else
+            {
+                var updatePopup = new AlertPopup
+                {
+                    MainText = AppResources.error_no_api,
+                    btn1Text = AppResources.ok
+                };
+                if (Application.Current?.MainPage != null)
+                {
+                    await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await Toast.Make(ex.Message).Show();
+        }
+    }
+
+    #endregion
+
+    #region api 삭제버튼 클릭 이벤트
+    private async void OnGPTAPIDeleteClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // 업데이트 팝업 생성
             var updatePopup = new AlertPopup
             {
-                MainText = AppResources.api_save_complete,
+                
+                MainText = AppResources.check_api_del,
                 btn1Text = AppResources.ok
             };
+            // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+            updatePopup.btn1Clicked += async (sender, e) => await _viewModel.DeleteGPTApiKey();
+
             if (Application.Current?.MainPage != null)
             {
                 await Application.Current.MainPage.ShowPopupAsync(updatePopup);
             }
         }
-        else
+        catch (Exception ex)
         {
+            await Toast.Make(ex.Message).Show();
+        }
+    }
+
+    private async void OnGeminiAPIDeleteClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // 업데이트 팝업 생성
             var updatePopup = new AlertPopup
             {
-                MainText = AppResources.error_no_api,
+                MainText = AppResources.check_api_del,
                 btn1Text = AppResources.ok
             };
+            // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+            updatePopup.btn1Clicked += async (sender, e) => await _viewModel.DeleteGeminiApiKey();
+
             if (Application.Current?.MainPage != null)
             {
                 await Application.Current.MainPage.ShowPopupAsync(updatePopup);
             }
         }
-    }
-
-    private void OnGPTAPIDeleteClicked(object sender, EventArgs e)
-    {
-        MainThread.BeginInvokeOnMainThread(async () =>
+        catch (Exception ex)
         {
-            var updatePopup = new AlertPopup
-            {
-                MainText = "Delete API Key?",
-                btn1Text = AppResources.ok
-            };
-
-            EventHandler? handler = null;
-            handler = (s, args) =>
-            {
-                _viewModel.DeleteGPTApiKey();
-                updatePopup.btn1Clicked -= handler;  // Remove handler after execution
-            };
-            updatePopup.btn1Clicked += handler;
-
-            if (Application.Current?.MainPage != null)
-            {
-                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-            }
-        });
+            await Toast.Make(ex.Message).Show();
+        }
     }
-
-    private void OnGeminiAPIDeleteClicked(object sender, EventArgs e)
-    {
-        MainThread.BeginInvokeOnMainThread(async () =>
-        {
-            var updatePopup = new AlertPopup
-            {
-                MainText = "Delete API Key?",
-                btn1Text = AppResources.ok
-            };
-
-            EventHandler? handler = null;
-            handler = (s, args) =>
-            {
-                _viewModel.DeleteGeminiApiKey();
-                updatePopup.btn1Clicked -= handler;  // Remove handler after execution
-            };
-            updatePopup.btn1Clicked += handler;
-
-            if (Application.Current?.MainPage != null)
-            {
-                await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-            }
-        });
-    }
+    #endregion
 
     private void OnCloseClicked(object sender, EventArgs e)
     {
