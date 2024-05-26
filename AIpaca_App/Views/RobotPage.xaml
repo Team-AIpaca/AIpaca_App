@@ -58,7 +58,7 @@
 
             <!-- 번역 버튼 -->
             <Button Text="{x:Static resources:AppResources.translation}" Clicked="OnTranslationButtonClicked"  />
-            
+
             <!--구글 번역기-->
             <Frame CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <toolkit:Expander IsExpanded="True">
@@ -66,6 +66,10 @@
                         <Label Text="{x:Static resources:AppResources.googletranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding GoogleTranslationResult}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>
@@ -78,6 +82,10 @@
                         <Label Text="{x:Static resources:AppResources.papagotranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding PapagoTranslationResult}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>
@@ -90,6 +98,10 @@
                         <Label Text="{x:Static resources:AppResources.deepltranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding DeepLTranslationResult}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>
@@ -102,11 +114,15 @@
                         <Label Text="{x:Static resources:AppResources.libretranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                     </toolkit:Expander.Header>
                     <VerticalStackLayout>
+                        <VerticalStackLayout.Behaviors>
+                            <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                        </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding LibreTranslationResult}" />
                     </VerticalStackLayout>
                 </toolkit:Expander>
             </Frame>
-            
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

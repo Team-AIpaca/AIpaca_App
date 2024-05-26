@@ -75,7 +75,7 @@ namespace AIpaca_App.Resources.Splash
                 await Task.Delay(300);
                 var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
                 var requestUri = $"{baseUrl}{pingEndpoint}";
-                using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
+                var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
 
                 // 재시도 메커니즘
                 int retryCount = 0;
@@ -159,7 +159,7 @@ namespace AIpaca_App.Resources.Splash
                         // 새로운 업데이트 팝업을 표시합니다.
                         var updatePopup = new AlertPopup
                         {
-                            MainText = AppResources.newupdate,
+                            MainText = AppResources.newupdate + "\n(업데이트가 없어도 테스트를 위해 출력됩니다)",
                             btn1Text = AppResources.update
                         };
                         updatePopup.btn1Clicked += async (sender, e) => await SplashPopup_UpdateClickedAsync(sender, e);

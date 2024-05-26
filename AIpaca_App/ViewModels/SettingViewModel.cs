@@ -79,13 +79,17 @@ namespace AIpaca_App.ViewModels
         #endregion
 
         #region 서버 연결 확인
+
         public async Task CheckServerAsync()
         {
             try
             {
+                await Task.Delay(300);
+
                 var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
                 var requestUri = $"{baseUrl}{pingEndpoint}";
-                using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
+                var client = new HttpClient { Timeout = TimeSpan.FromSeconds(3) };
+
                 var response = await client.GetAsync(requestUri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -118,14 +122,15 @@ namespace AIpaca_App.ViewModels
                     }
                 }
             }
-            catch (TaskCanceledException)
+
+            catch (HttpRequestException ex)
             {
-                // 타임아웃 로그 업데이트
+                // 네트워크 문제 처리
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
                     var updatePopup = new AlertPopup
                     {
-                        MainText = AppResources.splash_server_connect_failed,
+                        MainText = AppResources.splash_server_connect_failed + ex,
                         btn1Text = AppResources.ok
                     };
                     if (Application.Current?.MainPage != null)
@@ -133,7 +138,38 @@ namespace AIpaca_App.ViewModels
                         await Application.Current.MainPage.ShowPopupAsync(updatePopup);
                     }
                 });
-
+            }
+            catch (TaskCanceledException ex)
+            {
+                // 타임아웃 문제 처리
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    var updatePopup = new AlertPopup
+                    {
+                        MainText = AppResources.splash_server_connect_failed + ex,
+                        btn1Text = AppResources.ok
+                    };
+                    if (Application.Current?.MainPage != null)
+                    {
+                        await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                // 일반 예외 처리
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    var updatePopup = new AlertPopup
+                    {
+                        MainText = AppResources.splash_server_connect_failed + ex,
+                        btn1Text = AppResources.ok
+                    };
+                    if (Application.Current?.MainPage != null)
+                    {
+                        await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+                    }
+                });
             }
         }
 
