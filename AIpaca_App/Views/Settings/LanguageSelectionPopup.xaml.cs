@@ -2,58 +2,71 @@ using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using System.Globalization;
+using AIpaca_App.Resources.Localization;
+using AIpaca_App.ViewModels;
 
 namespace AIpaca_App.Views.Settings;
 
 public partial class LanguageSelectionPopup : Popup
 {
+    private LanguageViewModel _viewModel;
+    private AlertPopup updatePopup = new AlertPopup
+    {
+        MainText = AppResources.changelanguage + "?",
+        btn1Text = AppResources.ok
+    };
+
     public LanguageSelectionPopup()
     {
         InitializeComponent();
-    }
-    private void OnKoreanSelected(object sender, EventArgs e)
-    {
-        // 언어 설정을 'LanguageCode' 키로 저장합니다.
-        Preferences.Set("LanguageCode", "ko");
-        ChangeAppLanguage("ko");
+        _viewModel = new LanguageViewModel();
     }
 
-    private void OnEnglishSelected(object sender, EventArgs e)
+    private async void OnKoreanSelected(object sender, EventArgs e)
     {
-        // 언어 설정을 'LanguageCode' 키로 저장합니다.
-        Preferences.Set("LanguageCode", "en");
-        ChangeAppLanguage("en");
-    }
-    
-    private void OnJapaneseSelected(object sender, EventArgs e)
-    {
-        // 언어 설정을 'LanguageCode' 키로 저장합니다.
-        Preferences.Set("LanguageCode", "ja");
-        ChangeAppLanguage("ja");
-    }
-
-
-    private void ChangeAppLanguage(string languageCode)
-    {
-        CultureInfo.CurrentCulture = new CultureInfo(languageCode);
-        CultureInfo.CurrentUICulture = new CultureInfo(languageCode);
-
-        // 팝업을 닫습니다.
-        Close();
-
-        // 앱의 메인 페이지 또는 다른 UI 요소를 다시 로드하여 변경 사항을 적용합니다.
-        // 예: Application.Current.MainPage = new MainPage();
-        // 이 방법은 앱의 구조와 필요에 따라 조정해야 할 수 있습니다.
-        if (Application.Current != null)
+        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+        updatePopup.btn1Clicked += async (sender, e) =>
         {
-            Application.Current.MainPage = new AppShell();
-           Task.Run(async () =>
-           {
-               await Application.Current.MainPage.Dispatcher.DispatchAsync(async () =>
-               {
-                   await Shell.Current.GoToAsync("//settingsPage");
-               });
-           });
+            await _viewModel.LanguageSet("ko");
+        };
+
+        if (Application.Current?.MainPage != null)
+        {
+            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
         }
+        // 팝업을 닫습니다.
+        await CloseAsync();
+    }
+
+    private async void OnEnglishSelected(object sender, EventArgs e)
+    {
+        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+        updatePopup.btn1Clicked += async (sender, e) =>
+        {
+            await _viewModel.LanguageSet("en");
+        };
+
+        if (Application.Current?.MainPage != null)
+        {
+            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+        }
+        // 팝업을 닫습니다.
+        await CloseAsync();
+    }
+
+    private async void OnJapaneseSelected(object sender, EventArgs e)
+    {
+        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
+        updatePopup.btn1Clicked += async (sender, e) =>
+        {
+            await _viewModel.LanguageSet("ja");
+        };
+
+        if (Application.Current?.MainPage != null)
+        {
+            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
+        }
+        // 팝업을 닫습니다.
+        await CloseAsync();
     }
 }

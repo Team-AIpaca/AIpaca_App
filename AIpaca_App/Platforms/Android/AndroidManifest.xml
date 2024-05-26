@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.AIpaca"
-          android:versionCode="624"
-          android:versionName="2.3.18" >
+          android:versionCode="630"
+          android:versionName="2.3.19" >
 
   <!-- 여기에는 앱의 패키지 이름이 들어갑니다. -->
   <!-- 앱의 내부 버전 번호입니다. 새로운 릴리스 시 마다 이 값을 증가시켜야 합니다. -->

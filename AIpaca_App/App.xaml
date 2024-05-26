@@ -2,7 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AIpaca_App"
-             xmlns:conv="clr-namespace:AIpaca_App.Views.Converters"
+             xmlns:conv="clr-namespace:AIpaca_App.Converters"
              x:Class="AIpaca_App.App">
     <Application.Resources>
         <ResourceDictionary>

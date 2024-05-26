@@ -160,6 +160,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   언어변경과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string changelanguage {
+            get {
+                return ResourceManager.GetString("changelanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   API 키를 삭제하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string check_api_del {

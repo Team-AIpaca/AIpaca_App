@@ -150,6 +150,9 @@
   <data name="challenge" xml:space="preserve">
     <value>도전과제</value>
   </data>
+  <data name="changelanguage" xml:space="preserve">
+    <value>언어변경</value>
+  </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>서버 연결 확인</value>
   </data>

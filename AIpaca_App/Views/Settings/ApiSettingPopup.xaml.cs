@@ -30,7 +30,7 @@ public partial class ApiSettingPopup : Popup
                 // 업데이트 팝업 생성
                 var updatePopup = new AlertPopup
                 {
-                    MainText = AppResources.check_api_save,
+                    MainText = AppResources.language,
                     btn1Text = AppResources.ok
                 };
                 // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AIpaca_App.Views.Converters
+namespace AIpaca_App.Converters
 {
     public class InverseBooleanConverter : IValueConverter
     {

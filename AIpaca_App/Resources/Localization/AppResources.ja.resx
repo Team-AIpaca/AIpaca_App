@@ -150,6 +150,9 @@
   <data name="challenge" xml:space="preserve">
     <value>挑戦します</value>
   </data>
+  <data name="changelanguage" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>Check server connection</value>
   </data>
