@@ -11,6 +11,9 @@
     <EmbeddedResource Update="Resources\Localization\AppResources.en.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization\AppResources.ja.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization\AppResources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

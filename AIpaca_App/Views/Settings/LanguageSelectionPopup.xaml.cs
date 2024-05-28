@@ -10,11 +10,6 @@ namespace AIpaca_App.Views.Settings;
 public partial class LanguageSelectionPopup : Popup
 {
     private LanguageViewModel _viewModel;
-    private AlertPopup updatePopup = new AlertPopup
-    {
-        MainText = AppResources.changelanguage + "?",
-        btn1Text = AppResources.ok
-    };
 
     public LanguageSelectionPopup()
     {
@@ -22,51 +17,21 @@ public partial class LanguageSelectionPopup : Popup
         _viewModel = new LanguageViewModel();
     }
 
-    private async void OnKoreanSelected(object sender, EventArgs e)
+    private void OnKoreanSelected(object sender, EventArgs e)
     {
-        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
-        updatePopup.btn1Clicked += async (sender, e) =>
-        {
-            await _viewModel.LanguageSet("ko");
-        };
-
-        if (Application.Current?.MainPage != null)
-        {
-            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-        }
-        // 팝업을 닫습니다.
-        await CloseAsync();
+        _viewModel.change("ko");
+        Close();
     }
 
-    private async void OnEnglishSelected(object sender, EventArgs e)
+    private void OnEnglishSelected(object sender, EventArgs e)
     {
-        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
-        updatePopup.btn1Clicked += async (sender, e) =>
-        {
-            await _viewModel.LanguageSet("en");
-        };
-
-        if (Application.Current?.MainPage != null)
-        {
-            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-        }
-        // 팝업을 닫습니다.
-        await CloseAsync();
+        _viewModel.change("en");
+        Close();
     }
 
-    private async void OnJapaneseSelected(object sender, EventArgs e)
+    private void OnJapaneseSelected(object sender, EventArgs e)
     {
-        // 확인 버튼 클릭시 뷰모델 api 저장 메서드 실행
-        updatePopup.btn1Clicked += async (sender, e) =>
-        {
-            await _viewModel.LanguageSet("ja");
-        };
-
-        if (Application.Current?.MainPage != null)
-        {
-            await Application.Current.MainPage.ShowPopupAsync(updatePopup);
-        }
-        // 팝업을 닫습니다.
-        await CloseAsync();
+        _viewModel.change("ja");
+        Close();
     }
 }
