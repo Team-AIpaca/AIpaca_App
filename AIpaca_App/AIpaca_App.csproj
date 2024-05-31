@@ -140,6 +140,9 @@
 	  <Compile Update="Views\AlertPopup.xaml.cs">
 	    <DependentUpon>AlertPopup.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\RobotPopup.xaml.cs">
+	    <DependentUpon>RobotPopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Settings\LogPage.xaml.cs">
 	    <DependentUpon>LogPage.xaml</DependentUpon>
 	  </Compile>
@@ -168,7 +171,7 @@
 	  <MauiXaml Update="Views\Account\LoginPagePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\LongPressPopup.xaml">
+	  <MauiXaml Update="Views\RobotPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RecordPage.xaml">

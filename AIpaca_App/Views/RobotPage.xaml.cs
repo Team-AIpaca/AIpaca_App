@@ -3,6 +3,7 @@ using AIpaca_App.Resources.Localization;
 using AIpaca_App.ViewModels;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 
 namespace AIpaca_App.Views;
 
@@ -56,23 +57,17 @@ public partial class RobotPage : ContentPage
             _viewModel.TranslationCommand.Execute(null);
         }
     }
-    private async void OnCopyButtonClicked(object sender, EventArgs e)
+
+    private async void OnLongPressPopupButtonClicked(object sender, EventArgs e)
     {
         var stackLayout = sender as VerticalStackLayout;
         if (stackLayout != null)
         {
             var labels = stackLayout.Children.OfType<Label>().ToList();
-            string labelText = string.Join("\n", labels.Select(l => l.Text).ToArray());
+            var labelText = string.Join("\n", labels.Select(l => l.Text).ToArray());
 
-            if (!string.IsNullOrEmpty(labelText))
-            {
-                await Clipboard.Default.SetTextAsync(labelText);
-                await Toast.Make(AppResources.copy_successful, ToastDuration.Long).Show();
-            }
-            else
-            {
-                await Toast.Make(AppResources.copy_failed, ToastDuration.Long).Show();
-            }
+            var robotpopup = new RobotPopup(labelText);
+            await this.ShowPopupAsync(robotpopup);
         }
     }
 }

@@ -34,7 +34,7 @@
     <MauiXaml Update="Views\Account\LoginPagePopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\LongPressPopup.xaml">
+    <MauiXaml Update="Views\RobotPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\RecordPage.xaml">

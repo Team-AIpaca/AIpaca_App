@@ -68,7 +68,7 @@
                     <VerticalStackLayout>
                         <VerticalStackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLongPressPopupButtonClicked" />
                         </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding GoogleTranslationResult}" />
                     </VerticalStackLayout>
@@ -84,7 +84,7 @@
                     <VerticalStackLayout>
                         <VerticalStackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLongPressPopupButtonClicked" />
                         </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding PapagoTranslationResult}" />
                     </VerticalStackLayout>
@@ -100,7 +100,7 @@
                     <VerticalStackLayout>
                         <VerticalStackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLongPressPopupButtonClicked" />
                         </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding DeepLTranslationResult}" />
                     </VerticalStackLayout>
@@ -116,7 +116,7 @@
                     <VerticalStackLayout>
                         <VerticalStackLayout.Behaviors>
                             <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                                                   PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnLongPressPopupButtonClicked" />
                         </VerticalStackLayout.Behaviors>
                         <Label Text="{Binding LibreTranslationResult}" />
                     </VerticalStackLayout>
