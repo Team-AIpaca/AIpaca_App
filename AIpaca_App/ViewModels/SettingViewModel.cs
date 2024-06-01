@@ -101,8 +101,9 @@ namespace AIpaca_App.ViewModels
                     // 성공 시도 횟수를 ErrorLog에 기록
                     await databaseService.AddLogAsync(new Log
                     {
-                        Message = AppResources.success,
-                        Timestamp = DateTime.UtcNow
+                        Message = $"{AppResources.splash_server_connect_success}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Success"
                     });
                     if (Application.Current?.MainPage != null)
                     {
@@ -130,9 +131,15 @@ namespace AIpaca_App.ViewModels
                 {
                     var updatePopup = new AlertPopup
                     {
-                        MainText = AppResources.splash_server_connect_failed + ex,
+                        MainText = AppResources.splash_server_connect_failed,
                         btn1Text = AppResources.ok
                     };
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Failed"
+                    });
                     if (Application.Current?.MainPage != null)
                     {
                         await Application.Current.MainPage.ShowPopupAsync(updatePopup);
@@ -149,6 +156,12 @@ namespace AIpaca_App.ViewModels
                         MainText = AppResources.splash_server_connect_failed + ex,
                         btn1Text = AppResources.ok
                     };
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Failed"
+                    });
                     if (Application.Current?.MainPage != null)
                     {
                         await Application.Current.MainPage.ShowPopupAsync(updatePopup);
@@ -165,6 +178,12 @@ namespace AIpaca_App.ViewModels
                         MainText = AppResources.splash_server_connect_failed + ex,
                         btn1Text = AppResources.ok
                     };
+                    await databaseService.AddLogAsync(new Log
+                    {
+                        Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
+                        Timestamp = DateTime.UtcNow,
+                        Success = "Failed"
+                    });
                     if (Application.Current?.MainPage != null)
                     {
                         await Application.Current.MainPage.ShowPopupAsync(updatePopup);
