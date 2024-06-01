@@ -26,5 +26,6 @@ public partial class RobotPopup : Popup
         {
             await Toast.Make(AppResources.copy_failed, ToastDuration.Long).Show();
         }
+        await CloseAsync();
     }
 }

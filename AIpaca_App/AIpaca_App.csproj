@@ -95,6 +95,8 @@
 	  <None Remove="Resources\Images\nav_record.png" />
 	  <None Remove="Resources\Images\nav_robot.png" />
 	  <None Remove="Resources\Images\nav_settings.png" />
+	  <None Remove="Resources\Images\robotpopup_copy.png" />
+	  <None Remove="Resources\Images\robotpopup_evaluation.png" />
 	  <None Remove="Resources\Images\setting_api.png" />
 	  <None Remove="Resources\Images\setting_apikey.png" />
 	  <None Remove="Resources\Images\setting_backup.png" />

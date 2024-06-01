@@ -7,6 +7,7 @@ namespace AIpaca_App.Converters
 {
     public class SuccessToColorConverter : IValueConverter
     {
+        //LogPage의 성공여부에 따른 색상을 반환하는 컨버터
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is string successValue)

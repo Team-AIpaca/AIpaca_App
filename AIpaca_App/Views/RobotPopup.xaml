@@ -6,18 +6,32 @@
              x:Class="AIpaca_App.Views.RobotPopup" 
              Color= "{x:Static Colors.Transparent}">
 
-    <Border Padding="15" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
-
-        <!--파파고-->
-        <Frame CornerRadius="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
-            <VerticalStackLayout>
-                <VerticalStackLayout.Behaviors>
-                    <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
-                </VerticalStackLayout.Behaviors>
-                <Label Text="복사하기" />
-            </VerticalStackLayout>
-        </Frame>
+    <Border Padding="5" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="2" />
+        </Border.StrokeShape>
         
+        <VerticalStackLayout Spacing="5">
+            <Frame CornerRadius="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Transparent}" HasShadow="True" Padding="2" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <StackLayout Orientation="Horizontal" Spacing="15" Padding="10">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                    </StackLayout.Behaviors>
+                    <Image Source="robotpopup_evaluation.png" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                    <Label Text="평가받기" FontSize="Subtitle" VerticalOptions="Center" FontAttributes="Bold"/> 
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Transparent}" HasShadow="True" Padding="2" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+                <StackLayout Orientation="Horizontal" Spacing="15" Padding="10">
+                    <StackLayout.Behaviors>
+                        <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
+                                               PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                    </StackLayout.Behaviors>
+                    <Image Source="robotpopup_copy.png" VerticalOptions="FillAndExpand" WidthRequest="30" HeightRequest="30" />
+                    <Label Text="복사하기" FontSize="Subtitle" VerticalOptions="Center" FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
     </Border>
 </toolkit:Popup>
