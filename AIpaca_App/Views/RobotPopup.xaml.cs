@@ -28,4 +28,10 @@ public partial class RobotPopup : Popup
         }
         await CloseAsync();
     }
+
+    // 평가받기 기능 구현 필요
+    private async void OnEvaluateButtonClicked(object sender, EventArgs e)
+    {
+        await CloseAsync();
+    }
 }

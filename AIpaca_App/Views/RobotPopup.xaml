@@ -16,10 +16,10 @@
                 <StackLayout Orientation="Horizontal" Spacing="15" Padding="10">
                     <StackLayout.Behaviors>
                         <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
-                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnCopyButtonClicked" />
+                       PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnEvaluateButtonClicked" />
                     </StackLayout.Behaviors>
                     <Image Source="robotpopup_evaluation.png" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
-                    <Label Text="평가받기" FontSize="Subtitle" VerticalOptions="Center" FontAttributes="Bold"/> 
+                    <Label Text="닫기" FontSize="Subtitle" VerticalOptions="Center" FontAttributes="Bold"/> 
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="0" BorderColor="{AppThemeBinding Dark=Gray, Light=Transparent}" HasShadow="True" Padding="2" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
