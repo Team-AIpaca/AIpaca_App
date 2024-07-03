@@ -153,6 +153,9 @@
   <data name="changelanguage" xml:space="preserve">
     <value>언어변경</value>
   </data>
+  <data name="cheak_DB" xml:space="preserve">
+    <value>db 확인중</value>
+  </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>서버 연결 확인</value>
   </data>
@@ -199,12 +202,12 @@
     <value>연결 오류</value>
   </data>
   <data name="error_network" xml:space="preserve">
-    <value>네트워크 오류가 발생했습니다
-다시 시도해주세요</value>
+    <value>네트워크 오류가 발생했습니다.
+
+다시 시도해주세요.</value>
   </data>
   <data name="error_no_api" xml:space="preserve">
-    <value>API키가 설정되어 있지 않습니다
-설정 확인 바랍니다</value>
+    <value>API키가 없습니다</value>
   </data>
   <data name="error_no_text1" xml:space="preserve">
     <value>텍스트 필드1 비어있습니다</value>
@@ -272,6 +275,9 @@
   </data>
   <data name="password" xml:space="preserve">
     <value>비밀번호</value>
+  </data>
+  <data name="please_setup" xml:space="preserve">
+    <value>설정해 주십시오</value>
   </data>
   <data name="rating" xml:space="preserve">
     <value>평가</value>

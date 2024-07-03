@@ -7,22 +7,30 @@ using AIpaca_App.Views;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
+using static SQLite.SQLite3;
 
 namespace AIpaca_App.Resources.Splash
 {
     public partial class SplashPage : ContentPage
     {
-        private DatabaseService databaseService;
+        private DatabaseService _databaseService;
 
         public SplashPage()
         { 
             InitializeComponent();
-            databaseService = new DatabaseService();
+            _databaseService = new DatabaseService();
             InitializeApp();
         }
 
         private async void InitializeApp()
         {
+            statusLabel.Text = AppResources.cheak_DB;
+            await Task.Delay(300);
+
+            await CheckDB_EvRecord();
+
+            await Task.Delay(300);
+
             try
             {
                 await Task.Delay(300);
@@ -33,7 +41,6 @@ namespace AIpaca_App.Resources.Splash
                 {
                     // 인터넷 연결이 확인되면 앱 버전을 확인합니다.
                     await CheckAppVersionAndUpdateUI();
-                    
                 }
                 else
                 {
@@ -68,6 +75,30 @@ namespace AIpaca_App.Resources.Splash
             }
         }
 
+        // db 초기상태 확인
+        private async Task CheckDB_EvRecord()
+        {
+            var records = await _databaseService.GetAllRecordsAsync();
+            if (records.Count == 0)
+            {
+                var record = new EvRecord
+                {
+                    OriginalText = "Sample : Original Text",
+                    OriginalLang = "ko",
+                    TranslatedText = " Sample : Translated Text ",
+                    TranslatedLang = "en",
+                    Message =" Sample : AI name" ?? "No message",
+                    RequestTime = DateTime.Now.ToString() ?? "No timestamp",
+                    Score = 100,
+                    RecommendedTrans = " Sample : Recommended Trans by AI" ?? "No recommendation",
+                    Rating = " Sample : Rating by AI" ?? "No rating"
+                };
+
+                await _databaseService.AddRecordAsync(record);
+            }
+        }
+
+        // 인터넷 연결 확인
         private async Task<bool> CheckInternetConnectionAsync()
         {
             try
@@ -91,10 +122,10 @@ namespace AIpaca_App.Resources.Splash
                         if (response.IsSuccessStatusCode)
                         {
                             // 성공 시도 횟수를 ErrorLog에 기록
-                            await databaseService.AddLogAsync(new Log
+                            await _databaseService.AddLogAsync(new Log
                             {
                                 Message = AppResources.splash_server_connect_success + $" : {retryCount + 1}",
-                                Timestamp = DateTime.UtcNow
+                                Timestamp = DateTime.Now
                             });
                             return true;
                         }
@@ -116,10 +147,10 @@ namespace AIpaca_App.Resources.Splash
                 {
                     statusLabel.Text = AppResources.splash_server_connect_failed;
                 });
-                await databaseService.AddLogAsync(new Log
+                await _databaseService.AddLogAsync(new Log
                 {
                     Message = statusLabel.Text,
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.Now
                 });
                 return false;  // 모든 재시도 실패 시 false 반환
             }
@@ -130,16 +161,17 @@ namespace AIpaca_App.Resources.Splash
                 {
                     statusLabel.Text = AppResources.splash_server_connect_failed;
                 });
-                await databaseService.AddLogAsync(new Log
+                await _databaseService.AddLogAsync(new Log
                 {
                     Message = statusLabel.Text,
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.Now
                 });
                 return false;
                 throw;
             }
         }
-
+        
+        // 앱 버전 확인
         private async Task CheckAppVersionAndUpdateUI()
         {
             try
@@ -176,6 +208,7 @@ namespace AIpaca_App.Resources.Splash
             }
         }
 
+        // 업데이트 버튼 클릭시 스토어이동
         private async Task SplashPopup_UpdateClickedAsync(object? sender, EventArgs e)
         {
             try
@@ -194,7 +227,7 @@ namespace AIpaca_App.Resources.Splash
             }
         }
 
-
+        // 앱 버전 확인
         private async Task<bool> CheckIfAppIsLatestVersionAsync()
         {
             // 버전 확인 로직 구현
@@ -203,9 +236,11 @@ namespace AIpaca_App.Resources.Splash
             return currentVersion == latestVersion;
         }
 
+        // 앱 버전 체크
         private Task<string> GetLatestVersionFromDatabaseAsync()
         {
             // 원격 서버로부터 최신 버전 정보를 비동기적으로 받아옵니다.
+            // 스플래쉬 화면 알람을 위해 임의 작성되었습니다.
             return Task.FromResult("1.5.3");
         }
     }

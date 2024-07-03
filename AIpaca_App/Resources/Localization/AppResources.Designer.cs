@@ -169,6 +169,15 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
+        ///   db 확인중과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string cheak_DB {
+            get {
+                return ResourceManager.GetString("cheak_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   API 키를 삭제하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string check_api_del {
@@ -304,8 +313,9 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   네트워크 오류가 발생했습니다
-        ///다시 시도해주세요과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   네트워크 오류가 발생했습니다.
+        ///
+        ///다시 시도해주세요.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_network {
             get {
@@ -314,8 +324,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   API키가 설정되어 있지 않습니다
-        ///설정 확인 바랍니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   API키가 없습니다과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_no_api {
             get {
@@ -519,6 +528,15 @@ namespace AIpaca_App.Resources.Localization {
         internal static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   설정해 주십시오과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string please_setup {
+            get {
+                return ResourceManager.GetString("please_setup", resourceCulture);
             }
         }
         

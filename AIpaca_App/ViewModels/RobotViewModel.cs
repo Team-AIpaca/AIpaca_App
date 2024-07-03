@@ -199,7 +199,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = AppResources.api_request_successful + $" : {trecord}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Success"
                     });
                 }
@@ -211,7 +211,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Failed"
                     });
                 }
@@ -224,7 +224,7 @@ namespace AIpaca_App.ViewModels
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = AppResources.api_request_failed + $" : {ex.Message}",
-                    Timestamp = DateTime.UtcNow,
+                    Timestamp = DateTime.Now,
                     Success = "Failed"
                 });
             }
@@ -293,7 +293,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = AppResources.api_request_successful + $" : {trecord}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Success"
                     });
                 }
@@ -305,7 +305,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = errorMessage,
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Failed"
                     });
                 }
@@ -318,7 +318,7 @@ namespace AIpaca_App.ViewModels
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = AppResources.api_request_failed + $" : {ex.Message}",
-                    Timestamp = DateTime.UtcNow,
+                    Timestamp = DateTime.Now,
                     Success = "Failed"
                 });
             }

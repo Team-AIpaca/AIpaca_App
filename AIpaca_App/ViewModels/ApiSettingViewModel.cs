@@ -40,7 +40,7 @@ namespace AIpaca_App.ViewModels
             try
             {
                 var apiKey = await SecureStorage.GetAsync("GPTApiKey");
-                CurrentApiKey_GPT = apiKey ?? AppResources.error_api_set; // null일 경우 대체 텍스트
+                CurrentApiKey_GPT = apiKey ?? AppResources.error_no_api + "\n" + AppResources.please_setup; // null일 경우 대체 텍스트
             }
             catch (Exception)
             {
@@ -53,7 +53,7 @@ namespace AIpaca_App.ViewModels
             try
             {
                 var apiKey = await SecureStorage.GetAsync("GeminiApiKey");
-                CurrentApiKey_Gemini = apiKey ?? AppResources.error_api_set; // null일 경우 대체 텍스트
+                CurrentApiKey_Gemini = apiKey ?? AppResources.error_no_api + "\n" + AppResources.please_setup; // null일 경우 대체 텍스트
             }
             catch (Exception)
             {

@@ -102,7 +102,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"{AppResources.splash_server_connect_success}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Success"
                     });
                     if (Application.Current?.MainPage != null)
@@ -137,7 +137,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Failed"
                     });
                     if (Application.Current?.MainPage != null)
@@ -159,7 +159,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Failed"
                     });
                     if (Application.Current?.MainPage != null)
@@ -181,7 +181,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"{AppResources.splash_server_connect_failed}{ex.Message}",
-                        Timestamp = DateTime.UtcNow,
+                        Timestamp = DateTime.Now,
                         Success = "Failed"
                     });
                     if (Application.Current?.MainPage != null)
@@ -220,7 +220,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"Login Success",
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = DateTime.Now
                     });
                     return true;
                 }
@@ -233,7 +233,7 @@ namespace AIpaca_App.ViewModels
                     await databaseService.AddLogAsync(new Log
                     {
                         Message = $"Login Failed : {LastErrorMessage}",
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = DateTime.Now
                     });
                     return false;
                 }
@@ -244,7 +244,7 @@ namespace AIpaca_App.ViewModels
                 await databaseService.AddLogAsync(new Log
                 {
                     Message = LastErrorMessage,
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.Now
                 });
                 return false;
             }
@@ -258,7 +258,7 @@ namespace AIpaca_App.ViewModels
             await databaseService.AddLogAsync(new Log
             {
                 Message = $"Logout",
-                Timestamp = DateTime.UtcNow
+                Timestamp = DateTime.Now
             });
         }
         #endregion

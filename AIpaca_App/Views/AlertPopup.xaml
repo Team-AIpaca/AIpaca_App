@@ -6,17 +6,18 @@
                x:Class="AIpaca_App.Views.AlertPopup"
                Color="Transparent">
 
-    <Border Padding="15" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
+    <Border Padding="10" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
         <!-- Border를 사용하여 모서리를 둥글게 설정 -->
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
-        <VerticalStackLayout Spacing="20">
-            <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
-                <Label x:Name="maintext" Text="" FontSize="Small" HorizontalOptions="Center" LineBreakMode="WordWrap" />
-            </Frame>
-
-            <Grid ColumnDefinitions="*,Auto,*,Auto,*" RowDefinitions="Auto" Padding="0" ColumnSpacing="0">
+        <VerticalStackLayout Spacing="20" MaximumHeightRequest="400" MaximumWidthRequest="300" MinimumWidthRequest="50">
+            <ScrollView>
+                <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
+                    <Label x:Name="maintext" Text="" FontSize="Small" HorizontalOptions="Center" LineBreakMode="WordWrap" />
+                </Frame>
+            </ScrollView>
+            <Grid ColumnDefinitions="*,Auto,*,Auto,*" RowDefinitions="Auto" Padding="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
                 <Button x:Name="btn1" Text="" Clicked="Onbtn1Clicked" Grid.Column="1"/>
                 <Button x:Name="btn2" Text="{x:Static resources:AppResources.cancel}" Clicked="Onbtn2Clicked" Grid.Column="3"/>
             </Grid>

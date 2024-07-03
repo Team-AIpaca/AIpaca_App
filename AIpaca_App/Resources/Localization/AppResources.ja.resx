@@ -153,6 +153,9 @@
   <data name="changelanguage" xml:space="preserve">
     <value>Change Language</value>
   </data>
+  <data name="cheak_DB" xml:space="preserve">
+    <value>Cheak DB</value>
+  </data>
   <data name="checkserverconnection" xml:space="preserve">
     <value>Check server connection</value>
   </data>
@@ -270,6 +273,9 @@ Please try again</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>パスワードです</value>
+  </data>
+  <data name="please_setup" xml:space="preserve">
+    <value>Please set up</value>
   </data>
   <data name="rating" xml:space="preserve">
     <value>Rating</value>

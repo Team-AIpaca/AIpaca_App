@@ -8,7 +8,7 @@
                Color="{x:Static Colors.Transparent}"
                x:DataType="vm:ApiSettingViewModel">
 
-    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}"  WidthRequest="300">
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}">
 
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
