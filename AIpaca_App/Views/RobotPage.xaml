@@ -60,7 +60,7 @@
             <Button Text="{x:Static resources:AppResources.translation}" Clicked="OnTranslationButtonClicked"  />
 
             <!--구글 번역기, 가려진상태-->
-            <Frame IsVisible="False"  CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
+            <Frame IsVisible="True"  CornerRadius="15" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" HasShadow="True" Padding="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}">
                 <toolkit:Expander IsExpanded="True">
                     <toolkit:Expander.Header>
                         <Label Text="{x:Static resources:AppResources.googletranslate}" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
