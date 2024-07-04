@@ -27,7 +27,7 @@
 
                     <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="FillAndExpand">
                         <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="2" HorizontalOptions="FillAndExpand">
-                            <Entry x:Name="GPTApiKeyEntry" Placeholder="GPT Key Here" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" WidthRequest="130"/>
+                            <Entry x:Name="GPTApiKeyEntry" Placeholder="GPT Key Here" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                         </Frame>
                         <Frame CornerRadius="8"  Padding="0" BorderColor="#50cbf3" BackgroundColor="#50cbf3">
                             <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
@@ -60,9 +60,9 @@
                         <Label x:Name="CurrentApiKeyLabel_Gemini" Text="{Binding CurrentApiKey_Gemini}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                     </Frame>
 
-                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="Center">
-                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="2">
-                            <Entry x:Name="GeminiApiKeyEntry" Placeholder="Gemini Key Here" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" WidthRequest="130"/>
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="8" HorizontalOptions="FillAndExpand">
+                        <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="{AppThemeBinding Dark=Gray, Light=Gray}" Padding="2" HorizontalOptions="FillAndExpand">
+                            <Entry x:Name="GeminiApiKeyEntry" Placeholder="Gemini Key Here" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
                         </Frame>
 
                         <Frame CornerRadius="8"  Padding="0" BorderColor="#50cbf3" BackgroundColor="#50cbf3">
@@ -71,8 +71,8 @@
                                     <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
                                                            PressedBackgroundColor="DarkGray" TouchGestureCompleted="OnGeminiAPISaveClicked"/>
                                 </StackLayout.Behaviors>
-                                <Label Text="Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
-                                       FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="End"/>
+                                <Label Text="Save" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="Small" FontAttributes="Bold" 
+                                       VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="End"/>
                             </StackLayout>
                         </Frame>
 

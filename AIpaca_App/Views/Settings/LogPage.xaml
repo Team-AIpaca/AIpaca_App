@@ -18,7 +18,7 @@
             <CollectionView ItemsSource="{Binding Logs}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BorderColor="Gray" BackgroundColor="{Binding Success, Converter={StaticResource SuccessToColorConverter}}">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BorderColor="{Binding Success, Converter={StaticResource SuccessToColorConverter}}" BackgroundColor="{Binding Success, Converter={StaticResource SuccessToColorConverter}}">
                             <StackLayout Orientation="Vertical" Spacing="10" Padding="10">
                                 <StackLayout.Behaviors>
                                     <toolkit:TouchBehavior DefaultAnimationDuration="250" DefaultBackgroundColor="Transparent" 
