@@ -313,9 +313,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   네트워크 오류가 발생했습니다.
-        ///
-        ///다시 시도해주세요.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   네트워크 오류가 발생했습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string error_network {
             get {
@@ -486,8 +484,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   앱의 새로운 버전이 있습니다.
-        ///업데이트가 필요합니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   앱의 새로운 버전이 있습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string newupdate {
             get {
@@ -667,8 +664,7 @@ namespace AIpaca_App.Resources.Localization {
         }
         
         /// <summary>
-        ///   앱스토어를 열지 못했습니다
-        ///업데이트 내용을 수동으로 확인하십시오과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   앱스토어를 열지 못했습니다과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string splash_error_appstore {
             get {
@@ -718,6 +714,33 @@ namespace AIpaca_App.Resources.Localization {
         internal static string splash_version_latest {
             get {
                 return ResourceManager.GetString("splash_version_latest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   다시 시도해주세요.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   업데이트가 필요합니다과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   업데이트 내용을 수동으로 확인하십시오과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string String2 {
+            get {
+                return ResourceManager.GetString("String2", resourceCulture);
             }
         }
         
@@ -790,6 +813,24 @@ namespace AIpaca_App.Resources.Localization {
         internal static string update {
             get {
                 return ResourceManager.GetString("update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   아이디과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string user_id {
+            get {
+                return ResourceManager.GetString("user_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   아이디2과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string user_id2 {
+            get {
+                return ResourceManager.GetString("user_id2", resourceCulture);
             }
         }
         

@@ -202,9 +202,7 @@
     <value>연결 오류</value>
   </data>
   <data name="error_network" xml:space="preserve">
-    <value>네트워크 오류가 발생했습니다.
-
-다시 시도해주세요.</value>
+    <value>네트워크 오류가 발생했습니다.</value>
   </data>
   <data name="error_no_api" xml:space="preserve">
     <value>API키가 없습니다</value>
@@ -261,8 +259,7 @@
     <value>네트워크</value>
   </data>
   <data name="newupdate" xml:space="preserve">
-    <value>앱의 새로운 버전이 있습니다.
-업데이트가 필요합니다</value>
+    <value>앱의 새로운 버전이 있습니다.</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>확인</value>
@@ -322,8 +319,7 @@
     <value>앱 버전 확인중</value>
   </data>
   <data name="splash_error_appstore" xml:space="preserve">
-    <value>앱스토어를 열지 못했습니다
-업데이트 내용을 수동으로 확인하십시오</value>
+    <value>앱스토어를 열지 못했습니다</value>
   </data>
   <data name="splash_error_appversion" xml:space="preserve">
     <value>앱 버전 확인 오류</value>
@@ -339,6 +335,15 @@
   </data>
   <data name="splash_version_latest" xml:space="preserve">
     <value>최신버전입니다</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>다시 시도해주세요.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>업데이트가 필요합니다</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>업데이트 내용을 수동으로 확인하십시오</value>
   </data>
   <data name="success" xml:space="preserve">
     <value>성공</value>
@@ -366,5 +371,11 @@
   </data>
   <data name="username" xml:space="preserve">
     <value>유저이름</value>
+  </data>
+  <data name="user_id" xml:space="preserve">
+    <value>아이디</value>
+  </data>
+  <data name="user_id2" xml:space="preserve">
+    <value>아이디2</value>
   </data>
 </root>

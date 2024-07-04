@@ -363,4 +363,10 @@ It needs to be updated.</value>
   <data name="username" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="user_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <data name="user_id2" xml:space="preserve">
+    <value>id2</value>
+  </data>
 </root>

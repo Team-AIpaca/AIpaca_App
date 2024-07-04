@@ -370,4 +370,10 @@ Please try again</value>
   <data name="username" xml:space="preserve">
     <value>ユーザー名です</value>
   </data>
+  <data name="user_id" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <data name="user_id2" xml:space="preserve">
+    <value>id2</value>
+  </data>
 </root>

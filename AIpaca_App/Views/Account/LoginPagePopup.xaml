@@ -13,7 +13,7 @@
         </Border.StrokeShape>
         <VerticalStackLayout Spacing="15">
             <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
-                <Entry x:Name="UsernameEntry" Placeholder="{x:Static resources:AppResources.username}"/>
+                <Entry x:Name="UsernameEntry" Placeholder="{x:Static resources:AppResources.user_id}"/>
             </Frame>
             <Frame CornerRadius="10" BackgroundColor="{AppThemeBinding Dark=#2c2c2c, Light=#ffffff}" BorderColor="LightGray" Padding="5">
                 <Entry x:Name="PasswordEntry" Placeholder="{x:Static resources:AppResources.password}" IsPassword="True"/>
