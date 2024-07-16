@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AIpaca" android:versionCode="708" android:versionName="2.5.2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AIpaca" android:versionCode="713" android:versionName="2.5.3">
 	<!-- 여기에는 앱의 패키지 이름이 들어갑니다. -->
 	<!-- 앱의 내부 버전 번호입니다. 새로운 릴리스 시 마다 이 값을 증가시켜야 합니다. -->
 	<!-- 사용자에게 보여질 앱의 버전 정보입니다. -->

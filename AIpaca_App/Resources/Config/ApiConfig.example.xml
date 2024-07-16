@@ -14,3 +14,5 @@
   </ApiSettings>
 </configuration>
 <!--속성 - 빌드 작업 : 포함 리소스-->
+<!--로컬환경 구동시 http://localhost:5014/-->
+<!--플라스크 서버 구동시 http://localhost:5004/-->

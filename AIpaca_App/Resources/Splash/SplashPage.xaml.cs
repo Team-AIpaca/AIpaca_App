@@ -25,15 +25,15 @@ namespace AIpaca_App.Resources.Splash
         private async void InitializeApp()
         {
             statusLabel.Text = AppResources.cheak_DB;
-            await Task.Delay(300);
+            await Task.Delay(100);
 
             await CheckDB_EvRecord();
 
-            await Task.Delay(300);
+            await Task.Delay(100);
 
             try
             {
-                await Task.Delay(300);
+                await Task.Delay(100);
                 statusLabel.Text = AppResources.loading;
 
                 // 인터넷 연결 확인
@@ -104,7 +104,7 @@ namespace AIpaca_App.Resources.Splash
         {
             try
             {
-                await Task.Delay(300);
+                await Task.Delay(100);
                 var (baseUrl, _, _, _, _, pingEndpoint, _, _, _, _) = ApiConfigManager.LoadApiConfig();
                 var requestUri = $"{baseUrl}{pingEndpoint}";
                 var client = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
@@ -141,7 +141,7 @@ namespace AIpaca_App.Resources.Splash
                     }
 
                     retryCount++;
-                    await Task.Delay(500); // 재시도 대기
+                    await Task.Delay(300); // 재시도 대기
                 }
                 // 기타 예외 로그
                 MainThread.BeginInvokeOnMainThread(() =>
@@ -178,7 +178,7 @@ namespace AIpaca_App.Resources.Splash
             try
             {
                 statusLabel.Text = AppResources.splash_check_version;
-                await Task.Delay(300);
+                await Task.Delay(100);
 
                 bool isLatestVersion = await CheckIfAppIsLatestVersionAsync();
                 await MainThread.InvokeOnMainThreadAsync(async () =>
