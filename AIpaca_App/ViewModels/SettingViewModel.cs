@@ -211,7 +211,7 @@ namespace AIpaca_App.ViewModels
                 var client = new HttpClient();
                 var json = JsonSerializer.Serialize(loginData);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-
+                
                 var response = await client.PostAsync(_loginEndpoint, content);
                 if (response.IsSuccessStatusCode)
                 {

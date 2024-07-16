@@ -88,7 +88,8 @@ namespace AIpaca_App.Resources.Splash
                     TranslatedText = " Sample : Translated Text ",
                     TranslatedLang = "en",
                     Message =" Sample : AI name" ?? "No message",
-                    RequestTime = DateTime.Now.ToString() ?? "No timestamp",
+                    //RequestTime = DateTime.Now.ToString() ?? "No timestamp",
+                    RequestTime = "2000-01-01" ?? "No timestamp",
                     Score = 100,
                     RecommendedTrans = " Sample : Recommended Trans by AI" ?? "No recommendation",
                     Rating = " Sample : Rating by AI" ?? "No rating"

@@ -7,7 +7,8 @@
 
 
     <!-- Border를 사용하여 모서리를 둥글게 설정 -->
-    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}" WidthRequest="300">
+    <Border Padding="20" BackgroundColor="{AppThemeBinding Dark=#1c1c1c, Light=#ffffff}" WidthRequest="
+            0">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20" />
         </Border.StrokeShape>
