@@ -29,6 +29,10 @@ api를 사용하기 위해 AIpaca_App\Resources\Config\ApiConfig.xml파일을 �
 
 2. **직접 기기에 앱 설치하기**
    - 앱을 빌드 후 생성된 파일을 직접 기기에 설치합니다.
+  
+## 시연영상
+
+https://github.com/user-attachments/assets/b272d57a-8fd9-4157-b310-7c77e55d8224
 
 ## 라이센스
 이 프로젝트는 MIT 라이센스에 따라 사용이 허가되어 있습니다. 자세한 내용은 LICENSE 파일을 참조하세요.
