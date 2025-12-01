@@ -32,7 +32,8 @@ api를 사용하기 위해 AIpaca_App\Resources\Config\ApiConfig.xml파일을 �
   
 ## 시연영상
 
-https://github.com/user-attachments/assets/b272d57a-8fd9-4157-b310-7c77e55d8224
+![시연영상 압축](https://github.com/user-attachments/assets/7087746c-2557-4d19-824b-0598311d8a31)
+
 
 ## 라이센스
 이 프로젝트는 MIT 라이센스에 따라 사용이 허가되어 있습니다. 자세한 내용은 LICENSE 파일을 참조하세요.
